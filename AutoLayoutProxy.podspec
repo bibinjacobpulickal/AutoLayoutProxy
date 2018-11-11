@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/bibinjacobpulickal/AutoLayoutProxy.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/bibinjacobpulickal/AutoLayoutProxy", :tag => "1.0.0" }
 
   s.source_files  = "AutoLayoutProxy"
 
