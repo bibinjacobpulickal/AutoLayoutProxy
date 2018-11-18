@@ -1,6 +1,6 @@
 //
 //  LayoutProperty.swift
-//  AutoLayoutManager
+//  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 15/10/18.
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
