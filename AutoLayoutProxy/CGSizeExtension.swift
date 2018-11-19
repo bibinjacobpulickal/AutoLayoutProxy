@@ -10,10 +10,7 @@ import UIKit
 
 public extension CGSize {
     
-    public init(width: CGFloat = 0, height: CGFloat = 0) {
-        self.init()
-        
-        self.width = width
-        self.height = height
+    public init(height: CGFloat = 0, width: CGFloat = 0) {
+        self.init(width: width, height: height)
     }
 }
