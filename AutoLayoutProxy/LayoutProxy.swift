@@ -24,6 +24,8 @@ public class LayoutProxy {
     public lazy var centerX = property(with: view.centerXAnchor)
     public lazy var centerY = property(with: view.centerYAnchor)
     
+    public lazy var size = properties(with: [view.widthAnchor, view.heightAnchor])
+    
     init(view: UIView, superView: UIView) {
         self.view = view
         self.superView = superView
@@ -31,6 +33,10 @@ public class LayoutProxy {
     
     private func property<A>(with anchor: A) -> LayoutProperty<A> {
         return LayoutProperty(anchor: anchor)
+    }
+    
+    private func properties<A>(with anchors: [A]) -> [LayoutProperty<A>] {
+        return anchors.map({LayoutProperty(anchor: $0)})
     }
 }
 
@@ -45,15 +51,6 @@ public extension LayoutProxy {
         bottom == view.bottomAnchor - padding.bottom
         leading == view.leadingAnchor + padding.left
         trailing == view.trailingAnchor - padding.right
-    }
-    
-    public func dimensions(_ size: CGSize) {
-        if size.width != 0 {
-            width == size.width
-        }
-        if size.height != 0 {
-            height == size.height
-        }
     }
     
     public func alignCentersToSuperView() {
