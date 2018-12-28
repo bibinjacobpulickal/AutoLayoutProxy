@@ -80,11 +80,11 @@ public func <=<A: LayoutDimension>(lhs: LayoutProperty<A>, rhs: (A, CGFloat, CGF
     lhs.lessThanOrEqual(to: rhs.0, multiplier: rhs.1, constant: rhs.2)
 }
 
-public func ==<A: LayoutDimension>(lhs: [LayoutProperty<A>], rhs: CGSize) {
+public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
     if rhs.width != 0 {
-        lhs.first?.equal(to: rhs.width)
+        lhs.0.equal(to: rhs.width)
     }
     if rhs.height != 0 {
-        lhs.last?.equal(to: rhs.height)
+        lhs.1.equal(to: rhs.height)
     }
 }
