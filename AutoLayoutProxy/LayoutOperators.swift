@@ -88,3 +88,42 @@ public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), 
         lhs.1.equal(to: rhs.height)
     }
 }
+
+public func >=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
+    if rhs.width != 0 {
+        lhs.0.greaterThanOrEqual(to: rhs.width)
+    }
+    if rhs.height != 0 {
+        lhs.1.greaterThanOrEqual(to: rhs.height)
+    }
+}
+
+public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
+    if rhs.width != 0 {
+        lhs.0.lessThanOrEqual(to: rhs.width)
+    }
+    if rhs.height != 0 {
+        lhs.1.lessThanOrEqual(to: rhs.height)
+    }
+}
+
+public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
+    if rhs != 0 {
+        lhs.0.equal(to: rhs)
+        lhs.1.equal(to: rhs)
+    }
+}
+
+public func >=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
+    if rhs != 0 {
+        lhs.0.greaterThanOrEqual(to: rhs)
+        lhs.1.greaterThanOrEqual(to: rhs)
+    }
+}
+
+public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
+    if rhs != 0 {
+        lhs.0.lessThanOrEqual(to: rhs)
+        lhs.1.lessThanOrEqual(to: rhs)
+    }
+}
