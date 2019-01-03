@@ -108,22 +108,16 @@ public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), 
 }
 
 public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    if rhs != 0 {
-        lhs.0.equal(to: rhs)
-        lhs.1.equal(to: rhs)
-    }
+    lhs.0.equal(to: rhs)
+    lhs.1.equal(to: rhs)
 }
 
 public func >=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    if rhs != 0 {
-        lhs.0.greaterThanOrEqual(to: rhs)
-        lhs.1.greaterThanOrEqual(to: rhs)
-    }
+    lhs.0.greaterThanOrEqual(to: rhs)
+    lhs.1.greaterThanOrEqual(to: rhs)
 }
 
 public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    if rhs != 0 {
-        lhs.0.lessThanOrEqual(to: rhs)
-        lhs.1.lessThanOrEqual(to: rhs)
-    }
+    lhs.0.lessThanOrEqual(to: rhs)
+    lhs.1.lessThanOrEqual(to: rhs)
 }
