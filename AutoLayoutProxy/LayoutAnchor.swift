@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public protocol LayoutAnchor {
     
     func constraint(equalTo anchor: Self, constant: CGFloat) -> NSLayoutConstraint

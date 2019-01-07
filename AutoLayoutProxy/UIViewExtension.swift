@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public func create<T>(_ setup: ((T) -> Void)) -> T where T: NSObject {
     let object = T()
     setup(object)

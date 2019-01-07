@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public protocol LayoutDimension {
     
     func constraint(equalToConstant: CGFloat) -> NSLayoutConstraint

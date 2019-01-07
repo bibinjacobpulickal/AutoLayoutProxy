@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public struct LayoutProperty<Anchor> {
     let anchor: Anchor
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public func *<A: LayoutDimension>(lhs: A, rhs: CGFloat) -> (A, CGFloat, CGFloat) {
     return (lhs, rhs, 0)
 }

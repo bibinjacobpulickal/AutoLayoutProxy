@@ -6,8 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import UIKit
-
 public extension CGSize {
     
     public init(height: CGFloat = 0, width: CGFloat = 0) {
