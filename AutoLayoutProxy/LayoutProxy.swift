@@ -51,9 +51,9 @@ public extension LayoutProxy {
     
     public func fillView(_ view: UIView, padding: UIEdgeInsets = .zero) {
         top == view.topAnchor + padding.top
-        bottom == view.bottomAnchor - padding.bottom
+        bottom == view.bottomAnchor + padding.bottom
         leading == view.leadingAnchor + padding.left
-        trailing == view.trailingAnchor - padding.right
+        trailing == view.trailingAnchor + padding.right
     }
     
     public func alignCentersToSuperView() {
