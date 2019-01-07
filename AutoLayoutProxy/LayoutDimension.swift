@@ -24,3 +24,13 @@ public protocol LayoutDimension {
 }
 
 extension NSLayoutDimension: LayoutDimension {}
+
+public struct LayoutSize<A> {
+    let width: LayoutProperty<A>
+    let height: LayoutProperty<A>
+}
+
+public struct LayoutSide<A> {
+    let horizontalSide: LayoutProperty<A>
+    let verticalSide: LayoutProperty<A>
+}

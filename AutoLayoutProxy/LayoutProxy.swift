@@ -24,7 +24,8 @@ public class LayoutProxy {
     public lazy var centerX = property(with: view.centerXAnchor)
     public lazy var centerY = property(with: view.centerYAnchor)
     
-    public lazy var size = sizeProperties(with: (view.widthAnchor, view.heightAnchor))
+    public lazy var size = sizeProperties(with: view.widthAnchor, and: view.heightAnchor)
+    public lazy var side = sideProperty(with: view.widthAnchor,and: view.heightAnchor)
     
     init(view: UIView, superView: UIView) {
         self.view = view
@@ -35,8 +36,12 @@ public class LayoutProxy {
         return LayoutProperty(anchor: anchor)
     }
     
-    private func sizeProperties<A>(with anchors: (A, A)) -> (LayoutProperty<A>, LayoutProperty<A>) {
-        return (LayoutProperty(anchor: anchors.0), LayoutProperty(anchor: anchors.1))
+    private func sizeProperties<A>(with width: A, and height: A) -> LayoutSize<A> {
+        return LayoutSize(width: LayoutProperty(anchor: width), height: LayoutProperty(anchor: height))
+    }
+    
+    private func sideProperty<A>(with horizontal: A, and vertical: A) -> LayoutSide<A> {
+        return LayoutSide(horizontalSide: LayoutProperty(anchor: horizontal), verticalSide: LayoutProperty(anchor: vertical))
     }
 }
 

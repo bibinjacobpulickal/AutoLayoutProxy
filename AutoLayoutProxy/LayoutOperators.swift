@@ -80,44 +80,44 @@ public func <=<A: LayoutDimension>(lhs: LayoutProperty<A>, rhs: (A, CGFloat, CGF
     lhs.lessThanOrEqual(to: rhs.0, multiplier: rhs.1, constant: rhs.2)
 }
 
-public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
+public func ==<A: LayoutDimension>(lhs: LayoutSize<A>, rhs: CGSize) {
     if rhs.width != 0 {
-        lhs.0.equal(to: rhs.width)
+        lhs.width.equal(to: rhs.width)
     }
     if rhs.height != 0 {
-        lhs.1.equal(to: rhs.height)
+        lhs.height.equal(to: rhs.height)
     }
 }
 
-public func >=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
+public func >=<A: LayoutDimension>(lhs: LayoutSize<A>, rhs: CGSize) {
     if rhs.width != 0 {
-        lhs.0.greaterThanOrEqual(to: rhs.width)
+        lhs.width.greaterThanOrEqual(to: rhs.width)
     }
     if rhs.height != 0 {
-        lhs.1.greaterThanOrEqual(to: rhs.height)
+        lhs.height.greaterThanOrEqual(to: rhs.height)
     }
 }
 
-public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGSize) {
+public func <=<A: LayoutDimension>(lhs: LayoutSize<A>, rhs: CGSize) {
     if rhs.width != 0 {
-        lhs.0.lessThanOrEqual(to: rhs.width)
+        lhs.width.lessThanOrEqual(to: rhs.width)
     }
     if rhs.height != 0 {
-        lhs.1.lessThanOrEqual(to: rhs.height)
+        lhs.height.lessThanOrEqual(to: rhs.height)
     }
 }
 
-public func ==<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    lhs.0.equal(to: rhs)
-    lhs.1.equal(to: rhs)
+public func ==<A: LayoutDimension>(lhs: LayoutSide<A>, rhs: CGFloat) {
+    lhs.verticalSide.equal(to: rhs)
+    lhs.horizontalSide.equal(to: rhs)
 }
 
-public func >=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    lhs.0.greaterThanOrEqual(to: rhs)
-    lhs.1.greaterThanOrEqual(to: rhs)
+public func >=<A: LayoutDimension>(lhs: LayoutSide<A>, rhs: CGFloat) {
+    lhs.verticalSide.greaterThanOrEqual(to: rhs)
+    lhs.horizontalSide.greaterThanOrEqual(to: rhs)
 }
 
-public func <=<A: LayoutDimension>(lhs: (LayoutProperty<A>, LayoutProperty<A>), rhs: CGFloat) {
-    lhs.0.lessThanOrEqual(to: rhs)
-    lhs.1.lessThanOrEqual(to: rhs)
+public func <=<A: LayoutDimension>(lhs: LayoutSide<A>, rhs: CGFloat) {
+    lhs.verticalSide.lessThanOrEqual(to: rhs)
+    lhs.horizontalSide.lessThanOrEqual(to: rhs)
 }
