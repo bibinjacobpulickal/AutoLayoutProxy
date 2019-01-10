@@ -6,12 +6,6 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-public func create<T>(_ setup: ((T) -> Void)) -> T where T: NSObject {
-    let object = T()
-    setup(object)
-    return object
-}
-
 public extension UIView {
     
     public func addSubview(_ view: UIView, layout: (LayoutProxy) -> Void) {
