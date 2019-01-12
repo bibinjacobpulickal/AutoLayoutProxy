@@ -18,26 +18,20 @@ public extension UIView {
         closure(LayoutProxy(view: view, superView: self))
     }
     
-    public func add(_ view: UIView, attributes: [NSLayoutConstraint.Attribute], top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, padding: UIEdgeInsets = .zero, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, size: CGSize = .zero) {
+    public func addSubview(_ view: UIView, attributes: [NSLayoutConstraint.Attribute], top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
         addSubview(view, layout: {
             if attributes.contains(.top) || top != nil {
                 $0.top == (top ?? topAnchor) + padding.top
             }
-            if attributes.contains(.left) || left != nil {
-                $0.left == (left ?? leftAnchor) + padding.left
-            }
-            if attributes.contains(.leading) || leading != nil {
-                $0.leading == (leading ?? leadingAnchor) + padding.leading
+            if attributes.contains(.leading) || left != nil {
+                $0.leading == (left ?? leadingAnchor) + padding.left
             }
             if attributes.contains(.bottom) || bottom != nil {
                 $0.bottom == (bottom ?? bottomAnchor) + padding.bottom
             }
-            if attributes.contains(.right) || right != nil {
-                $0.right == (right ?? rightAnchor) + padding.right
-            }
-            if attributes.contains(.trailing) || trailing != nil {
-                $0.trailing == (trailing ?? trailingAnchor) + padding.trailing
+            if attributes.contains(.trailing) || right != nil {
+                $0.trailing == (right ?? trailingAnchor) + padding.right
             }
             if attributes.contains(.centerX) || centerX != nil {
                 $0.centerX == (centerX ?? centerXAnchor) + padding.centerX
