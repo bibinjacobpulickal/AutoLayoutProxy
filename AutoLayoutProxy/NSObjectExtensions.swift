@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-public func create<T>(_ setup: ((T) -> Void)) -> T where T: NSObject {
+public func create<T>(_ setup: (T) -> Void) -> T where T: NSObject {
     let object = T()
     setup(object)
     return object
