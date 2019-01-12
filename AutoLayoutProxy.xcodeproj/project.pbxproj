@@ -68,21 +68,37 @@
 		DB1470382197F6B200628DD7 /* AutoLayoutProxy */ = {
 			isa = PBXGroup;
 			children = (
-				DBC2F65121A11B8E005ED7FF /* CGSizeExtension.swift */,
+				DBFA395A21E9F55000A6475B /* Core */,
+				DBFA395B21E9F58D00A6475B /* Helpers */,
+				DB1470392197F6B200628DD7 /* AutoLayoutProxy.h */,
+				DB14703A2197F6B200628DD7 /* Info.plist */,
+			);
+			path = AutoLayoutProxy;
+			sourceTree = "<group>";
+		};
+		DBFA395A21E9F55000A6475B /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				DB1470422197F6EA00628DD7 /* LayoutAnchor.swift */,
 				DB1470412197F6EA00628DD7 /* LayoutDimension.swift */,
 				DB1470442197F6EB00628DD7 /* LayoutOperators.swift */,
 				DB1470452197F6EB00628DD7 /* LayoutProperty.swift */,
 				DB1470432197F6EA00628DD7 /* LayoutProxy.swift */,
-				DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */,
 				DB1470462197F6EB00628DD7 /* UIViewExtension.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DBFA395B21E9F58D00A6475B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DBC2F65121A11B8E005ED7FF /* CGSizeExtension.swift */,
+				DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */,
 				DBB08F0021E70D5200525CF4 /* NSObjectExtensions.swift */,
 				DBB08F0221E70DB400525CF4 /* UITableViewExtension.swift */,
 				DBB08F0421E70E3400525CF4 /* UICollectionViewExtension.swift */,
-				DB1470392197F6B200628DD7 /* AutoLayoutProxy.h */,
-				DB14703A2197F6B200628DD7 /* Info.plist */,
 			);
-			path = AutoLayoutProxy;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
