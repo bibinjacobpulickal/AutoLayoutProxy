@@ -14,7 +14,6 @@
 		DB14704A2197F6EB00628DD7 /* LayoutOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470442197F6EB00628DD7 /* LayoutOperators.swift */; };
 		DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470452197F6EB00628DD7 /* LayoutProperty.swift */; };
 		DB14704C2197F6EB00628DD7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470462197F6EB00628DD7 /* UIViewExtension.swift */; };
-		DB8407B621E3622F003A134E /* UIRectEdgeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8407B521E3622F003A134E /* UIRectEdgeExtension.swift */; };
 		DBB08F0121E70D5200525CF4 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0021E70D5200525CF4 /* NSObjectExtensions.swift */; };
 		DBB08F0321E70DB400525CF4 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0221E70DB400525CF4 /* UITableViewExtension.swift */; };
 		DBB08F0521E70E3400525CF4 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0421E70E3400525CF4 /* UICollectionViewExtension.swift */; };
@@ -32,7 +31,6 @@
 		DB1470442197F6EB00628DD7 /* LayoutOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutOperators.swift; sourceTree = "<group>"; };
 		DB1470452197F6EB00628DD7 /* LayoutProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutProperty.swift; sourceTree = "<group>"; };
 		DB1470462197F6EB00628DD7 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		DB8407B521E3622F003A134E /* UIRectEdgeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRectEdgeExtension.swift; sourceTree = "<group>"; };
 		DBB08F0021E70D5200525CF4 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		DBB08F0221E70DB400525CF4 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		DBB08F0421E70E3400525CF4 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				DB1470452197F6EB00628DD7 /* LayoutProperty.swift */,
 				DB1470432197F6EA00628DD7 /* LayoutProxy.swift */,
 				DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */,
-				DB8407B521E3622F003A134E /* UIRectEdgeExtension.swift */,
 				DB1470462197F6EB00628DD7 /* UIViewExtension.swift */,
 				DBB08F0021E70D5200525CF4 /* NSObjectExtensions.swift */,
 				DBB08F0221E70DB400525CF4 /* UITableViewExtension.swift */,
@@ -175,7 +172,6 @@
 				DB14704A2197F6EB00628DD7 /* LayoutOperators.swift in Sources */,
 				DBB08F0321E70DB400525CF4 /* UITableViewExtension.swift in Sources */,
 				DBC2F65421A11B8E005ED7FF /* UIEdgeInsetsExtension.swift in Sources */,
-				DB8407B621E3622F003A134E /* UIRectEdgeExtension.swift in Sources */,
 				DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */,
 				DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */,
 				DB1470492197F6EB00628DD7 /* LayoutProxy.swift in Sources */,
