@@ -18,7 +18,7 @@ public extension UIView {
         closure(LayoutProxy(view: view, superView: self))
     }
     
-    public func addSubview(_ view: UIView, attributes: [NSLayoutConstraint.Attribute], top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
+    public func addSubview(_ view: UIView, attributes: Set<NSLayoutConstraint.Attribute>, top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
         addSubview(view, layout: {
             if attributes.contains(.top) || top != nil {

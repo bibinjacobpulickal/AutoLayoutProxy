@@ -8,8 +8,8 @@
 
 public class LayoutProxy {
     
-    private let view: UIView
-    private let superView: UIView
+    let view: UIView
+    let superView: UIView
     
     public lazy var leading = property(with: view.leadingAnchor)
     public lazy var trailing = property(with: view.trailingAnchor)
@@ -38,28 +38,5 @@ public class LayoutProxy {
     
     private func sideProperty<A>(with horizontal: A, and vertical: A) -> LayoutSide<A> {
         return LayoutSide(horizontalSide: LayoutProperty(anchor: horizontal), verticalSide: LayoutProperty(anchor: vertical))
-    }
-}
-
-public extension LayoutProxy {
-    
-    public func fillSuperView(padding: UIEdgeInsets = .zero) {
-        fillView(superView, padding: padding)
-    }
-    
-    public func fillView(_ view: UIView, padding: UIEdgeInsets = .zero) {
-        top == view.topAnchor + padding.top
-        bottom == view.bottomAnchor + padding.bottom
-        leading == view.leadingAnchor + padding.left
-        trailing == view.trailingAnchor + padding.right
-    }
-    
-    public func alignCentersToSuperView() {
-        alignCenters(to: superView)
-    }
-    
-    public func alignCenters(to view: UIView) {
-        centerX == view.centerXAnchor
-        centerY == view.centerYAnchor
     }
 }

@@ -19,6 +19,7 @@
 		DBB08F0521E70E3400525CF4 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0421E70E3400525CF4 /* UICollectionViewExtension.swift */; };
 		DBC2F65321A11B8E005ED7FF /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2F65121A11B8E005ED7FF /* CGSizeExtension.swift */; };
 		DBC2F65421A11B8E005ED7FF /* UIEdgeInsetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */; };
+		DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DBB08F0421E70E3400525CF4 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		DBC2F65121A11B8E005ED7FF /* CGSizeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
 		DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtension.swift; sourceTree = "<group>"; };
+		DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxyExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				DB1470442197F6EB00628DD7 /* LayoutOperators.swift */,
 				DB1470452197F6EB00628DD7 /* LayoutProperty.swift */,
 				DB1470432197F6EA00628DD7 /* LayoutProxy.swift */,
+				DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */,
 				DB1470462197F6EB00628DD7 /* UIViewExtension.swift */,
 				DBC2F65121A11B8E005ED7FF /* CGSizeExtension.swift */,
 				DBC2F65221A11B8E005ED7FF /* UIEdgeInsetsExtension.swift */,
@@ -174,6 +177,7 @@
 				DBC2F65421A11B8E005ED7FF /* UIEdgeInsetsExtension.swift in Sources */,
 				DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */,
 				DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */,
+				DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */,
 				DB1470492197F6EB00628DD7 /* LayoutProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
