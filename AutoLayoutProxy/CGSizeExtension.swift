@@ -8,7 +8,7 @@
 
 public extension CGSize {
     
-    public init(height: CGFloat = 0, width: CGFloat = 0) {
+    init(height: CGFloat = 0, width: CGFloat = 0) {
         self.init(width: width, height: height)
     }
 }
