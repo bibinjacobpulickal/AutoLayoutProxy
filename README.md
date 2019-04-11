@@ -3,7 +3,7 @@ AutoLayoutProxy is a convenient way for creating and constraining views. Avoid r
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
-![Swift version](https://img.shields.io/badge/swift-4.2-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-5-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/AutoLayoutProxy.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy)
 [![License](http://img.shields.io/cocoapods/l/AutoLayoutProxy.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy/blob/master/LICENSE)
 
@@ -86,6 +86,10 @@ class ViewController: UIViewController {
         $0.backgroundColor = .red
     }
     
+    let functionalView: UIView = create { view in
+        view.backgroundColor = .blue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,6 +99,13 @@ class ViewController: UIViewController {
             $0.width <= view.frame.width - 32
             $0.height == view.safeAreaLayoutGuide.heightAnchor / 2 - 32
         })
+        
+        view.addSubview(functionalView,
+                        attributes: [.left, .right],
+                        bottom: view.safeAreaLayoutGuide.bottomAnchor),
+                        padding: UIEdgeInsets(left: 16, bottom: -32, right: -16),
+                        height: view.safeAreaLayoutGuide.heightAnchor / 2,
+                        size: CGSize(height: -32))
     }
 }
 ```
