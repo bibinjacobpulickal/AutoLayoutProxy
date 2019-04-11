@@ -98,9 +98,6 @@ public extension UIView {
         if attributes.contains(.trailing) || attributes.contains(.right) || right != nil {
             addAnchor(lhs: view.trailingAnchor, relation: rightRelation, rhs: right ?? trailingAnchor, padding: padding.right)
         }
-        if attributes.contains(.right) || right != nil {
-            addAnchor(lhs: view.rightAnchor, relation: rightRelation, rhs: right ?? rightAnchor, padding: padding.right)
-        }
     }
     
     private func addCenterAnchors(_ view: UIView,
