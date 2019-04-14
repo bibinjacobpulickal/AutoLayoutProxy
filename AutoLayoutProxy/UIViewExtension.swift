@@ -19,31 +19,32 @@ public extension UIView {
     }
 }
 
-public extension UIView {
+extension UIView {
     
-    func addSubview(_ view: UIView,
-                    attributes: Set<NSLayoutConstraint.Attribute>   = [],
-                    top: NSLayoutYAxisAnchor?                       = nil,
-                    topRelation: NSLayoutConstraint.Relation        = .equal,
-                    left: NSLayoutXAxisAnchor?                      = nil,
-                    leftRelation: NSLayoutConstraint.Relation       = .equal,
-                    bottom: NSLayoutYAxisAnchor?                    = nil,
-                    bottomRelation: NSLayoutConstraint.Relation     = .equal,
-                    right: NSLayoutXAxisAnchor?                     = nil,
-                    rightRelation: NSLayoutConstraint.Relation      = .equal,
-                    centerX: NSLayoutXAxisAnchor?                   = nil,
-                    centerXRelation: NSLayoutConstraint.Relation    = .equal,
-                    centerY: NSLayoutYAxisAnchor?                   = nil,
-                    centerYRelation: NSLayoutConstraint.Relation    = .equal,
-                    padding: UIEdgeInsets                           = .zero,
-                    width: NSLayoutDimension?                       = nil,
-                    widthRelation: NSLayoutConstraint.Relation      = .equal,
-                    height: NSLayoutDimension?                      = nil,
-                    heightRelation: NSLayoutConstraint.Relation     = .equal,
-                    size: CGSize                                    = .zero) {
+    public func addSubview(_ view: UIView,
+                           anchors: Set<NSLayoutConstraint.Attribute>      = [],
+                           top: NSLayoutYAxisAnchor?                       = nil,
+                           topRelation: NSLayoutConstraint.Relation        = .equal,
+                           left: NSLayoutXAxisAnchor?                      = nil,
+                           leftRelation: NSLayoutConstraint.Relation       = .equal,
+                           bottom: NSLayoutYAxisAnchor?                    = nil,
+                           bottomRelation: NSLayoutConstraint.Relation     = .equal,
+                           right: NSLayoutXAxisAnchor?                     = nil,
+                           rightRelation: NSLayoutConstraint.Relation      = .equal,
+                           padding: UIEdgeInsets                           = .zero,
+                           centerX: NSLayoutXAxisAnchor?                   = nil,
+                           centerXRelation: NSLayoutConstraint.Relation    = .equal,
+                           centerY: NSLayoutYAxisAnchor?                   = nil,
+                           centerYRelation: NSLayoutConstraint.Relation    = .equal,
+                           offset: UIOffset                                = .zero,
+                           width: NSLayoutDimension?                       = nil,
+                           widthRelation: NSLayoutConstraint.Relation      = .equal,
+                           height: NSLayoutDimension?                      = nil,
+                           heightRelation: NSLayoutConstraint.Relation     = .equal,
+                           size: CGSize                                    = .zero) {
         initialSetup(view)
         addSideAnchors(view,
-                       attributes: attributes,
+                       anchors: anchors,
                        top: top,
                        topRelation: topRelation,
                        left: left,
@@ -54,14 +55,14 @@ public extension UIView {
                        rightRelation: rightRelation,
                        padding: padding)
         addCenterAnchors(view,
-                         attributes: attributes,
+                         anchors: anchors,
                          centerX: centerX,
                          centerXRelation: centerXRelation,
                          centerY: centerY,
                          centerYRelation: centerYRelation,
-                         padding: padding)
+                         offset: offset)
         addLayoutDimensions(view,
-                            attributes: attributes,
+                            anchors: anchors,
                             width: width,
                             widthRelation: widthRelation,
                             height: height,
@@ -76,7 +77,7 @@ public extension UIView {
     }
     
     private func addSideAnchors(_ view: UIView,
-                                attributes: Set<NSLayoutConstraint.Attribute>,
+                                anchors: Set<NSLayoutConstraint.Attribute>,
                                 top: NSLayoutYAxisAnchor?,
                                 topRelation: NSLayoutConstraint.Relation,
                                 left: NSLayoutXAxisAnchor?,
@@ -86,53 +87,51 @@ public extension UIView {
                                 right: NSLayoutXAxisAnchor?,
                                 rightRelation: NSLayoutConstraint.Relation,
                                 padding: UIEdgeInsets) {
-        if attributes.contains(.top) || top != nil {
+        if anchors.contains(.top) || top != nil {
             addAnchor(lhs: view.topAnchor, relation: topRelation, rhs: top ?? topAnchor, padding: padding.top)
         }
-        if attributes.contains(.leading) || attributes.contains(.left) || left != nil {
+        if anchors.contains(.leading) || anchors.contains(.left) || left != nil {
             addAnchor(lhs: view.leadingAnchor, relation: leftRelation, rhs: left ?? leadingAnchor, padding: padding.left)
         }
-        if attributes.contains(.bottom) || bottom != nil {
+        if anchors.contains(.bottom) || bottom != nil {
             addAnchor(lhs: view.bottomAnchor, relation: bottomRelation, rhs: bottom ?? bottomAnchor, padding: padding.bottom)
         }
-        if attributes.contains(.trailing) || attributes.contains(.right) || right != nil {
+        if anchors.contains(.trailing) || anchors.contains(.right) || right != nil {
             addAnchor(lhs: view.trailingAnchor, relation: rightRelation, rhs: right ?? trailingAnchor, padding: padding.right)
         }
     }
     
     private func addCenterAnchors(_ view: UIView,
-                                  attributes: Set<NSLayoutConstraint.Attribute>,
+                                  anchors: Set<NSLayoutConstraint.Attribute>,
                                   centerX: NSLayoutXAxisAnchor?,
                                   centerXRelation: NSLayoutConstraint.Relation,
                                   centerY: NSLayoutYAxisAnchor?,
                                   centerYRelation: NSLayoutConstraint.Relation,
-                                  padding: UIEdgeInsets) {
-        if attributes.contains(.centerX) || centerX != nil {
-            addAnchor(lhs: view.centerXAnchor, relation: centerXRelation, rhs: centerX ?? centerXAnchor, padding: padding.centerX)
+                                  offset: UIOffset) {
+        if anchors.contains(.centerX) || centerX != nil {
+            addAnchor(lhs: view.centerXAnchor, relation: centerXRelation, rhs: centerX ?? centerXAnchor, padding: offset.horizontal)
         }
-        if attributes.contains(.centerY) || centerY != nil {
-            addAnchor(lhs: view.centerYAnchor, relation: centerYRelation, rhs: centerY ?? centerYAnchor, padding: padding.centerY)
+        if anchors.contains(.centerY) || centerY != nil {
+            addAnchor(lhs: view.centerYAnchor, relation: centerYRelation, rhs: centerY ?? centerYAnchor, padding: offset.vertical)
         }
     }
     
     private func addLayoutDimensions(_ view: UIView,
-                                     attributes: Set<NSLayoutConstraint.Attribute>,
+                                     anchors: Set<NSLayoutConstraint.Attribute>,
                                      width: NSLayoutDimension?,
                                      widthRelation: NSLayoutConstraint.Relation,
                                      height: NSLayoutDimension?,
                                      heightRelation: NSLayoutConstraint.Relation,
                                      padding: UIEdgeInsets,
                                      size: CGSize) {
-        if attributes.contains(.width) {
+        if anchors.contains(.width) {
             addAnchor(lhs: view.widthAnchor, relation: widthRelation, rhs: width ?? widthAnchor, padding: size.width)
-        }
-        if attributes.contains(.height) {
-            addAnchor(lhs: view.heightAnchor, relation: heightRelation, rhs: height ?? heightAnchor, padding: size.height)
-        }
-        if size.width != 0 {
+        } else if size.width != 0 {
             addAnchor(lhs: view.widthAnchor, relation: widthRelation, rhs: size.width)
         }
-        if size.height != 0 {
+        if anchors.contains(.height) {
+            addAnchor(lhs: view.heightAnchor, relation: heightRelation, rhs: height ?? heightAnchor, padding: size.height)
+        } else if size.height != 0 {
             addAnchor(lhs: view.heightAnchor, relation: heightRelation, rhs: size.height)
         }
     }

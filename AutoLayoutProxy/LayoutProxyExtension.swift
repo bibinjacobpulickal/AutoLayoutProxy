@@ -15,7 +15,7 @@ public extension LayoutProxy {
     }
     
     func fillView(_ view: UIView, padding: UIEdgeInsets = .zero) {
-        anchorAllAttributesExcept([], padding: padding, to: view)
+        anchorAllExcept([], padding: padding, to: view)
     }
     
     func alignCentersToSuperView(padding: UIEdgeInsets = .zero) {
@@ -23,7 +23,7 @@ public extension LayoutProxy {
     }
     
     func alignCenters(padding: UIEdgeInsets = .zero, to view: UIView) {
-        anchorAttributes([.centerX, .centerY], padding: padding, to: view)
+        addAnchors([.centerX, .centerY], padding: padding, to: view)
     }
     
     func anchorAllSidesExcept(_ exemptedSides: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero) {
@@ -33,46 +33,46 @@ public extension LayoutProxy {
     func anchorAllSidesExcept(_ exemptedSides: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, to view: UIView) {
         var attributes: Set<NSLayoutConstraint.Attribute> = [.top, .bottom, .leading, .trailing]
         attributes.subtract(exemptedSides)
-        anchorAttributes(attributes, padding: padding, to: view)
+        addAnchors(attributes, padding: padding, to: view)
     }
     
-    func anchorAllAttributesExcept(_ exemptedAttributes: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero) {
-        anchorAllAttributesExcept(exemptedAttributes, padding: padding, to: superView)
+    func anchorAllExcept(_ exemptedAnchors: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero) {
+        anchorAllExcept(exemptedAnchors, padding: padding, to: superView)
     }
     
-    func anchorAllAttributesExcept(_ exemptedAttributes: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, to view: UIView) {
+    func anchorAllExcept(_ exemptedAnchors: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, to view: UIView) {
         var attributes: Set<NSLayoutConstraint.Attribute> = [.top, .bottom, .leading, .trailing, .centerX, .centerY, .width, .height]
-        attributes.subtract(exemptedAttributes)
-        anchorAttributes(attributes, padding: padding, to: view)
+        attributes.subtract(exemptedAnchors)
+        addAnchors(attributes, padding: padding, to: view)
     }
     
-    func anchorAttributes(_ attributes: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero) {
-        anchorAttributes(attributes, padding: padding, to: superView)
+    func addAnchors(_ anchors: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, offset: UIOffset = .zero) {
+        addAnchors(anchors, padding: padding, offset: offset, to: superView)
     }
     
-    func anchorAttributes(_ attributes: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, to view: UIView) {
-        if attributes.contains(.top) {
+    func addAnchors(_ anchors: Set<NSLayoutConstraint.Attribute>, padding: UIEdgeInsets = .zero, offset: UIOffset = .zero, to view: UIView) {
+        if anchors.contains(.top) {
             top == view.topAnchor + padding.top
         }
-        if attributes.contains(.bottom) {
+        if anchors.contains(.bottom) {
             bottom == view.bottomAnchor + padding.bottom
         }
-        if attributes.contains(.leading) || attributes.contains(.left) {
+        if anchors.contains(.leading) || anchors.contains(.left) {
             leading == view.leadingAnchor + padding.left
         }
-        if attributes.contains(.trailing) || attributes.contains(.right) {
+        if anchors.contains(.trailing) || anchors.contains(.right) {
             trailing == view.trailingAnchor + padding.right
         }
-        if attributes.contains(.centerX) {
-            centerX == view.centerXAnchor + padding.centerX
+        if anchors.contains(.centerX) {
+            centerX == view.centerXAnchor + offset.horizontal
         }
-        if attributes.contains(.centerY) {
-            centerY == view.centerYAnchor + padding.centerY
+        if anchors.contains(.centerY) {
+            centerY == view.centerYAnchor + offset.vertical
         }
-        if attributes.contains(.width) {
+        if anchors.contains(.width) {
             width == view.widthAnchor
         }
-        if attributes.contains(.height) {
+        if anchors.contains(.height) {
             height == view.heightAnchor
         }
     }
