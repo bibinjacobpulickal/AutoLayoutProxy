@@ -11,9 +11,3 @@ public func create<Object>(_ setup: (Object) -> Void) -> Object where Object: NS
     setup(object)
     return object
 }
-
-extension NSObject {
-    class var identifier: String {
-        return String(describing: self)
-    }
-}
