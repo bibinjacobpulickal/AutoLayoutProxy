@@ -42,6 +42,7 @@ public extension UIView {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
+        multiplier: CGMultiplier                        = .one,
         size: CGSize                                    = .zero) {
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +72,7 @@ public extension UIView {
                    widthRelation: widthRelation,
                    height: height,
                    heightRelation: heightRelation,
+                   multiplier: multiplier,
                    size: size)
     }
 
@@ -153,6 +155,7 @@ public extension UIView {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
+        multiplier: CGMultiplier                        = .one,
         size: CGSize                                    = .zero) {
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -162,24 +165,26 @@ public extension UIView {
                 lhs: view.widthAnchor,
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
-                padding: size.width)
+                multiplier: multiplier.width,
+                constant: size.width)
         } else if size.width != 0 {
             anchor(
                 lhs: view.widthAnchor,
                 relation: widthRelation,
-                rhs: size.width)
+                constant: size.width)
         }
         if sides.contains(.height) || height != nil {
             anchor(
                 lhs: view.heightAnchor,
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
-                padding: size.height)
+                multiplier: multiplier.height,
+                constant: size.height)
         } else if size.height != 0 {
             anchor(
                 lhs: view.heightAnchor,
                 relation: heightRelation,
-                rhs: size.height)
+                constant: size.height)
         }
     }
 
@@ -202,15 +207,29 @@ public extension UIView {
     func anchor(
         lhs: NSLayoutDimension,
         relation: NSLayoutConstraint.Relation   = .equal,
-        rhs: CGFloat) {
+        rhs: NSLayoutDimension?                 = nil,
+        multiplier: CGFloat                     = 1,
+        constant: CGFloat                       = 0) {
 
         switch relation {
         case .lessThanOrEqual:
-            lhs.constraint(lessThanOrEqualToConstant: rhs).isActive = true
+            if let rhs = rhs {
+                lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+            } else {
+                lhs.constraint(lessThanOrEqualToConstant: constant).isActive = true
+            }
         case .greaterThanOrEqual:
-            lhs.constraint(greaterThanOrEqualToConstant: rhs).isActive = true
+            if let rhs = rhs {
+                lhs.constraint(greaterThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+            } else {
+                lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
+            }
         default:
-            lhs.constraint(equalToConstant: rhs).isActive = true
+            if let rhs = rhs {
+                lhs.constraint(equalTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+            } else {
+                lhs.constraint(equalToConstant: constant).isActive = true
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		115A3BC3226F3C520012C02E /* CGMultiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A3BC2226F3C520012C02E /* CGMultiplier.swift */; };
 		DB14703B2197F6B200628DD7 /* AutoLayoutProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DB1470392197F6B200628DD7 /* AutoLayoutProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470412197F6EA00628DD7 /* LayoutDimension.swift */; };
 		DB1470482197F6EB00628DD7 /* LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470422197F6EA00628DD7 /* LayoutAnchor.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		115A3BC2226F3C520012C02E /* CGMultiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMultiplier.swift; sourceTree = "<group>"; };
 		DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutoLayoutProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1470392197F6B200628DD7 /* AutoLayoutProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutProxy.h; sourceTree = "<group>"; };
 		DB14703A2197F6B200628DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		DB1470382197F6B200628DD7 /* AutoLayoutProxy */ = {
 			isa = PBXGroup;
 			children = (
+				115A3BC2226F3C520012C02E /* CGMultiplier.swift */,
 				DB1470422197F6EA00628DD7 /* LayoutAnchor.swift */,
 				DB1470412197F6EA00628DD7 /* LayoutDimension.swift */,
 				DB1470442197F6EB00628DD7 /* LayoutOperators.swift */,
@@ -165,6 +168,7 @@
 				DB14704A2197F6EB00628DD7 /* LayoutOperators.swift in Sources */,
 				DBC2F65421A11B8E005ED7FF /* SupportExtensions.swift in Sources */,
 				DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */,
+				115A3BC3226F3C520012C02E /* CGMultiplier.swift in Sources */,
 				DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */,
 				DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */,
 				DB1470492197F6EB00628DD7 /* LayoutProxy.swift in Sources */,
