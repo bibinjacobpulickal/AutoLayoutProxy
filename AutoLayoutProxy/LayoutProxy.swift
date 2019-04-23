@@ -7,10 +7,10 @@
 //
 
 public class LayoutProxy {
-    
+
     let view: UIView
     let superView: UIView
-    
+
     public lazy var leading = property(with: view.leadingAnchor)
     public lazy var trailing = property(with: view.trailingAnchor)
     public lazy var top = property(with: view.topAnchor)
@@ -19,24 +19,26 @@ public class LayoutProxy {
     public lazy var height = property(with: view.heightAnchor)
     public lazy var centerX = property(with: view.centerXAnchor)
     public lazy var centerY = property(with: view.centerYAnchor)
-    
+
     public lazy var size = sizeProperties(with: view.widthAnchor, and: view.heightAnchor)
-    public lazy var side = sideProperty(with: view.widthAnchor,and: view.heightAnchor)
-    
+    public lazy var side = sideProperty(with: view.widthAnchor, and: view.heightAnchor)
+
     init(view: UIView, superView: UIView) {
         self.view = view
         self.superView = superView
     }
-    
+
     private func property<A>(with anchor: A) -> LayoutProperty<A> {
         return LayoutProperty(anchor: anchor)
     }
-    
+
     private func sizeProperties<A>(with width: A, and height: A) -> LayoutSize<A> {
         return LayoutSize(width: LayoutProperty(anchor: width), height: LayoutProperty(anchor: height))
     }
-    
+
     private func sideProperty<A>(with horizontal: A, and vertical: A) -> LayoutSide<A> {
-        return LayoutSide(horizontalSide: LayoutProperty(anchor: horizontal), verticalSide: LayoutProperty(anchor: vertical))
+        return LayoutSide(
+            horizontalSide: LayoutProperty(anchor: horizontal),
+            verticalSide: LayoutProperty(anchor: vertical))
     }
 }
