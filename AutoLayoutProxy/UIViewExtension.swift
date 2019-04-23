@@ -157,7 +157,7 @@ public extension UIView {
 
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        if sides.contains(.width) {
+        if sides.contains(.width) || width != nil {
             anchor(
                 lhs: view.widthAnchor,
                 relation: widthRelation,
@@ -169,7 +169,7 @@ public extension UIView {
                 relation: widthRelation,
                 rhs: size.width)
         }
-        if sides.contains(.height) {
+        if sides.contains(.height) || height != nil {
             anchor(
                 lhs: view.heightAnchor,
                 relation: heightRelation,
