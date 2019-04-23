@@ -12,7 +12,7 @@ public protocol Initializable {
 
 extension NSObject: Initializable { }
 
-public func create<Object>(_ setup: (Object) -> Void) -> Object where Object: Initializable {
+public func create<Object>(_ setup: (Object) -> Void) -> Object where Object: NSObject {
     let object = Object()
     setup(object)
     return object
