@@ -143,28 +143,28 @@ public extension UIView {
                 lhs: view.topAnchor,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
-                padding: padding.top)
+                constant: padding.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             anchor(
                 lhs: view.leadingAnchor,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
-                padding: padding.left)
+                constant: padding.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             anchor(
                 lhs: view.bottomAnchor,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                padding: padding.bottom)
+                constant: padding.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             anchor(
                 lhs: view.trailingAnchor,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
-                padding: padding.right)
+                constant: padding.right)
         }
     }
 
@@ -184,14 +184,14 @@ public extension UIView {
                 lhs: view.centerXAnchor,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
-                padding: offset.horizontal)
+                constant: offset.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
             anchor(
                 lhs: view.centerYAnchor,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
-                padding: offset.vertical)
+                constant: offset.vertical)
         }
     }
 
@@ -236,46 +236,42 @@ public extension UIView {
     }
 
     func anchor<Axis>(
-        lhs: NSLayoutAnchor<Axis>,
+        lhs: NSLayoutAnchor<Axis>?,
         relation: NSLayoutConstraint.Relation   = .equal,
-        rhs: NSLayoutAnchor<Axis>,
-        padding: CGFloat                        = 0) {
-
-        switch relation {
-        case .lessThanOrEqual:
-            lhs.constraint(lessThanOrEqualTo: rhs, constant: padding).isActive = true
-        case .greaterThanOrEqual:
-            lhs.constraint(greaterThanOrEqualTo: rhs, constant: padding).isActive = true
-        default:
-            lhs.constraint(equalTo: rhs, constant: padding).isActive = true
-        }
-    }
-
-    func anchor(
-        lhs: NSLayoutDimension,
-        relation: NSLayoutConstraint.Relation   = .equal,
-        rhs: NSLayoutDimension?                 = nil,
+        rhs: NSLayoutAnchor<Axis>?              = nil,
         multiplier: CGFloat                     = 1,
         constant: CGFloat                       = 0) {
 
         switch relation {
         case .lessThanOrEqual:
-            if let rhs = rhs {
-                lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-            } else {
-                lhs.constraint(lessThanOrEqualToConstant: constant).isActive = true
+            if let lhs = lhs as? NSLayoutDimension {
+                if let rhs = rhs as? NSLayoutDimension {
+                    lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                } else {
+                    lhs.constraint(equalToConstant: constant).isActive = true
+                }
+            } else if let rhs = rhs {
+                lhs?.constraint(lessThanOrEqualTo: rhs, constant: constant).isActive = true
             }
         case .greaterThanOrEqual:
-            if let rhs = rhs {
-                lhs.constraint(greaterThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-            } else {
-                lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
+            if let lhs = lhs as? NSLayoutDimension {
+                if let rhs = rhs as? NSLayoutDimension {
+                    lhs.constraint(greaterThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                } else {
+                    lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
+                }
+            } else if let rhs = rhs {
+                lhs?.constraint(greaterThanOrEqualTo: rhs, constant: constant).isActive = true
             }
         default:
-            if let rhs = rhs {
-                lhs.constraint(equalTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-            } else {
-                lhs.constraint(equalToConstant: constant).isActive = true
+            if let lhs = lhs as? NSLayoutDimension {
+                if let rhs = rhs as? NSLayoutDimension {
+                    lhs.constraint(equalTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                } else {
+                    lhs.constraint(equalToConstant: constant).isActive = true
+                }
+            } else if let rhs = rhs {
+                lhs?.constraint(equalTo: rhs, constant: constant).isActive = true
             }
         }
     }
