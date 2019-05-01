@@ -75,10 +75,10 @@ public extension LayoutProxy {
             bottom == view.bottomAnchor + padding.bottom
         }
         if anchors.contains(.leading) || anchors.contains(.left) {
-            leading == view.leadingAnchor + padding.left
+            left == view.leadingAnchor + padding.left
         }
         if anchors.contains(.trailing) || anchors.contains(.right) {
-            trailing == view.trailingAnchor + padding.right
+            right == view.trailingAnchor + padding.right
         }
         if anchors.contains(.centerX) {
             centerX == view.centerXAnchor + offset.horizontal
