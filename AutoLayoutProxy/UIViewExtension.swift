@@ -139,28 +139,28 @@ public extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         if sides.contains(.top) || top != nil {
-            anchor(
+            view.anchor(
                 lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
                 constant: padding.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
-            anchor(
+            view.anchor(
                 lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
                 constant: padding.left)
         }
         if sides.contains(.bottom) || bottom != nil {
-            anchor(
+            view.anchor(
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
                 constant: padding.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
-            anchor(
+            view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
@@ -180,14 +180,14 @@ public extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         if centers.contains(.centerX) || centerX != nil {
-            anchor(
+            view.anchor(
                 lhs: .centerX,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
                 constant: offset.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
-            anchor(
+            view.anchor(
                 lhs: .centerY,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
@@ -208,7 +208,7 @@ public extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         if sides.contains(.width) || width != nil {
-            anchor(
+            view.anchor(
                 lhs: .width,
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
@@ -216,7 +216,7 @@ public extension UIView {
                 constant: size.width)
         }
         if sides.contains(.height) || height != nil {
-            anchor(
+            view.anchor(
                 lhs: .height,
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
