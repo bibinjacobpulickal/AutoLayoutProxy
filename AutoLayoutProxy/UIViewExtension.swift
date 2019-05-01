@@ -240,7 +240,7 @@ public extension UIView {
                 if let rhs = rhs as? NSLayoutDimension {
                     lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
                 } else if constant != 0 {
-                    lhs.constraint(equalToConstant: constant).isActive = true
+                    lhs.constraint(lessThanOrEqualToConstant: constant).isActive = true
                 }
             } else if let rhs = rhs {
                 lhs?.constraint(lessThanOrEqualTo: rhs, constant: constant).isActive = true
