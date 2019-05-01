@@ -140,28 +140,28 @@ public extension UIView {
 
         if sides.contains(.top) || top != nil {
             anchor(
-                lhs: view.topAnchor,
+                lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
                 constant: padding.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             anchor(
-                lhs: view.leadingAnchor,
+                lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
                 constant: padding.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             anchor(
-                lhs: view.bottomAnchor,
+                lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
                 constant: padding.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             anchor(
-                lhs: view.trailingAnchor,
+                lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
                 constant: padding.right)
@@ -181,14 +181,14 @@ public extension UIView {
 
         if centers.contains(.centerX) || centerX != nil {
             anchor(
-                lhs: view.centerXAnchor,
+                lhs: .centerX,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
                 constant: offset.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
             anchor(
-                lhs: view.centerYAnchor,
+                lhs: .centerY,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
                 constant: offset.vertical)
@@ -209,45 +209,37 @@ public extension UIView {
 
         if sides.contains(.width) || width != nil {
             anchor(
-                lhs: view.widthAnchor,
+                lhs: .width,
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
                 multiplier: multiplier.width,
                 constant: size.width)
-        } else if size.width != 0 {
-            anchor(
-                lhs: view.widthAnchor,
-                relation: widthRelation,
-                constant: size.width)
         }
         if sides.contains(.height) || height != nil {
             anchor(
-                lhs: view.heightAnchor,
+                lhs: .height,
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
                 multiplier: multiplier.height,
-                constant: size.height)
-        } else if size.height != 0 {
-            anchor(
-                lhs: view.heightAnchor,
-                relation: heightRelation,
                 constant: size.height)
         }
     }
 
     func anchor<Axis>(
-        lhs: NSLayoutAnchor<Axis>?,
+        lhs: NSLayoutConstraint.Attribute,
         relation: NSLayoutConstraint.Relation   = .equal,
         rhs: NSLayoutAnchor<Axis>?              = nil,
         multiplier: CGFloat                     = 1,
         constant: CGFloat                       = 0) {
+
+        let lhs = anchor(for: lhs) as NSLayoutAnchor<Axis>?
 
         switch relation {
         case .lessThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
                     lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-                } else {
+                } else if constant != 0 {
                     lhs.constraint(equalToConstant: constant).isActive = true
                 }
             } else if let rhs = rhs {
@@ -257,7 +249,7 @@ public extension UIView {
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
                     lhs.constraint(greaterThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-                } else {
+                } else if constant != 0 {
                     lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
                 }
             } else if let rhs = rhs {
@@ -267,12 +259,35 @@ public extension UIView {
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
                     lhs.constraint(equalTo: rhs, multiplier: multiplier, constant: constant).isActive = true
-                } else {
+                } else if constant != 0 {
                     lhs.constraint(equalToConstant: constant).isActive = true
                 }
             } else if let rhs = rhs {
                 lhs?.constraint(equalTo: rhs, constant: constant).isActive = true
             }
+        }
+    }
+
+    private func anchor<Axis>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<Axis>? {
+        switch attribute {
+        case .left, .leading:
+            return leadingAnchor as? NSLayoutAnchor<Axis>
+        case .right, .trailing:
+            return trailingAnchor as? NSLayoutAnchor<Axis>
+        case .top:
+            return topAnchor as? NSLayoutAnchor<Axis>
+        case .bottom:
+            return bottomAnchor as? NSLayoutAnchor<Axis>
+        case .width:
+            return widthAnchor as? NSLayoutAnchor<Axis>
+        case .height:
+            return heightAnchor as? NSLayoutAnchor<Axis>
+        case .centerX:
+            return centerXAnchor as? NSLayoutAnchor<Axis>
+        case .centerY:
+            return centerYAnchor as? NSLayoutAnchor<Axis>
+        default:
+            return nil
         }
     }
 }
