@@ -114,13 +114,13 @@ public extension UIView {
                       centerYRelation: centerYRelation,
                       offset: offset)
         anchorSides(view,
-                   sides: anchors,
-                   width: width,
-                   widthRelation: widthRelation,
-                   height: height,
-                   heightRelation: heightRelation,
-                   multiplier: multiplier,
-                   size: size)
+                    sides: anchors,
+                    width: width,
+                    widthRelation: widthRelation,
+                    height: height,
+                    heightRelation: heightRelation,
+                    multiplier: multiplier,
+                    size: size)
     }
 
     func anchorEdges(
@@ -248,7 +248,10 @@ public extension UIView {
         case .greaterThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
-                    lhs.constraint(greaterThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                    lhs.constraint(
+                        greaterThanOrEqualTo: rhs,
+                        multiplier: multiplier,
+                        constant: constant).isActive = true
                 } else if constant != 0 {
                     lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
                 }
@@ -264,6 +267,29 @@ public extension UIView {
                 }
             } else if let rhs = rhs {
                 lhs?.constraint(equalTo: rhs, constant: constant).isActive = true
+            }
+        }
+    }
+
+    func anchor(
+        lhs: NSLayoutConstraint.Attribute,
+        relation: NSLayoutConstraint.Relation   = .equal,
+        rhs: CGFloat                            = 0) {
+
+        let lhs = anchor(for: lhs) as NSLayoutAnchor<NSLayoutDimension>?
+
+        switch relation {
+        case .lessThanOrEqual:
+            if let lhs = lhs as? NSLayoutDimension {
+                lhs.constraint(lessThanOrEqualToConstant: rhs).isActive = true
+            }
+        case .greaterThanOrEqual:
+            if let lhs = lhs as? NSLayoutDimension {
+                lhs.constraint(greaterThanOrEqualToConstant: rhs).isActive = true
+            }
+        default:
+            if let lhs = lhs as? NSLayoutDimension {
+                lhs.constraint(equalToConstant: rhs).isActive = true
             }
         }
     }
