@@ -47,28 +47,29 @@ public extension UIView {
 
         addSubview(view)
 
-        anchorView(view,
-                   anchors: anchors,
-                   top: top,
-                   topRelation: topRelation,
-                   left: left,
-                   leftRelation: leftRelation,
-                   bottom: bottom,
-                   bottomRelation: bottomRelation,
-                   right: right,
-                   rightRelation: rightRelation,
-                   padding: padding,
-                   centerX: centerX,
-                   centerXRelation: centerXRelation,
-                   centerY: centerY,
-                   centerYRelation: centerYRelation,
-                   offset: offset,
-                   width: width,
-                   widthRelation: widthRelation,
-                   height: height,
-                   heightRelation: heightRelation,
-                   multiplier: multiplier,
-                   size: size)
+        anchorView(
+            view,
+            anchors: anchors,
+            top: top,
+            topRelation: topRelation,
+            left: left,
+            leftRelation: leftRelation,
+            bottom: bottom,
+            bottomRelation: bottomRelation,
+            right: right,
+            rightRelation: rightRelation,
+            padding: padding,
+            centerX: centerX,
+            centerXRelation: centerXRelation,
+            centerY: centerY,
+            centerYRelation: centerYRelation,
+            offset: offset,
+            width: width,
+            widthRelation: widthRelation,
+            height: height,
+            heightRelation: heightRelation,
+            multiplier: multiplier,
+            size: size)
     }
 
     func anchorView(
@@ -95,32 +96,35 @@ public extension UIView {
         multiplier: CGMultiplier                        = .one,
         size: CGSize                                    = .zero) {
 
-        anchorEdges(view,
-                    sides: anchors,
-                    top: top,
-                    topRelation: topRelation,
-                    left: left,
-                    leftRelation: leftRelation,
-                    bottom: bottom,
-                    bottomRelation: bottomRelation,
-                    right: right,
-                    rightRelation: rightRelation,
-                    padding: padding)
-        anchorCenters(view,
-                      centers: anchors,
-                      centerX: centerX,
-                      centerXRelation: centerXRelation,
-                      centerY: centerY,
-                      centerYRelation: centerYRelation,
-                      offset: offset)
-        anchorSides(view,
-                    sides: anchors,
-                    width: width,
-                    widthRelation: widthRelation,
-                    height: height,
-                    heightRelation: heightRelation,
-                    multiplier: multiplier,
-                    size: size)
+        anchorEdges(
+            view,
+            sides: anchors,
+            top: top,
+            topRelation: topRelation,
+            left: left,
+            leftRelation: leftRelation,
+            bottom: bottom,
+            bottomRelation: bottomRelation,
+            right: right,
+            rightRelation: rightRelation,
+            padding: padding)
+        anchorCenters(
+            view,
+            centers: anchors,
+            centerX: centerX,
+            centerXRelation: centerXRelation,
+            centerY: centerY,
+            centerYRelation: centerYRelation,
+            offset: offset)
+        anchorSides(
+            view,
+            sides: anchors,
+            width: width,
+            widthRelation: widthRelation,
+            height: height,
+            heightRelation: heightRelation,
+            multiplier: multiplier,
+            size: size)
     }
 
     func anchorEdges(
@@ -248,12 +252,21 @@ public extension UIView {
         case .lessThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
-                    lhs.constraint(lessThanOrEqualTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                    lhs.constraint(
+                        lessThanOrEqualTo: rhs,
+                        multiplier: multiplier,
+                        constant: constant)
+                        .isActive = true
                 } else if constant != 0 {
-                    lhs.constraint(lessThanOrEqualToConstant: constant).isActive = true
+                    lhs.constraint(
+                        lessThanOrEqualToConstant: constant)
+                        .isActive = true
                 }
             } else if let rhs = rhs {
-                lhs?.constraint(lessThanOrEqualTo: rhs, constant: constant).isActive = true
+                lhs?.constraint(
+                    lessThanOrEqualTo: rhs,
+                    constant: constant)
+                    .isActive = true
             }
         case .greaterThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
@@ -261,22 +274,37 @@ public extension UIView {
                     lhs.constraint(
                         greaterThanOrEqualTo: rhs,
                         multiplier: multiplier,
-                        constant: constant).isActive = true
+                        constant: constant)
+                        .isActive = true
                 } else if constant != 0 {
-                    lhs.constraint(greaterThanOrEqualToConstant: constant).isActive = true
+                    lhs.constraint(
+                        greaterThanOrEqualToConstant: constant)
+                        .isActive = true
                 }
             } else if let rhs = rhs {
-                lhs?.constraint(greaterThanOrEqualTo: rhs, constant: constant).isActive = true
+                lhs?.constraint(
+                    greaterThanOrEqualTo: rhs,
+                    constant: constant)
+                    .isActive = true
             }
         default:
             if let lhs = lhs as? NSLayoutDimension {
                 if let rhs = rhs as? NSLayoutDimension {
-                    lhs.constraint(equalTo: rhs, multiplier: multiplier, constant: constant).isActive = true
+                    lhs.constraint(
+                        equalTo: rhs,
+                        multiplier: multiplier,
+                        constant: constant)
+                        .isActive = true
                 } else if constant != 0 {
-                    lhs.constraint(equalToConstant: constant).isActive = true
+                    lhs.constraint(
+                        equalToConstant: constant)
+                        .isActive = true
                 }
             } else if let rhs = rhs {
-                lhs?.constraint(equalTo: rhs, constant: constant).isActive = true
+                lhs?.constraint(
+                    equalTo: rhs,
+                    constant: constant)
+                    .isActive = true
             }
         }
     }
@@ -291,15 +319,21 @@ public extension UIView {
         switch relation {
         case .lessThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
-                lhs.constraint(lessThanOrEqualToConstant: rhs).isActive = true
+                lhs.constraint(
+                    lessThanOrEqualToConstant: rhs)
+                    .isActive = true
             }
         case .greaterThanOrEqual:
             if let lhs = lhs as? NSLayoutDimension {
-                lhs.constraint(greaterThanOrEqualToConstant: rhs).isActive = true
+                lhs.constraint(
+                    greaterThanOrEqualToConstant: rhs)
+                    .isActive = true
             }
         default:
             if let lhs = lhs as? NSLayoutDimension {
-                lhs.constraint(equalToConstant: rhs).isActive = true
+                lhs.constraint(
+                    equalToConstant: rhs)
+                    .isActive = true
             }
         }
     }
