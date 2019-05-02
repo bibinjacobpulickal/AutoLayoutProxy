@@ -214,6 +214,11 @@ public extension UIView {
                 rhs: width ?? widthAnchor,
                 multiplier: multiplier.width,
                 constant: size.width)
+        } else if size.width != 0 {
+            view.anchor(
+                lhs: .width,
+                relation: widthRelation,
+                rhs: size.width)
         }
         if sides.contains(.height) || height != nil {
             view.anchor(
@@ -222,6 +227,11 @@ public extension UIView {
                 rhs: height ?? heightAnchor,
                 multiplier: multiplier.height,
                 constant: size.height)
+        } else if size.height != 0 {
+            view.anchor(
+                lhs: .height,
+                relation: heightRelation,
+                rhs: size.height)
         }
     }
 
