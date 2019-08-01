@@ -94,7 +94,7 @@ public extension UIView {
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
         multiplier: CGMultiplierConvertible             = 1,
-        size: CGSize                                    = .zero) {
+        size: CGSizeConvertible                         = 0) {
 
         anchorEdges(
             view,
@@ -207,7 +207,7 @@ public extension UIView {
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
         multiplier: CGMultiplierConvertible             = 1,
-        size: CGSize                                    = .zero) {
+        size: CGSizeConvertible                         = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -217,12 +217,12 @@ public extension UIView {
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
                 multiplier: multiplier.cgMultiplierValue.width,
-                constant: size.width)
-        } else if size.width != 0 {
+                constant: size.cgSizeValue.width)
+        } else if size.cgSizeValue.width != 0 {
             view.anchor(
                 lhs: .width,
                 relation: widthRelation,
-                rhs: size.width)
+                rhs: size.cgSizeValue.width)
         }
         if sides.contains(.height) || height != nil {
             view.anchor(
@@ -230,12 +230,12 @@ public extension UIView {
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
                 multiplier: multiplier.cgMultiplierValue.height,
-                constant: size.height)
-        } else if size.height != 0 {
+                constant: size.cgSizeValue.height)
+        } else if size.cgSizeValue.height != 0 {
             view.anchor(
                 lhs: .height,
                 relation: heightRelation,
-                rhs: size.height)
+                rhs: size.cgSizeValue.height)
         }
     }
 
