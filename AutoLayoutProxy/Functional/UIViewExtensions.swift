@@ -325,24 +325,24 @@ public extension UIView {
         }
     }
 
-    private func anchor<Axis>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<Axis>? {
+    private func anchor<AnchorType>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
         switch attribute {
         case .left, .leading:
-            return leadingAnchor as? NSLayoutAnchor<Axis>
+            return leadingAnchor as? NSLayoutAnchor<AnchorType>
         case .right, .trailing:
-            return trailingAnchor as? NSLayoutAnchor<Axis>
+            return trailingAnchor as? NSLayoutAnchor<AnchorType>
         case .top:
-            return topAnchor as? NSLayoutAnchor<Axis>
+            return topAnchor as? NSLayoutAnchor<AnchorType>
         case .bottom:
-            return bottomAnchor as? NSLayoutAnchor<Axis>
+            return bottomAnchor as? NSLayoutAnchor<AnchorType>
         case .width:
-            return widthAnchor as? NSLayoutAnchor<Axis>
+            return widthAnchor as? NSLayoutAnchor<AnchorType>
         case .height:
-            return heightAnchor as? NSLayoutAnchor<Axis>
+            return heightAnchor as? NSLayoutAnchor<AnchorType>
         case .centerX:
-            return centerXAnchor as? NSLayoutAnchor<Axis>
+            return centerXAnchor as? NSLayoutAnchor<AnchorType>
         case .centerY:
-            return centerYAnchor as? NSLayoutAnchor<Axis>
+            return centerYAnchor as? NSLayoutAnchor<AnchorType>
         default:
             return nil
         }
