@@ -43,7 +43,7 @@ public extension UIView {
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
         multiplier: CGMultiplierConvertible             = 1,
-        size: CGSize                                    = .zero) {
+        size: CGSizeConvertible                         = 0) {
 
         addSubview(view)
 
