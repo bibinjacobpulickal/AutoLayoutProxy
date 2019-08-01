@@ -6,18 +6,28 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-protocol UIOffsetConvertible {
-    func asUIOffsetConvertible() -> UIOffset
+public protocol UIOffsetConvertible {
+
+    var uiOffsetValue: UIOffset { get }
 }
 
 extension UIOffset: UIOffsetConvertible {
-    func asUIOffsetConvertible() -> UIOffset {
+
+    public var uiOffsetValue: UIOffset {
         return self
     }
 }
 
 extension CGFloat: UIOffsetConvertible {
-    func asUIOffsetConvertible() -> UIOffset {
+
+    public var uiOffsetValue: UIOffset {
         return UIOffset(self)
+    }
+}
+
+extension Int: UIOffsetConvertible {
+
+    public var uiOffsetValue: UIOffset {
+        return UIOffset(CGFloat(self))
     }
 }

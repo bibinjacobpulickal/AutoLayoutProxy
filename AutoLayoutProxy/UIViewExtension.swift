@@ -37,7 +37,7 @@ public extension UIView {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffset                                = .zero,
+        offset: UIOffsetConvertible                     = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
@@ -88,7 +88,7 @@ public extension UIView {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffset                                = .zero,
+        offset: UIOffsetConvertible                     = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
@@ -179,7 +179,7 @@ public extension UIView {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffset                                = .zero) {
+        offset: UIOffsetConvertible                     = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -188,14 +188,14 @@ public extension UIView {
                 lhs: .centerX,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
-                constant: offset.horizontal)
+                constant: offset.uiOffsetValue.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
             view.anchor(
                 lhs: .centerY,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
-                constant: offset.vertical)
+                constant: offset.uiOffsetValue.vertical)
         }
     }
 
