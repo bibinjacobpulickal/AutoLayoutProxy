@@ -32,7 +32,7 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        padding: UIEdgeInsets                           = .zero,
+        inset: UIEdgeInsets                             = .zero,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
@@ -58,7 +58,7 @@ public extension UIView {
             bottomRelation: bottomRelation,
             right: right,
             rightRelation: rightRelation,
-            padding: padding,
+            inset: inset,
             centerX: centerX,
             centerXRelation: centerXRelation,
             centerY: centerY,
@@ -83,7 +83,7 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        padding: UIEdgeInsets                           = .zero,
+        inset: UIEdgeInsets                             = .zero,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
@@ -107,7 +107,7 @@ public extension UIView {
             bottomRelation: bottomRelation,
             right: right,
             rightRelation: rightRelation,
-            padding: padding)
+            inset: inset)
         anchorCenters(
             view,
             centers: anchors,
@@ -138,37 +138,37 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        padding: UIEdgeInsets                           = .zero) {
+        inset: UIEdgeInsets                             = .zero) {
 
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints  = false
 
         if sides.contains(.top) || top != nil {
             view.anchor(
                 lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
-                constant: padding.top)
+                constant: inset.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             view.anchor(
                 lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
-                constant: padding.left)
+                constant: inset.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             view.anchor(
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                constant: padding.bottom)
+                constant: inset.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
-                constant: padding.right)
+                constant: inset.right)
         }
     }
 
@@ -181,7 +181,7 @@ public extension UIView {
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
         offset: UIOffset                                = .zero) {
 
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints  = false
 
         if centers.contains(.centerX) || centerX != nil {
             view.anchor(
@@ -209,7 +209,7 @@ public extension UIView {
         multiplier: CGMultiplier                        = .one,
         size: CGSize                                    = .zero) {
 
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints  = false
 
         if sides.contains(.width) || width != nil {
             view.anchor(
