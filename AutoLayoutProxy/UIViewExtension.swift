@@ -32,7 +32,7 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsets                             = .zero,
+        inset: UIEdgeInsetConvertible                   = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
@@ -83,7 +83,7 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsets                             = .zero,
+        inset: UIEdgeInsetConvertible                   = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
@@ -138,7 +138,7 @@ public extension UIView {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsets                             = .zero) {
+        inset: UIEdgeInsetConvertible                   = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -147,28 +147,28 @@ public extension UIView {
                 lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
-                constant: inset.top)
+                constant: inset.uiEdgeInsetValue.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             view.anchor(
                 lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
-                constant: inset.left)
+                constant: inset.uiEdgeInsetValue.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             view.anchor(
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                constant: inset.bottom)
+                constant: inset.uiEdgeInsetValue.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
-                constant: inset.right)
+                constant: inset.uiEdgeInsetValue.right)
         }
     }
 
