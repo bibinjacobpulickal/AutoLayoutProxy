@@ -24,8 +24,8 @@ public class LayoutProxy {
     public lazy var side    = sideProperty(with: view.widthAnchor, and: view.heightAnchor)
 
     init(view: UIView, superView: UIView) {
-        self.view = view
-        self.superView = superView
+        self.view       = view
+        self.superView  = superView
     }
 
     private func property<A>(with anchor: A) -> LayoutProperty<A> {
