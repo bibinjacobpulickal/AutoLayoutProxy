@@ -17,5 +17,9 @@ public struct CGMultiplier {
         self.height = height
     }
 
+    init(_ both: CGFloat = 1) {
+        self.init(w: both, h: both)
+    }
+
     public static let one = CGMultiplier()
 }
