@@ -42,7 +42,7 @@ public extension UIView {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplier                        = .one,
+        multiplier: CGMultiplierConvertible             = 1,
         size: CGSize                                    = .zero) {
 
         addSubview(view)
@@ -93,7 +93,7 @@ public extension UIView {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplier                        = .one,
+        multiplier: CGMultiplierConvertible             = 1,
         size: CGSize                                    = .zero) {
 
         anchorEdges(
@@ -206,7 +206,7 @@ public extension UIView {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplier                        = .one,
+        multiplier: CGMultiplierConvertible             = 1,
         size: CGSize                                    = .zero) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
@@ -216,7 +216,7 @@ public extension UIView {
                 lhs: .width,
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
-                multiplier: multiplier.width,
+                multiplier: multiplier.cgMultiplierValue.width,
                 constant: size.width)
         } else if size.width != 0 {
             view.anchor(
@@ -229,7 +229,7 @@ public extension UIView {
                 lhs: .height,
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
-                multiplier: multiplier.height,
+                multiplier: multiplier.cgMultiplierValue.height,
                 constant: size.height)
         } else if size.height != 0 {
             view.anchor(
