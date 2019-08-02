@@ -8,31 +8,31 @@
 
 public extension LayoutProxy {
 
-    func fillSuperView(inset: UIEdgeInsetConvertible = 0) {
+    func fillSuperView(inset: EdgeInsetConvertible = 0) {
         fillView(superView, inset: inset)
     }
 
-    func fillView<View: AutoLayoutable>(_ view: View, inset: UIEdgeInsetConvertible = 0) {
+    func fillView<View: AutoLayoutable>(_ view: View, inset: EdgeInsetConvertible = 0) {
         anchorAllExcept([], inset: inset, to: view)
     }
 
-    func alignCentersToSuperView(inset: UIEdgeInsetConvertible = 0) {
+    func alignCentersToSuperView(inset: EdgeInsetConvertible = 0) {
         alignCenters(inset: inset, to: superView)
     }
 
-    func alignCenters<View: AutoLayoutable>(inset: UIEdgeInsetConvertible = 0, to view: View) {
+    func alignCenters<View: AutoLayoutable>(inset: EdgeInsetConvertible = 0, to view: View) {
         addAnchors([.centerX, .centerY], inset: inset, to: view)
     }
 
     func anchorAllSidesExcept(
         _ exemptedSides: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0) {
+        inset: EdgeInsetConvertible = 0) {
         anchorAllSidesExcept(exemptedSides, inset: inset, to: superView)
     }
 
     func anchorAllSidesExcept<View: AutoLayoutable>(
         _ exemptedSides: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0,
+        inset: EdgeInsetConvertible = 0,
         to view: View) {
         var attributes: Set<NSLayoutConstraint.Attribute> = [.top, .bottom, .leading, .trailing]
         attributes.subtract(exemptedSides)
@@ -41,13 +41,13 @@ public extension LayoutProxy {
 
     func anchorAllExcept(
         _ exemptedAnchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0) {
+        inset: EdgeInsetConvertible = 0) {
         anchorAllExcept(exemptedAnchors, inset: inset, to: superView)
     }
 
     func anchorAllExcept<View: AutoLayoutable>(
         _ exemptedAnchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0,
+        inset: EdgeInsetConvertible = 0,
         to view: View) {
         var attributes: Set<NSLayoutConstraint.Attribute> =
             [.top, .bottom, .leading, .trailing, .centerX, .centerY, .width, .height]
@@ -57,32 +57,32 @@ public extension LayoutProxy {
 
     func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0, offset: UIOffsetConvertible = 0) {
+        inset: EdgeInsetConvertible = 0, offset: OffsetConvertible = 0) {
         addAnchors(anchors, inset: inset, offset: offset, to: superView)
     }
 
     func addAnchors<View: AutoLayoutable>(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0,
-        offset: UIOffsetConvertible = 0,
+        inset: EdgeInsetConvertible = 0,
+        offset: OffsetConvertible = 0,
         to view: View) {
         if anchors.contains(.top) {
-            top == view.topAnchor + inset.uiEdgeInsetValue.top
+            top == view.topAnchor + inset.edgeInsetValue.top
         }
         if anchors.contains(.bottom) {
-            bottom == view.bottomAnchor + inset.uiEdgeInsetValue.bottom
+            bottom == view.bottomAnchor + inset.edgeInsetValue.bottom
         }
         if anchors.contains(.leading) || anchors.contains(.left) {
-            left == view.leadingAnchor + inset.uiEdgeInsetValue.left
+            left == view.leadingAnchor + inset.edgeInsetValue.left
         }
         if anchors.contains(.trailing) || anchors.contains(.right) {
-            right == view.trailingAnchor + inset.uiEdgeInsetValue.right
+            right == view.trailingAnchor + inset.edgeInsetValue.right
         }
         if anchors.contains(.centerX) {
-            centerX == view.centerXAnchor + offset.uiOffsetValue.horizontal
+            centerX == view.centerXAnchor + offset.offsetValue.horizontal
         }
         if anchors.contains(.centerY) {
-            centerY == view.centerYAnchor + offset.uiOffsetValue.vertical
+            centerY == view.centerYAnchor + offset.offsetValue.vertical
         }
         if anchors.contains(.width) {
             width == view.widthAnchor

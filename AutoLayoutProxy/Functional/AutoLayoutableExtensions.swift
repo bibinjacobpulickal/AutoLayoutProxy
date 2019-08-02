@@ -19,18 +19,18 @@ public extension AutoLayoutable {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsetConvertible                   = 0,
+        inset: EdgeInsetConvertible                     = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffsetConvertible                     = 0,
+        offset: OffsetConvertible                     = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplierConvertible             = 1,
-        size: CGSizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible             = 1,
+        size: SizeConvertible                         = 0) {
 
         addSubview(view)
 
@@ -70,18 +70,18 @@ public extension AutoLayoutable {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsetConvertible                   = 0,
+        inset: EdgeInsetConvertible                     = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffsetConvertible                     = 0,
+        offset: OffsetConvertible                     = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplierConvertible             = 1,
-        size: CGSizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible             = 1,
+        size: SizeConvertible                         = 0) {
 
         anchorEdges(
             view,
@@ -125,7 +125,7 @@ public extension AutoLayoutable {
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
-        inset: UIEdgeInsetConvertible                   = 0) {
+        inset: EdgeInsetConvertible                     = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -134,28 +134,28 @@ public extension AutoLayoutable {
                 lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
-                constant: inset.uiEdgeInsetValue.top)
+                constant: inset.edgeInsetValue.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             view.anchor(
                 lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
-                constant: inset.uiEdgeInsetValue.left)
+                constant: inset.edgeInsetValue.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             view.anchor(
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                constant: inset.uiEdgeInsetValue.bottom)
+                constant: inset.edgeInsetValue.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
-                constant: inset.uiEdgeInsetValue.right)
+                constant: inset.edgeInsetValue.right)
         }
     }
 
@@ -166,7 +166,7 @@ public extension AutoLayoutable {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: UIOffsetConvertible                     = 0) {
+        offset: OffsetConvertible                     = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -175,14 +175,14 @@ public extension AutoLayoutable {
                 lhs: .centerX,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
-                constant: offset.uiOffsetValue.horizontal)
+                constant: offset.offsetValue.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
             view.anchor(
                 lhs: .centerY,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
-                constant: offset.uiOffsetValue.vertical)
+                constant: offset.offsetValue.vertical)
         }
     }
 
@@ -193,8 +193,8 @@ public extension AutoLayoutable {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: CGMultiplierConvertible             = 1,
-        size: CGSizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible             = 1,
+        size: SizeConvertible                         = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -203,26 +203,26 @@ public extension AutoLayoutable {
                 lhs: .width,
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
-                multiplier: multiplier.cgMultiplierValue.width,
-                constant: size.cgSizeValue.width)
-        } else if size.cgSizeValue.width != 0 {
+                multiplier: multiplier.multiplierValue.width,
+                constant: size.sizeValue.width)
+        } else if size.sizeValue.width != 0 {
             view.anchor(
                 lhs: .width,
                 relation: widthRelation,
-                rhs: size.cgSizeValue.width)
+                rhs: size.sizeValue.width)
         }
         if sides.contains(.height) || height != nil {
             view.anchor(
                 lhs: .height,
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
-                multiplier: multiplier.cgMultiplierValue.height,
-                constant: size.cgSizeValue.height)
-        } else if size.cgSizeValue.height != 0 {
+                multiplier: multiplier.multiplierValue.height,
+                constant: size.sizeValue.height)
+        } else if size.sizeValue.height != 0 {
             view.anchor(
                 lhs: .height,
                 relation: heightRelation,
-                rhs: size.cgSizeValue.height)
+                rhs: size.sizeValue.height)
         }
     }
 
