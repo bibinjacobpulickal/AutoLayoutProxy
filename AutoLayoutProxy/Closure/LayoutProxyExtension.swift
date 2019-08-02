@@ -57,14 +57,14 @@ public extension LayoutProxy {
 
     func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsetConvertible = 0, offset: UIOffset = .zero) {
+        inset: UIEdgeInsetConvertible = 0, offset: UIOffsetConvertible = 0) {
         addAnchors(anchors, inset: inset, offset: offset, to: superView)
     }
 
     func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
         inset: UIEdgeInsetConvertible = 0,
-        offset: UIOffset = .zero,
+        offset: UIOffsetConvertible = 0,
         to view: UIView) {
         if anchors.contains(.top) {
             top == view.topAnchor + inset.uiEdgeInsetValue.top
@@ -79,10 +79,10 @@ public extension LayoutProxy {
             right == view.trailingAnchor + inset.uiEdgeInsetValue.right
         }
         if anchors.contains(.centerX) {
-            centerX == view.centerXAnchor + offset.horizontal
+            centerX == view.centerXAnchor + offset.uiOffsetValue.horizontal
         }
         if anchors.contains(.centerY) {
-            centerY == view.centerYAnchor + offset.vertical
+            centerY == view.centerYAnchor + offset.uiOffsetValue.vertical
         }
         if anchors.contains(.width) {
             width == view.widthAnchor
