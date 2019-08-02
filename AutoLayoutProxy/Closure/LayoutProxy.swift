@@ -6,10 +6,10 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-public class LayoutProxy {
+public class LayoutProxy<View: AutoLayoutable> {
 
-    let view: UIView
-    let superView: UIView
+    let view: View
+    let superView: View
 
     public lazy var top     = property(with: view.topAnchor)
     public lazy var left    = property(with: view.leadingAnchor)
@@ -23,7 +23,7 @@ public class LayoutProxy {
     public lazy var size    = sizeProperties(with: view.widthAnchor, and: view.heightAnchor)
     public lazy var side    = sideProperty(with: view.widthAnchor, and: view.heightAnchor)
 
-    init(view: UIView, superView: UIView) {
+    init(view: View, superView: View) {
         self.view       = view
         self.superView  = superView
     }
