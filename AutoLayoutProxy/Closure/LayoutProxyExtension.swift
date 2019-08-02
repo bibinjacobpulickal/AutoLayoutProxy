@@ -8,31 +8,31 @@
 
 public extension LayoutProxy {
 
-    func fillSuperView(inset: UIEdgeInsets = .zero) {
+    func fillSuperView(inset: UIEdgeInsetConvertible = 0) {
         fillView(superView, inset: inset)
     }
 
-    func fillView(_ view: UIView, inset: UIEdgeInsets = .zero) {
+    func fillView(_ view: UIView, inset: UIEdgeInsetConvertible = 0) {
         anchorAllExcept([], inset: inset, to: view)
     }
 
-    func alignCentersToSuperView(inset: UIEdgeInsets = .zero) {
+    func alignCentersToSuperView(inset: UIEdgeInsetConvertible = 0) {
         alignCenters(inset: inset, to: superView)
     }
 
-    func alignCenters(inset: UIEdgeInsets = .zero, to view: UIView) {
+    func alignCenters(inset: UIEdgeInsetConvertible = 0, to view: UIView) {
         addAnchors([.centerX, .centerY], inset: inset, to: view)
     }
 
     func anchorAllSidesExcept(
         _ exemptedSides: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero) {
+        inset: UIEdgeInsetConvertible = 0) {
         anchorAllSidesExcept(exemptedSides, inset: inset, to: superView)
     }
 
     func anchorAllSidesExcept(
         _ exemptedSides: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero,
+        inset: UIEdgeInsetConvertible = 0,
         to view: UIView) {
         var attributes: Set<NSLayoutConstraint.Attribute> = [.top, .bottom, .leading, .trailing]
         attributes.subtract(exemptedSides)
@@ -41,13 +41,13 @@ public extension LayoutProxy {
 
     func anchorAllExcept(
         _ exemptedAnchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero) {
+        inset: UIEdgeInsetConvertible = 0) {
         anchorAllExcept(exemptedAnchors, inset: inset, to: superView)
     }
 
     func anchorAllExcept(
         _ exemptedAnchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero,
+        inset: UIEdgeInsetConvertible = 0,
         to view: UIView) {
         var attributes: Set<NSLayoutConstraint.Attribute> =
             [.top, .bottom, .leading, .trailing, .centerX, .centerY, .width, .height]
@@ -57,26 +57,26 @@ public extension LayoutProxy {
 
     func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero, offset: UIOffset = .zero) {
+        inset: UIEdgeInsetConvertible = 0, offset: UIOffset = .zero) {
         addAnchors(anchors, inset: inset, offset: offset, to: superView)
     }
 
     func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
-        inset: UIEdgeInsets = .zero,
+        inset: UIEdgeInsetConvertible = 0,
         offset: UIOffset = .zero,
         to view: UIView) {
         if anchors.contains(.top) {
-            top == view.topAnchor + inset.top
+            top == view.topAnchor + inset.uiEdgeInsetValue.top
         }
         if anchors.contains(.bottom) {
-            bottom == view.bottomAnchor + inset.bottom
+            bottom == view.bottomAnchor + inset.uiEdgeInsetValue.bottom
         }
         if anchors.contains(.leading) || anchors.contains(.left) {
-            left == view.leadingAnchor + inset.left
+            left == view.leadingAnchor + inset.uiEdgeInsetValue.left
         }
         if anchors.contains(.trailing) || anchors.contains(.right) {
-            right == view.trailingAnchor + inset.right
+            right == view.trailingAnchor + inset.uiEdgeInsetValue.right
         }
         if anchors.contains(.centerX) {
             centerX == view.centerXAnchor + offset.horizontal
