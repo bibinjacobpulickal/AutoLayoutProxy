@@ -6,8 +6,6 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-import Foundation
-
 public extension LayoutProxy {
 
     func fillSuperView(inset: UIEdgeInsets = .zero) {

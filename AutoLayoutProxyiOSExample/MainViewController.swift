@@ -15,7 +15,9 @@ class MainViewController: UIViewController {
 
         let button = UIButton(type: .contactAdd)
         view.backgroundColor = .white
+        button.backgroundColor = .red
         view.addSubview(button,
-                        anchors: .bothCenters)
+                        anchors: .bothCenters,
+                        size: 100)
     }
 }

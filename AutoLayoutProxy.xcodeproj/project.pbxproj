@@ -19,13 +19,14 @@
 		DB1470492197F6EB00628DD7 /* LayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470432197F6EA00628DD7 /* LayoutProxy.swift */; };
 		DB14704A2197F6EB00628DD7 /* LayoutOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470442197F6EB00628DD7 /* LayoutOperators.swift */; };
 		DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470452197F6EB00628DD7 /* LayoutProperty.swift */; };
-		DB14704C2197F6EB00628DD7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470462197F6EB00628DD7 /* UIViewExtensions.swift */; };
+		DB14704C2197F6EB00628DD7 /* AutoLayoutableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1470462197F6EB00628DD7 /* AutoLayoutableExtensions.swift */; };
 		DBB08F0121E70D5200525CF4 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0021E70D5200525CF4 /* Initializable.swift */; };
 		DBC2F65421A11B8E005ED7FF /* SupportExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2F65221A11B8E005ED7FF /* SupportExtensions.swift */; };
 		DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */; };
 		EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC299B22F3458C006B66FF /* AppDelegate.swift */; };
 		EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEC29A222F3458F006B66FF /* Assets.xcassets */; };
 		EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC29AB22F3464C006B66FF /* MainViewController.swift */; };
+		EFED406522F4956D00BBCAFF /* AutoLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,7 @@
 		DB1470432197F6EA00628DD7 /* LayoutProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutProxy.swift; sourceTree = "<group>"; };
 		DB1470442197F6EB00628DD7 /* LayoutOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutOperators.swift; sourceTree = "<group>"; };
 		DB1470452197F6EB00628DD7 /* LayoutProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutProperty.swift; sourceTree = "<group>"; };
-		DB1470462197F6EB00628DD7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		DB1470462197F6EB00628DD7 /* AutoLayoutableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutableExtensions.swift; sourceTree = "<group>"; };
 		DBB08F0021E70D5200525CF4 /* Initializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
 		DBC2F65221A11B8E005ED7FF /* SupportExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportExtensions.swift; sourceTree = "<group>"; };
 		DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxyExtension.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		EFEC29A222F3458F006B66FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFEC29A722F34590006B66FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFEC29AB22F3464C006B66FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 		6B2E814922F31940000EF52C /* Functional */ = {
 			isa = PBXGroup;
 			children = (
-				DB1470462197F6EB00628DD7 /* UIViewExtensions.swift */,
+				DB1470462197F6EB00628DD7 /* AutoLayoutableExtensions.swift */,
 				6B02B18A22F2ACE500FCD2DB /* UIEdgeInsetConvertible.swift */,
 				6B02B18C22F2B1F800FCD2DB /* UIOffsetConvertible.swift */,
 				6BCC05E422F2EAD500430FC0 /* CGMultiplierConvertible.swift */,
@@ -106,6 +108,7 @@
 			children = (
 				DB1470392197F6B200628DD7 /* AutoLayoutProxy.h */,
 				DB14703A2197F6B200628DD7 /* Info.plist */,
+				EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -260,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B2E814C22F31B50000EF52C /* UIViewExtension.swift in Sources */,
-				DB14704C2197F6EB00628DD7 /* UIViewExtensions.swift in Sources */,
+				DB14704C2197F6EB00628DD7 /* AutoLayoutableExtensions.swift in Sources */,
 				DBB08F0121E70D5200525CF4 /* Initializable.swift in Sources */,
 				DB1470482197F6EB00628DD7 /* LayoutAnchor.swift in Sources */,
 				DB14704A2197F6EB00628DD7 /* LayoutOperators.swift in Sources */,
@@ -269,6 +272,7 @@
 				6B02B18B22F2ACE500FCD2DB /* UIEdgeInsetConvertible.swift in Sources */,
 				6BCC05E522F2EAD500430FC0 /* CGMultiplierConvertible.swift in Sources */,
 				6B02B18D22F2B1F800FCD2DB /* UIOffsetConvertible.swift in Sources */,
+				EFED406522F4956D00BBCAFF /* AutoLayoutable.swift in Sources */,
 				DB14704B2197F6EB00628DD7 /* LayoutProperty.swift in Sources */,
 				115A3BC3226F3C520012C02E /* CGMultiplier.swift in Sources */,
 				DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */,

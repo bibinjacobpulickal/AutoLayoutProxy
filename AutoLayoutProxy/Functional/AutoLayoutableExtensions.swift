@@ -1,15 +1,15 @@
 //
-//  UIViewExtensions.swift
+//  AutoLayoutableExtensions.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 29/10/18.
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-public extension UIView {
+public extension AutoLayoutable {
 
     func addSubview(
-        _ view: UIView,
+        _ view: Self,
         anchors: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -60,7 +60,7 @@ public extension UIView {
     }
 
     func anchorView(
-        _ view: UIView,
+        _ view: Self,
         anchors: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -115,7 +115,7 @@ public extension UIView {
     }
 
     func anchorEdges(
-        _ view: UIView,
+        _ view: Self,
         sides: Set<NSLayoutConstraint.Attribute>        = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -160,7 +160,7 @@ public extension UIView {
     }
 
     func anchorCenters(
-        _ view: UIView,
+        _ view: Self,
         centers: Set<NSLayoutConstraint.Attribute>      = [],
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
@@ -187,7 +187,7 @@ public extension UIView {
     }
 
     func anchorSides(
-        _ view: UIView,
+        _ view: Self,
         sides: Set<NSLayoutConstraint.Attribute>        = [],
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
