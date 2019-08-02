@@ -23,6 +23,9 @@
 		DBB08F0121E70D5200525CF4 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB08F0021E70D5200525CF4 /* Initializable.swift */; };
 		DBC2F65421A11B8E005ED7FF /* SupportExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2F65221A11B8E005ED7FF /* SupportExtensions.swift */; };
 		DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */; };
+		EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC299B22F3458C006B66FF /* AppDelegate.swift */; };
+		EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEC29A222F3458F006B66FF /* Assets.xcassets */; };
+		EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC29AB22F3464C006B66FF /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +47,22 @@
 		DBB08F0021E70D5200525CF4 /* Initializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
 		DBC2F65221A11B8E005ED7FF /* SupportExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportExtensions.swift; sourceTree = "<group>"; };
 		DBEC8F9821F71FFE00A61E11 /* LayoutProxyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxyExtension.swift; sourceTree = "<group>"; };
+		EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutProxyiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFEC299B22F3458C006B66FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFEC29A222F3458F006B66FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFEC29A722F34590006B66FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFEC29AB22F3464C006B66FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DB1470332197F6B200628DD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFEC299622F3458C006B66FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -99,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1470382197F6B200628DD7 /* AutoLayoutProxy */,
+				EFEC299A22F3458C006B66FF /* AutoLayoutProxyiOSExample */,
 				DB1470372197F6B200628DD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */,
+				EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +136,17 @@
 				6B2E814822F31936000EF52C /* Closure */,
 			);
 			path = AutoLayoutProxy;
+			sourceTree = "<group>";
+		};
+		EFEC299A22F3458C006B66FF /* AutoLayoutProxyiOSExample */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC299B22F3458C006B66FF /* AppDelegate.swift */,
+				EFEC29AB22F3464C006B66FF /* MainViewController.swift */,
+				EFEC29A222F3458F006B66FF /* Assets.xcassets */,
+				EFEC29A722F34590006B66FF /* Info.plist */,
+			);
+			path = AutoLayoutProxyiOSExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,18 +181,39 @@
 			productReference = DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		EFEC299822F3458C006B66FF /* AutoLayoutProxyiOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFEC29AA22F34590006B66FF /* Build configuration list for PBXNativeTarget "AutoLayoutProxyiOSExample" */;
+			buildPhases = (
+				EFEC299522F3458C006B66FF /* Sources */,
+				EFEC299622F3458C006B66FF /* Frameworks */,
+				EFEC299722F3458C006B66FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoLayoutProxyiOSExample;
+			productName = AutoLayoutProxyiOSExample;
+			productReference = EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DB14702D2197F6B200628DD7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Bibin Jacob Pulickal";
 				TargetAttributes = {
 					DB1470352197F6B200628DD7 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+					};
+					EFEC299822F3458C006B66FF = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -182,6 +231,7 @@
 			projectRoot = "";
 			targets = (
 				DB1470352197F6B200628DD7 /* AutoLayoutProxy */,
+				EFEC299822F3458C006B66FF /* AutoLayoutProxyiOSExample */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +241,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFEC299722F3458C006B66FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +274,15 @@
 				DB1470472197F6EB00628DD7 /* LayoutDimension.swift in Sources */,
 				DBEC8F9921F71FFE00A61E11 /* LayoutProxyExtension.swift in Sources */,
 				DB1470492197F6EB00628DD7 /* LayoutProxy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFEC299522F3458C006B66FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */,
+				EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +468,44 @@
 			};
 			name = Release;
 		};
+		EFEC29A822F34590006B66FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 32BS4266DT;
+				INFOPLIST_FILE = AutoLayoutProxyiOSExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayoutProxyiOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFEC29A922F34590006B66FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 32BS4266DT;
+				INFOPLIST_FILE = AutoLayoutProxyiOSExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayoutProxyiOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +523,15 @@
 			buildConfigurations = (
 				DB14703F2197F6B200628DD7 /* Debug */,
 				DB1470402197F6B200628DD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFEC29AA22F34590006B66FF /* Build configuration list for PBXNativeTarget "AutoLayoutProxyiOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFEC29A822F34590006B66FF /* Debug */,
+				EFEC29A922F34590006B66FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
