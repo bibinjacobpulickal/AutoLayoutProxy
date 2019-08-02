@@ -24,13 +24,13 @@ public extension AutoLayoutable {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: OffsetConvertible                     = 0,
+        offset: OffsetConvertible                       = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible               = 1,
+        size: SizeConvertible                           = 0) {
 
         addSubview(view)
 
@@ -75,13 +75,13 @@ public extension AutoLayoutable {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: OffsetConvertible                     = 0,
+        offset: OffsetConvertible                       = 0,
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible               = 1,
+        size: SizeConvertible                           = 0) {
 
         anchorEdges(
             view,
@@ -166,7 +166,7 @@ public extension AutoLayoutable {
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
         centerY: NSLayoutYAxisAnchor?                   = nil,
         centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: OffsetConvertible                     = 0) {
+        offset: OffsetConvertible                       = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
@@ -193,8 +193,8 @@ public extension AutoLayoutable {
         widthRelation: NSLayoutConstraint.Relation      = .equal,
         height: NSLayoutDimension?                      = nil,
         heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: MultiplierConvertible               = 1,
+        size: SizeConvertible                           = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
 
