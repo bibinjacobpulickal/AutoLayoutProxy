@@ -163,9 +163,9 @@
 		EFA27D5922F57D4700031EA3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DBB08F0021E70D5200525CF4 /* Initializable.swift */,
 				EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */,
 				6B02B18A22F2ACE500FCD2DB /* EdgeInsetConvertible.swift */,
+				DBB08F0021E70D5200525CF4 /* Initializable.swift */,
 				6B02B18C22F2B1F800FCD2DB /* OffsetConvertible.swift */,
 				6BCC05E422F2EAD500430FC0 /* MultiplierConvertible.swift */,
 				6BCC05E622F2ECF100430FC0 /* SizeConvertible.swift */,

@@ -30,11 +30,23 @@ public protocol AutoLayoutable: AnyObject {
 
     var centerYAnchor: NSLayoutYAxisAnchor { get }
 
-    func addSubview(_ view: Self)
+    func addSubview(_ view: AutoLayoutable)
 }
 
 #if canImport(UIKit)
-extension UIView: AutoLayoutable { }
+extension UIView: AutoLayoutable {
+    public func addSubview(_ view: AutoLayoutable) {
+        if let view = view as? UIView {
+            addSubview(view)
+        }
+    }
+}
 #elseif canImport(Cocoa)
-extension NSView: AutoLayoutable { }
+extension NSView: AutoLayoutable {
+    public func addSubview(_ view: AutoLayoutable) {
+        if let view = view as? NSView {
+            addSubview(view)
+        }
+    }
+}
 #endif

@@ -8,8 +8,8 @@
 
 public extension AutoLayoutable {
 
-    func addSubview(
-        _ view: Self,
+    func addSubview<View: AutoLayoutable>(
+        _ view: View,
         anchors: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -59,8 +59,8 @@ public extension AutoLayoutable {
             size: size)
     }
 
-    func anchorView(
-        _ view: Self,
+    func anchorView<View: AutoLayoutable>(
+        _ view: View,
         anchors: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -114,8 +114,8 @@ public extension AutoLayoutable {
             size: size)
     }
 
-    func anchorEdges(
-        _ view: Self,
+    func anchorEdges<View: AutoLayoutable>(
+        _ view: View,
         sides: Set<NSLayoutConstraint.Attribute>        = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,
@@ -159,8 +159,8 @@ public extension AutoLayoutable {
         }
     }
 
-    func anchorCenters(
-        _ view: Self,
+    func anchorCenters<View: AutoLayoutable>(
+        _ view: View,
         centers: Set<NSLayoutConstraint.Attribute>      = [],
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
@@ -186,8 +186,8 @@ public extension AutoLayoutable {
         }
     }
 
-    func anchorSides(
-        _ view: Self,
+    func anchorSides<View: AutoLayoutable>(
+        _ view: View,
         sides: Set<NSLayoutConstraint.Attribute>        = [],
         width: NSLayoutDimension?                       = nil,
         widthRelation: NSLayoutConstraint.Relation      = .equal,
