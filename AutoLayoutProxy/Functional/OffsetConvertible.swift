@@ -26,18 +26,20 @@ public struct NSOffset {
 
     public static let zero = NSOffset()
 
-    init(horizontal: CGFloat, vertical: CGFloat) {
+    public init(horizontal: CGFloat, vertical: CGFloat) {
         self.horizontal = horizontal
         self.vertical   = vertical
     }
 
-    init(h horizontal: CGFloat = 0, v vertical: CGFloat = 0) {
+    public init(h horizontal: CGFloat = 0, v vertical: CGFloat = 0) {
         self.init(horizontal: horizontal, vertical: vertical)
     }
-    init(_ both: CGFloat) {
+    public init(_ both: CGFloat) {
         self.init(horizontal: both, vertical: both)
     }
 }
+
+extension NSOffset: OffsetConvertible { }
 
 #endif
 
