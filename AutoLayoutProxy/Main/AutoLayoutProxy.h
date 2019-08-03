@@ -6,7 +6,13 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#if __has_include("UIKit/UIkit.h")
+@import UIKit;
+#endif
+
+#if __has_include("Cocoa/Cocoa.h")
+@import Cocoa;
+#endif
 
 //! Project version number for AutoLayoutProxy.
 FOUNDATION_EXPORT double AutoLayoutProxyVersionNumber;

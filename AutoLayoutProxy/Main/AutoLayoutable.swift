@@ -33,4 +33,8 @@ public protocol AutoLayoutable: AnyObject {
     func addSubview(_ view: Self)
 }
 
+#if canImport(UIKit)
 extension UIView: AutoLayoutable { }
+#elseif canImport(Cocoa)
+extension NSView: AutoLayoutable { }
+#endif

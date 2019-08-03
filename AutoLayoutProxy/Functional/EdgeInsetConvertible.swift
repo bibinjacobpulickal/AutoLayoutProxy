@@ -17,7 +17,11 @@ public protocol EdgeInsetConvertible {
     var right: CGFloat { get }
 }
 
+#if canImport(UIKit)
 extension UIEdgeInsets: EdgeInsetConvertible { }
+#elseif canImport(Cocoa)
+extension NSEdgeInsets: EdgeInsetConvertible { }
+#endif
 
 extension CGFloat: EdgeInsetConvertible {
 
