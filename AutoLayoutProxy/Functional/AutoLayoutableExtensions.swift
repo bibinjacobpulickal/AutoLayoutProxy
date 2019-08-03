@@ -204,12 +204,12 @@ public extension AutoLayoutable {
                 relation: widthRelation,
                 rhs: width ?? widthAnchor,
                 multiplier: multiplier.multiplierValue.width,
-                constant: size.sizeValue.width)
-        } else if size.sizeValue.width != 0 {
+                constant: size.width)
+        } else if size.width != 0 {
             view.anchor(
                 lhs: .width,
                 relation: widthRelation,
-                rhs: size.sizeValue.width)
+                rhs: size.width)
         }
         if sides.contains(.height) || height != nil {
             view.anchor(
@@ -217,12 +217,12 @@ public extension AutoLayoutable {
                 relation: heightRelation,
                 rhs: height ?? heightAnchor,
                 multiplier: multiplier.multiplierValue.height,
-                constant: size.sizeValue.height)
-        } else if size.sizeValue.height != 0 {
+                constant: size.height)
+        } else if size.height != 0 {
             view.anchor(
                 lhs: .height,
                 relation: heightRelation,
-                rhs: size.sizeValue.height)
+                rhs: size.height)
         }
     }
 

@@ -7,26 +7,32 @@
 //
 
 public protocol SizeConvertible {
-    var sizeValue: CGSize { get }
+
+    var width: CGFloat { get }
+
+    var height: CGFloat { get }
 }
 
-extension CGSize: SizeConvertible {
-
-    public var sizeValue: CGSize {
-        return self
-    }
-}
+extension CGSize: SizeConvertible { }
 
 extension CGFloat: SizeConvertible {
 
-    public var sizeValue: CGSize {
-        return CGSize(self)
+    public var width: CGFloat {
+        return self
+    }
+
+    public var height: CGFloat {
+        return self
     }
 }
 
 extension Int: SizeConvertible {
 
-    public var sizeValue: CGSize {
-        return CGSize(CGFloat(self))
+    public var width: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var height: CGFloat {
+        return CGFloat(self)
     }
 }
