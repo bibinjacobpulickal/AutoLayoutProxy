@@ -26,6 +26,17 @@ extension CGFloat: SizeConvertible {
     }
 }
 
+extension Double: SizeConvertible {
+
+    public var width: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var height: CGFloat {
+        return CGFloat(self)
+    }
+}
+
 extension Int: SizeConvertible {
 
     public var width: CGFloat {

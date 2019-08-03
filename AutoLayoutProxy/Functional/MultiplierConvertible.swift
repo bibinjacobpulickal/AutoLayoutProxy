@@ -25,6 +25,13 @@ extension CGFloat: MultiplierConvertible {
     }
 }
 
+extension Double: MultiplierConvertible {
+
+    public var multiplierValue: CGMultiplier {
+        return CGMultiplier(CGFloat(self))
+    }
+}
+
 extension Int: MultiplierConvertible {
 
     public var multiplierValue: CGMultiplier {

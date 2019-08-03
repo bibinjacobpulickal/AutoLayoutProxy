@@ -54,6 +54,17 @@ extension CGFloat: OffsetConvertible {
     }
 }
 
+extension Double: OffsetConvertible {
+
+    public var horizontal: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var vertical: CGFloat {
+        return CGFloat(self)
+    }
+}
+
 extension Int: OffsetConvertible {
 
     public var horizontal: CGFloat {
