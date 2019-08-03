@@ -50,6 +50,17 @@ Without AutoLayoutProxy:
 -----
 
 ```swift
+// To Fill super view with a padding of 10 points.
+
+view.addSubview(subview)
+subview.translatesAutoresizingMaskIntoConstraints = false
+
+subview.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive            = true
+subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive    = true
+subview.bottomAnchor.constraint(equalTo:  view.bottomAnchor, constant: -10).isActive    = true
+subview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+
+// Or to give complex constraints.
 
 view.addSubview(subview)
 subview.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +75,14 @@ With AutoLayoutProxy:
 -----
 
 ```swift
+// To Fill super view with a padding of 10 points.
+
+view.addSubview(subview, 
+                anchors: .allSides,
+                inset: 10)
+
+// Or to give complex constraints.
+
 view.addSubview(subview, layout: { subview in
     subview.top     >= view.safeAreaLayoutGuide.topAnchor + 16
     subview.centerX == view.centerXAnchor
