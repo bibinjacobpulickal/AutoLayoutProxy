@@ -27,6 +27,10 @@
 		EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEC29A222F3458F006B66FF /* Assets.xcassets */; };
 		EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC29AB22F3464C006B66FF /* MainViewController.swift */; };
 		EFED406522F4956D00BBCAFF /* AutoLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */; };
+		EFFB521022F545FC00CF055B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB520F22F545FC00CF055B /* AppDelegate.swift */; };
+		EFFB521222F545FF00CF055B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFB521122F545FF00CF055B /* Assets.xcassets */; };
+		EFFB521C22F548AF00CF055B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB521B22F548AF00CF055B /* main.swift */; };
+		EFFB521E22F5493500CF055B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB521D22F5493500CF055B /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,13 @@
 		EFEC29A722F34590006B66FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFEC29AB22F3464C006B66FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutable.swift; sourceTree = "<group>"; };
+		EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayutProxyMacOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFB520F22F545FC00CF055B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFFB521122F545FF00CF055B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFFB521622F545FF00CF055B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFFB521722F545FF00CF055B /* AutoLayutProxyMacOSExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLayutProxyMacOSExample.entitlements; sourceTree = "<group>"; };
+		EFFB521B22F548AF00CF055B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EFFB521D22F5493500CF055B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +76,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EFEC299622F3458C006B66FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFB520A22F545FC00CF055B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -118,6 +136,7 @@
 			children = (
 				DB1470382197F6B200628DD7 /* AutoLayoutProxy */,
 				EFEC299A22F3458C006B66FF /* AutoLayoutProxyiOSExample */,
+				EFFB520E22F545FC00CF055B /* AutoLayutProxyMacOSExample */,
 				DB1470372197F6B200628DD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +146,7 @@
 			children = (
 				DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */,
 				EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */,
+				EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +170,19 @@
 				EFEC29A722F34590006B66FF /* Info.plist */,
 			);
 			path = AutoLayoutProxyiOSExample;
+			sourceTree = "<group>";
+		};
+		EFFB520E22F545FC00CF055B /* AutoLayutProxyMacOSExample */ = {
+			isa = PBXGroup;
+			children = (
+				EFFB521B22F548AF00CF055B /* main.swift */,
+				EFFB520F22F545FC00CF055B /* AppDelegate.swift */,
+				EFFB521D22F5493500CF055B /* MainViewController.swift */,
+				EFFB521122F545FF00CF055B /* Assets.xcassets */,
+				EFFB521622F545FF00CF055B /* Info.plist */,
+				EFFB521722F545FF00CF055B /* AutoLayutProxyMacOSExample.entitlements */,
+			);
+			path = AutoLayutProxyMacOSExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +234,23 @@
 			productReference = EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EFFB520C22F545FC00CF055B /* AutoLayutProxyMacOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFB521822F545FF00CF055B /* Build configuration list for PBXNativeTarget "AutoLayutProxyMacOSExample" */;
+			buildPhases = (
+				EFFB520922F545FC00CF055B /* Sources */,
+				EFFB520A22F545FC00CF055B /* Frameworks */,
+				EFFB520B22F545FC00CF055B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoLayutProxyMacOSExample;
+			productName = AutoLayutProxyMacOSExample;
+			productReference = EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +266,9 @@
 						LastSwiftMigration = 1020;
 					};
 					EFEC299822F3458C006B66FF = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					EFFB520C22F545FC00CF055B = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -235,6 +288,7 @@
 			targets = (
 				DB1470352197F6B200628DD7 /* AutoLayoutProxy */,
 				EFEC299822F3458C006B66FF /* AutoLayoutProxyiOSExample */,
+				EFFB520C22F545FC00CF055B /* AutoLayutProxyMacOSExample */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +306,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFB520B22F545FC00CF055B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFB521222F545FF00CF055B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +349,16 @@
 			files = (
 				EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */,
 				EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFB520922F545FC00CF055B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFB521E22F5493500CF055B /* MainViewController.swift in Sources */,
+				EFFB521C22F548AF00CF055B /* main.swift in Sources */,
+				EFFB521022F545FC00CF055B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +588,50 @@
 			};
 			name = Release;
 		};
+		EFFB521922F545FF00CF055B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AutoLayutProxyMacOSExample/AutoLayutProxyMacOSExample.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32BS4266DT;
+				INFOPLIST_FILE = AutoLayutProxyMacOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayutProxyMacOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EFFB521A22F545FF00CF055B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AutoLayutProxyMacOSExample/AutoLayutProxyMacOSExample.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32BS4266DT;
+				INFOPLIST_FILE = AutoLayutProxyMacOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayutProxyMacOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -542,6 +658,15 @@
 			buildConfigurations = (
 				EFEC29A822F34590006B66FF /* Debug */,
 				EFEC29A922F34590006B66FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFB521822F545FF00CF055B /* Build configuration list for PBXNativeTarget "AutoLayutProxyMacOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFB521922F545FF00CF055B /* Debug */,
+				EFFB521A22F545FF00CF055B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
