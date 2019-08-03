@@ -12,7 +12,7 @@ public extension LayoutProxy {
         fillView(superView, inset: inset)
     }
 
-    func fillView<View: AutoLayoutable>(_ view: View, inset: EdgeInsetConvertible = 0) {
+    func fillView(_ view: AutoLayoutable, inset: EdgeInsetConvertible = 0) {
         anchorAllExcept([], inset: inset, to: view)
     }
 
@@ -20,7 +20,7 @@ public extension LayoutProxy {
         alignCenters(inset: inset, to: superView)
     }
 
-    func alignCenters<View: AutoLayoutable>(inset: EdgeInsetConvertible = 0, to view: View) {
+    func alignCenters(inset: EdgeInsetConvertible = 0, to view: AutoLayoutable) {
         addAnchors([.centerX, .centerY], inset: inset, to: view)
     }
 
@@ -30,10 +30,10 @@ public extension LayoutProxy {
         anchorAllSidesExcept(exemptedSides, inset: inset, to: superView)
     }
 
-    func anchorAllSidesExcept<View: AutoLayoutable>(
+    func anchorAllSidesExcept(
         _ exemptedSides: Set<NSLayoutConstraint.Attribute>,
         inset: EdgeInsetConvertible = 0,
-        to view: View) {
+        to view: AutoLayoutable) {
         var attributes: Set<NSLayoutConstraint.Attribute> = [.top, .bottom, .leading, .trailing]
         attributes.subtract(exemptedSides)
         addAnchors(attributes, inset: inset, to: view)
@@ -45,10 +45,10 @@ public extension LayoutProxy {
         anchorAllExcept(exemptedAnchors, inset: inset, to: superView)
     }
 
-    func anchorAllExcept<View: AutoLayoutable>(
+    func anchorAllExcept(
         _ exemptedAnchors: Set<NSLayoutConstraint.Attribute>,
         inset: EdgeInsetConvertible = 0,
-        to view: View) {
+        to view: AutoLayoutable) {
         var attributes: Set<NSLayoutConstraint.Attribute> =
             [.top, .bottom, .leading, .trailing, .centerX, .centerY, .width, .height]
         attributes.subtract(exemptedAnchors)
@@ -61,11 +61,11 @@ public extension LayoutProxy {
         addAnchors(anchors, inset: inset, offset: offset, to: superView)
     }
 
-    func addAnchors<View: AutoLayoutable>(
+    func addAnchors(
         _ anchors: Set<NSLayoutConstraint.Attribute>,
         inset: EdgeInsetConvertible = 0,
         offset: OffsetConvertible = 0,
-        to view: View) {
+        to view: AutoLayoutable) {
         if anchors.contains(.top) {
             top == view.topAnchor + inset.top
         }

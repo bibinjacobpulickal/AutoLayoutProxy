@@ -8,12 +8,12 @@
 
 public extension AutoLayoutable {
 
-    func addSubview(_ view: Self, layout: (LayoutProxy<Self>) -> Void) {
+    func addSubview(_ view: AutoLayoutable, layout: (LayoutProxy) -> Void) {
         addSubview(view)
         layoutView(view, using: layout)
     }
 
-    func layoutView(_ view: Self, using closure: (LayoutProxy<Self>) -> Void) {
+    func layoutView(_ view: AutoLayoutable, using closure: (LayoutProxy) -> Void) {
         view.translatesAutoresizingMaskIntoConstraints = false
         closure(LayoutProxy(view: view, superView: self))
     }
