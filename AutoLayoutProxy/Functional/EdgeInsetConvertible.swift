@@ -34,11 +34,11 @@ extension CGFloat: EdgeInsetConvertible {
     }
 
     public var bottom: CGFloat {
-        return self
+        return -self
     }
 
     public var right: CGFloat {
-        return self
+        return -self
     }
 }
 
@@ -53,11 +53,11 @@ extension Double: EdgeInsetConvertible {
     }
 
     public var bottom: CGFloat {
-        return CGFloat(self)
+        return -CGFloat(self)
     }
 
     public var right: CGFloat {
-        return CGFloat(self)
+        return -CGFloat(self)
     }
 }
 
@@ -72,10 +72,10 @@ extension Int: EdgeInsetConvertible {
     }
 
     public var bottom: CGFloat {
-        return CGFloat(self)
+        return -CGFloat(self)
     }
 
     public var right: CGFloat {
-        return CGFloat(self)
+        return -CGFloat(self)
     }
 }
