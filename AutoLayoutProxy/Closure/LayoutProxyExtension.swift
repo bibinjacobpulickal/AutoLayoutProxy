@@ -67,22 +67,22 @@ public extension LayoutProxy {
         offset: OffsetConvertible = 0,
         to view: View) {
         if anchors.contains(.top) {
-            top == view.topAnchor + inset.edgeInsetValue.top
+            top == view.topAnchor + inset.top
         }
         if anchors.contains(.bottom) {
-            bottom == view.bottomAnchor + inset.edgeInsetValue.bottom
+            bottom == view.bottomAnchor + inset.bottom
         }
         if anchors.contains(.leading) || anchors.contains(.left) {
-            left == view.leadingAnchor + inset.edgeInsetValue.left
+            left == view.leadingAnchor + inset.left
         }
         if anchors.contains(.trailing) || anchors.contains(.right) {
-            right == view.trailingAnchor + inset.edgeInsetValue.right
+            right == view.trailingAnchor + inset.right
         }
         if anchors.contains(.centerX) {
-            centerX == view.centerXAnchor + offset.offsetValue.horizontal
+            centerX == view.centerXAnchor + offset.horizontal
         }
         if anchors.contains(.centerY) {
-            centerY == view.centerYAnchor + offset.offsetValue.vertical
+            centerY == view.centerYAnchor + offset.vertical
         }
         if anchors.contains(.width) {
             width == view.widthAnchor

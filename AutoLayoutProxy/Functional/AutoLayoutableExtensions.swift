@@ -134,28 +134,28 @@ public extension AutoLayoutable {
                 lhs: .top,
                 relation: topRelation,
                 rhs: top ?? topAnchor,
-                constant: inset.edgeInsetValue.top)
+                constant: inset.top)
         }
         if sides.contains(.leading) || sides.contains(.left) || left != nil {
             view.anchor(
                 lhs: .left,
                 relation: leftRelation,
                 rhs: left ?? leadingAnchor,
-                constant: inset.edgeInsetValue.left)
+                constant: inset.left)
         }
         if sides.contains(.bottom) || bottom != nil {
             view.anchor(
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                constant: inset.edgeInsetValue.bottom)
+                constant: inset.bottom)
         }
         if sides.contains(.trailing) || sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? trailingAnchor,
-                constant: inset.edgeInsetValue.right)
+                constant: inset.right)
         }
     }
 

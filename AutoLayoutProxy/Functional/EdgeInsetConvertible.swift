@@ -8,26 +8,51 @@
 
 public protocol EdgeInsetConvertible {
 
-    var edgeInsetValue: UIEdgeInsets { get }
+    var top: CGFloat { get }
+
+    var left: CGFloat { get }
+
+    var bottom: CGFloat { get }
+
+    var right: CGFloat { get }
 }
 
-extension UIEdgeInsets: EdgeInsetConvertible {
-
-    public var edgeInsetValue: UIEdgeInsets {
-        return self
-    }
-}
+extension UIEdgeInsets: EdgeInsetConvertible { }
 
 extension CGFloat: EdgeInsetConvertible {
 
-    public var edgeInsetValue: UIEdgeInsets {
-        return UIEdgeInsets(self)
+    public var top: CGFloat {
+        return self
+    }
+
+    public var left: CGFloat {
+        return self
+    }
+
+    public var bottom: CGFloat {
+        return self
+    }
+
+    public var right: CGFloat {
+        return self
     }
 }
 
 extension Int: EdgeInsetConvertible {
 
-    public var edgeInsetValue: UIEdgeInsets {
-        return UIEdgeInsets(CGFloat(self))
+    public var top: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var left: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var bottom: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var right: CGFloat {
+        return CGFloat(self)
     }
 }
