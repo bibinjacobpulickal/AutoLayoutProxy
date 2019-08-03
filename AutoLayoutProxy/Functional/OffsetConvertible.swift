@@ -8,26 +8,31 @@
 
 public protocol OffsetConvertible {
 
-    var offsetValue: UIOffset { get }
+    var horizontal: CGFloat { get }
+
+    var vertical: CGFloat { get }
 }
 
-extension UIOffset: OffsetConvertible {
-
-    public var offsetValue: UIOffset {
-        return self
-    }
-}
+extension UIOffset: OffsetConvertible { }
 
 extension CGFloat: OffsetConvertible {
 
-    public var offsetValue: UIOffset {
-        return UIOffset(self)
+    public var horizontal: CGFloat {
+        return self
+    }
+
+    public var vertical: CGFloat {
+        return self
     }
 }
 
 extension Int: OffsetConvertible {
 
-    public var offsetValue: UIOffset {
-        return UIOffset(CGFloat(self))
+    public var horizontal: CGFloat {
+        return CGFloat(self)
+    }
+
+    public var vertical: CGFloat {
+        return CGFloat(self)
     }
 }

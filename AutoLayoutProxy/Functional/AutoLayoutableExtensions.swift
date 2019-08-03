@@ -175,14 +175,14 @@ public extension AutoLayoutable {
                 lhs: .centerX,
                 relation: centerXRelation,
                 rhs: centerX ?? centerXAnchor,
-                constant: offset.offsetValue.horizontal)
+                constant: offset.horizontal)
         }
         if centers.contains(.centerY) || centerY != nil {
             view.anchor(
                 lhs: .centerY,
                 relation: centerYRelation,
                 rhs: centerY ?? centerYAnchor,
-                constant: offset.offsetValue.vertical)
+                constant: offset.vertical)
         }
     }
 
