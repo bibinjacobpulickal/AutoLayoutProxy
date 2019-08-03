@@ -50,64 +50,35 @@ Without AutoLayoutProxy:
 -----
 
 ```swift
-import UIKit
 
-class ViewController: UIViewController {
-    
-    let redView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(redView)
-        redView.translatesAutoresizingMaskIntoConstraints = false
-        
-        redView.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-        redView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        redView.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 32).isActive = true
-        redView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -32).isActive = true
-    }
-}
+view.addSubview(subview)
+subview.translatesAutoresizingMaskIntoConstraints = false
+
+subview.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+subview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+subview.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 32).isActive = true
+subview.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -32).isActive = true
 ```
 
 With AutoLayoutProxy:
 -----
 
 ```swift
-import AutoLayoutProxy
-
-class ViewController: UIViewController {
-    
-    let redView: UIView = create {
-        $0.backgroundColor = .red
-    }
-    
-    let functionalView: UIView = create { view in
-        view.backgroundColor = .blue
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(closureView, layout: {
-            $0.top >= view.safeAreaLayoutGuide.topAnchor + 16
-            $0.centerX == view.centerXAnchor
-            $0.width <= view.frame.width - 32
-            $0.height == view.safeAreaLayoutGuide.heightAnchor / 2 - 32
-        })
-        
-        view.addSubview(functionalView,
-                        attributes: [.left, .right],
-                        bottom: view.safeAreaLayoutGuide.bottomAnchor),
-                        padding: UIEdgeInsets(left: 16, bottom: -32, right: -16),
-                        height: view.safeAreaLayoutGuide.heightAnchor / 2,
-                        size: CGSize(height: -32))
-    }
-}
+view.addSubview(subview, layout: { subview in
+    subview.top     >= view.safeAreaLayoutGuide.topAnchor + 16
+    subview.centerX == view.centerXAnchor
+    subview.width   <= view.frame.width - 32
+    subview.height  == view.safeAreaLayoutGuide.heightAnchor / 2 - 32
+})
+// OR
+view.addSubview(subview,
+                anchors: [.centerX],
+                top: view.safeAreaLayoutGuide.topAnchor,
+                topRelation: .greaterThanOrEqual,
+                widthRelation: .lessThanOrEqual,
+                height: view.safeAreaLayoutGuide.heightAnchor,
+                multiplier: 0.5,
+                size: CGSize(w: view.frame.width - 32))
 ```
 
 ## License
