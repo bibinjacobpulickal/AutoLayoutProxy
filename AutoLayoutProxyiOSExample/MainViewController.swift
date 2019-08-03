@@ -10,14 +10,34 @@ import AutoLayoutProxy
 
 class MainViewController: UIViewController {
 
+    let button: UIButton = create { button in
+        button.backgroundColor = .red
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let button = UIButton(type: .contactAdd)
-        view.backgroundColor = .white
-        button.backgroundColor = .red
         view.addSubview(button,
                         anchors: .bothCenters,
                         size: 100)
+    }
+}
+
+class View: UIView {
+
+    let button: UIButton = create { button in
+        button.backgroundColor = .red
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addSubview(button,
+                   anchors: .bothCenters,
+                   size: 100)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

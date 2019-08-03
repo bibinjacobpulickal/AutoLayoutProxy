@@ -14,6 +14,5 @@ class MainViewController: NSViewController {
         view    = NSView()
         view.anchor(lhs: .width, relation: .greaterThanOrEqual, rhs: 300)
         view.anchor(lhs: .height, relation: .greaterThanOrEqual, rhs: 300)
-        view.anchor(lhs: .width, rhs: 200)
     }
 }
