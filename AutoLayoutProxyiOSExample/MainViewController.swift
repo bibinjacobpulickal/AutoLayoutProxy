@@ -10,28 +10,22 @@ import AutoLayoutProxy
 
 class MainViewController: UIViewController {
 
-    let button: UIButton = create { button in
-        button.backgroundColor = .red
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.addSubview(button,
-                        anchors: .bothCenters,
-                        size: 100)
+    override func loadView() {
+        super.loadView()
+        view    = MainView()
     }
 }
 
-class View: UIView {
+class MainView: UIView {
 
     let button: UIButton = create { button in
-        button.backgroundColor = .red
+        button.backgroundColor = .green
+        button.setTitle("Button", for: .normal)
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         addSubview(button,
                    anchors: .bothCenters,
                    size: 100)
