@@ -328,21 +328,21 @@ public extension AutoLayoutable {
     private func anchor<AnchorType>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
         switch attribute {
         case .left, .leading:
-            return leadingAnchor as? NSLayoutAnchor<AnchorType>
+            return leading as? NSLayoutAnchor<AnchorType>
         case .right, .trailing:
-            return trailingAnchor as? NSLayoutAnchor<AnchorType>
+            return trailing as? NSLayoutAnchor<AnchorType>
         case .top:
-            return topAnchor as? NSLayoutAnchor<AnchorType>
+            return top as? NSLayoutAnchor<AnchorType>
         case .bottom:
-            return bottomAnchor as? NSLayoutAnchor<AnchorType>
+            return bottom as? NSLayoutAnchor<AnchorType>
         case .width:
-            return widthAnchor as? NSLayoutAnchor<AnchorType>
+            return width as? NSLayoutAnchor<AnchorType>
         case .height:
-            return heightAnchor as? NSLayoutAnchor<AnchorType>
+            return height as? NSLayoutAnchor<AnchorType>
         case .centerX:
-            return centerXAnchor as? NSLayoutAnchor<AnchorType>
+            return centerX as? NSLayoutAnchor<AnchorType>
         case .centerY:
-            return centerYAnchor as? NSLayoutAnchor<AnchorType>
+            return centerY as? NSLayoutAnchor<AnchorType>
         default:
             return nil
         }
