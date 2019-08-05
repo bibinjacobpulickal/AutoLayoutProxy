@@ -166,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */,
-				6B58A44722F869D2001B21C2 /* AutoLayoutableAnchorHelper.swift */,
 				6B02B18A22F2ACE500FCD2DB /* EdgeInsetConvertible.swift */,
 				DBB08F0021E70D5200525CF4 /* Initializable.swift */,
 				6B02B18C22F2B1F800FCD2DB /* OffsetConvertible.swift */,
@@ -182,6 +181,7 @@
 				EFA27D5A22F57DA000031EA3 /* NSOffset.swift */,
 				115A3BC2226F3C520012C02E /* CGMultiplier.swift */,
 				EFA27D5722F57D0E00031EA3 /* SupportExtensions.swift */,
+				6B58A44722F869D2001B21C2 /* AutoLayoutableAnchorHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
