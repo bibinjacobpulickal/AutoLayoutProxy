@@ -11,8 +11,8 @@ import AutoLayoutProxy
 class MainViewController: NSViewController {
 
     override func loadView() {
-        view    = NSView()
-        view.anchor(lhs: .width, relation: .greaterThanOrEqual, rhs: 300)
-        view.anchor(lhs: .height, relation: .greaterThanOrEqual, rhs: 300)
+        view        = NSView()
+        view.width  >= 300
+        view.height >= 300
     }
 }
