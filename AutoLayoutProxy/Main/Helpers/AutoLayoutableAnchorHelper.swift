@@ -6,49 +6,49 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-extension AutoLayoutable {
+public extension AutoLayoutable {
 
-    public var leading: NSLayoutXAxisAnchor {
+    var leading: NSLayoutXAxisAnchor {
         return leadingAnchor
     }
 
-    public var trailing: NSLayoutXAxisAnchor {
+    var trailing: NSLayoutXAxisAnchor {
         return trailingAnchor
     }
 
-    public var left: NSLayoutXAxisAnchor {
+    var left: NSLayoutXAxisAnchor {
         return leftAnchor
     }
 
-    public var right: NSLayoutXAxisAnchor {
+    var right: NSLayoutXAxisAnchor {
         return rightAnchor
     }
 
-    public var top: NSLayoutYAxisAnchor {
+    var top: NSLayoutYAxisAnchor {
         return topAnchor
     }
 
-    public var bottom: NSLayoutYAxisAnchor {
+    var bottom: NSLayoutYAxisAnchor {
         return bottomAnchor
     }
 
-    public var width: NSLayoutDimension {
+    var width: NSLayoutDimension {
         return widthAnchor
     }
 
-    public var height: NSLayoutDimension {
+    var height: NSLayoutDimension {
         return heightAnchor
     }
 
-    public var centerX: NSLayoutXAxisAnchor {
+    var centerX: NSLayoutXAxisAnchor {
         return centerXAnchor
     }
 
-    public var centerY: NSLayoutYAxisAnchor {
+    var centerY: NSLayoutYAxisAnchor {
         return centerYAnchor
     }
 
-    public var size: (NSLayoutDimension, NSLayoutDimension) {
+    var size: (NSLayoutDimension, NSLayoutDimension) {
         return (widthAnchor, heightAnchor)
     }
 }
