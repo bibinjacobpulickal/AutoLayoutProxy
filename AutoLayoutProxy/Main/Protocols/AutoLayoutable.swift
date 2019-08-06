@@ -33,6 +33,15 @@ public protocol AutoLayoutable: AnyObject {
     func addSubview(_ view: AutoLayoutable)
 }
 
+public extension AutoLayoutable {
+
+    func addSubview(_ view: AutoLayoutable, layout: (() -> Void)) -> Void {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        layout()
+    }
+}
+
 #if canImport(UIKit)
 extension UIView: AutoLayoutable {
     public func addSubview(_ view: AutoLayoutable) {

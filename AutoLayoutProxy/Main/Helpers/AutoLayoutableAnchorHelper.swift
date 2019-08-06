@@ -47,4 +47,8 @@ extension AutoLayoutable {
     public var centerY: NSLayoutYAxisAnchor {
         return centerYAnchor
     }
+
+    public var size: (NSLayoutDimension, NSLayoutDimension) {
+        return (widthAnchor, heightAnchor)
+    }
 }

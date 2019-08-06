@@ -26,9 +26,11 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        addSubview(button,
-                   anchors: .bothCenters,
-                   size: 100)
+        addSubview(button) {
+            button.centerX  == centerX
+            button.centerY  == centerY
+            button.size     == CGSize(width: 100, height: 50)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
