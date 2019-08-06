@@ -15,10 +15,14 @@ public extension AutoLayoutable {
         topRelation: NSLayoutConstraint.Relation        = .equal,
         left: NSLayoutXAxisAnchor?                      = nil,
         leftRelation: NSLayoutConstraint.Relation       = .equal,
+        leading: NSLayoutXAxisAnchor?                   = nil,
+        leadingRelation: NSLayoutConstraint.Relation    = .equal,
         bottom: NSLayoutYAxisAnchor?                    = nil,
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
+        trailing: NSLayoutXAxisAnchor?                  = nil,
+        trailingRelation: NSLayoutConstraint.Relation   = .equal,
         inset: EdgeInsetConvertible                     = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
@@ -41,10 +45,14 @@ public extension AutoLayoutable {
             topRelation: topRelation,
             left: left,
             leftRelation: leftRelation,
+            leading: leading,
+            leadingRelation: leadingRelation,
             bottom: bottom,
             bottomRelation: bottomRelation,
             right: right,
             rightRelation: rightRelation,
+            trailing: left,
+            trailingRelation: leftRelation,
             inset: inset,
             centerX: centerX,
             centerXRelation: centerXRelation,
@@ -66,10 +74,14 @@ public extension AutoLayoutable {
         topRelation: NSLayoutConstraint.Relation        = .equal,
         left: NSLayoutXAxisAnchor?                      = nil,
         leftRelation: NSLayoutConstraint.Relation       = .equal,
+        leading: NSLayoutXAxisAnchor?                   = nil,
+        leadingRelation: NSLayoutConstraint.Relation    = .equal,
         bottom: NSLayoutYAxisAnchor?                    = nil,
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
+        trailing: NSLayoutXAxisAnchor?                  = nil,
+        trailingRelation: NSLayoutConstraint.Relation   = .equal,
         inset: EdgeInsetConvertible                     = 0,
         centerX: NSLayoutXAxisAnchor?                   = nil,
         centerXRelation: NSLayoutConstraint.Relation    = .equal,
@@ -90,10 +102,14 @@ public extension AutoLayoutable {
             topRelation: topRelation,
             left: left,
             leftRelation: leftRelation,
+            leading: leading,
+            leadingRelation: leadingRelation,
             bottom: bottom,
             bottomRelation: bottomRelation,
             right: right,
             rightRelation: rightRelation,
+            trailing: trailing,
+            trailingRelation: trailingRelation,
             inset: inset)
         anchorCenters(
             view,
@@ -121,10 +137,14 @@ public extension AutoLayoutable {
         topRelation: NSLayoutConstraint.Relation        = .equal,
         left: NSLayoutXAxisAnchor?                      = nil,
         leftRelation: NSLayoutConstraint.Relation       = .equal,
+        leading: NSLayoutXAxisAnchor?                   = nil,
+        leadingRelation: NSLayoutConstraint.Relation    = .equal,
         bottom: NSLayoutYAxisAnchor?                    = nil,
         bottomRelation: NSLayoutConstraint.Relation     = .equal,
         right: NSLayoutXAxisAnchor?                     = nil,
         rightRelation: NSLayoutConstraint.Relation      = .equal,
+        trailing: NSLayoutXAxisAnchor?                  = nil,
+        trailingRelation: NSLayoutConstraint.Relation   = .equal,
         inset: EdgeInsetConvertible                     = 0) {
 
         view.translatesAutoresizingMaskIntoConstraints  = false
@@ -136,11 +156,18 @@ public extension AutoLayoutable {
                 rhs: top ?? topAnchor,
                 constant: inset.top)
         }
-        if sides.contains(.leading) || sides.contains(.left) || left != nil {
+        if sides.contains(.left) || left != nil {
             view.anchor(
                 lhs: .left,
                 relation: leftRelation,
-                rhs: left ?? leadingAnchor,
+                rhs: left ?? leftAnchor,
+                constant: inset.left)
+        }
+        if sides.contains(.leading) || leading != nil {
+            view.anchor(
+                lhs: .leading,
+                relation: leadingRelation,
+                rhs: leading ?? leadingAnchor,
                 constant: inset.left)
         }
         if sides.contains(.bottom) || bottom != nil {
@@ -150,11 +177,18 @@ public extension AutoLayoutable {
                 rhs: bottom ?? bottomAnchor,
                 constant: inset.bottom)
         }
-        if sides.contains(.trailing) || sides.contains(.right) || right != nil {
+        if sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
-                rhs: right ?? trailingAnchor,
+                rhs: right ?? rightAnchor,
+                constant: inset.right)
+        }
+        if sides.contains(.trailing) || trailing != nil {
+            view.anchor(
+                lhs: .trailing,
+                relation: trailingRelation,
+                rhs: trailing ?? trailingAnchor,
                 constant: inset.right)
         }
     }
@@ -325,16 +359,20 @@ public extension AutoLayoutable {
         }
     }
 
-    private func anchor<AnchorType>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
+    private func anchor<AnchorType: AnyObject>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
         switch attribute {
-        case .left, .leading:
-            return leading as? NSLayoutAnchor<AnchorType>
-        case .right, .trailing:
-            return trailing as? NSLayoutAnchor<AnchorType>
         case .top:
             return top as? NSLayoutAnchor<AnchorType>
+        case .left:
+            return left as? NSLayoutAnchor<AnchorType>
+        case .leading:
+            return leading as? NSLayoutAnchor<AnchorType>
         case .bottom:
             return bottom as? NSLayoutAnchor<AnchorType>
+        case .right:
+            return right as? NSLayoutAnchor<AnchorType>
+        case .trailing:
+            return trailing as? NSLayoutAnchor<AnchorType>
         case .width:
             return width as? NSLayoutAnchor<AnchorType>
         case .height:
