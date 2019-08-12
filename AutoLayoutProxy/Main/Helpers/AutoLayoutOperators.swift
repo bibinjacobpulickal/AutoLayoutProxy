@@ -107,3 +107,20 @@ public func >=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible
     lhs.0.constraint(greaterThanOrEqualToConstant: rhs.width).isActive   = true
     lhs.1.constraint(greaterThanOrEqualToConstant: rhs.height).isActive  = true
 }
+
+
+public func ==(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: (NSLayoutDimension, NSLayoutDimension)) {
+    lhs.0.constraint(equalTo: rhs.0).isActive   = true
+    lhs.1.constraint(equalTo: rhs.1).isActive   = true
+}
+
+public func <=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: (NSLayoutDimension, NSLayoutDimension)) {
+    lhs.0.constraint(lessThanOrEqualTo: rhs.0).isActive   = true
+    lhs.1.constraint(lessThanOrEqualTo: rhs.1).isActive   = true
+}
+
+public func >=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: (NSLayoutDimension, NSLayoutDimension)) {
+    lhs.0.constraint(greaterThanOrEqualTo: rhs.0).isActive   = true
+    lhs.1.constraint(greaterThanOrEqualTo: rhs.1).isActive   = true
+}
+
