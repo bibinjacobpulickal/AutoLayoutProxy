@@ -7,7 +7,15 @@
 //
 
 
-public func ==<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: NSLayoutAnchor<AnchorType>) {
+public func ==(lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) {
+    lhs.constraint(equalTo: rhs).isActive = true
+}
+
+public func ==(lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) {
+    lhs.constraint(equalTo: rhs).isActive = true
+}
+
+public func ==(lhs: NSLayoutDimension, rhs: NSLayoutDimension) {
     lhs.constraint(equalTo: rhs).isActive = true
 }
 
