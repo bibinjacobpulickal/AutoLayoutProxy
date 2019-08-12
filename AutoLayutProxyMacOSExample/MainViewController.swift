@@ -12,7 +12,6 @@ class MainViewController: NSViewController {
 
     override func loadView() {
         view        = NSView()
-        view.width  >= 300
-        view.height >= 300
+        view.size   >= 300
     }
 }

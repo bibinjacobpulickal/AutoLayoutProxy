@@ -51,4 +51,12 @@ public extension AutoLayoutable {
     var size: (NSLayoutDimension, NSLayoutDimension) {
         return (widthAnchor, heightAnchor)
     }
+
+    var centers: (NSLayoutXAxisAnchor, NSLayoutYAxisAnchor) {
+        return (centerXAnchor, centerYAnchor)
+    }
+
+    var sides: (NSLayoutYAxisAnchor, NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSLayoutXAxisAnchor) {
+        return (topAnchor, leadingAnchor, bottomAnchor, trailingAnchor)
+    }
 }
