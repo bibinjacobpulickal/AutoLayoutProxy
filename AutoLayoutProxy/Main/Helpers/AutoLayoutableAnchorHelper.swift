@@ -8,27 +8,27 @@
 
 public extension AutoLayoutable {
 
-    var leading: NSLayoutXAxisAnchor {
+    var leading: NSLayoutAnchor<NSLayoutXAxisAnchor> {
         return leadingAnchor
     }
 
-    var trailing: NSLayoutXAxisAnchor {
+    var trailing: NSLayoutAnchor<NSLayoutXAxisAnchor> {
         return trailingAnchor
     }
 
-    var left: NSLayoutXAxisAnchor {
+    var left: NSLayoutAnchor<NSLayoutXAxisAnchor> {
         return leftAnchor
     }
 
-    var right: NSLayoutXAxisAnchor {
+    var right: NSLayoutAnchor<NSLayoutXAxisAnchor> {
         return rightAnchor
     }
 
-    var top: NSLayoutYAxisAnchor {
+    var top: NSLayoutAnchor<NSLayoutYAxisAnchor> {
         return topAnchor
     }
 
-    var bottom: NSLayoutYAxisAnchor {
+    var bottom: NSLayoutAnchor<NSLayoutYAxisAnchor> {
         return bottomAnchor
     }
 
@@ -40,11 +40,11 @@ public extension AutoLayoutable {
         return heightAnchor
     }
 
-    var centerX: NSLayoutXAxisAnchor {
+    var centerX: NSLayoutAnchor<NSLayoutXAxisAnchor> {
         return centerXAnchor
     }
 
-    var centerY: NSLayoutYAxisAnchor {
+    var centerY: NSLayoutAnchor<NSLayoutYAxisAnchor> {
         return centerYAnchor
     }
 
@@ -52,11 +52,20 @@ public extension AutoLayoutable {
         return (widthAnchor, heightAnchor)
     }
 
-    var centers: (NSLayoutXAxisAnchor, NSLayoutYAxisAnchor) {
+    var centers: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
         return (centerXAnchor, centerYAnchor)
     }
 
-    var sides: (NSLayoutYAxisAnchor, NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSLayoutXAxisAnchor) {
+    var horizontal: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>) {
+        return (leadingAnchor, trailingAnchor)
+    }
+
+    var vertical: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
+        return (topAnchor, bottomAnchor)
+    }
+
+    var sides: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>,
+        NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>) {
         return (topAnchor, leadingAnchor, bottomAnchor, trailingAnchor)
     }
 }
