@@ -26,6 +26,7 @@
 		EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC29AB22F3464C006B66FF /* MainViewController.swift */; };
 		EFED406522F4956D00BBCAFF /* AutoLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */; };
 		EFEF4F05230461050053CFD5 /* Anchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF4F04230461050053CFD5 /* Anchorable.swift */; };
+		EFEF4F07230478A70053CFD5 /* AnchorableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF4F06230478A70053CFD5 /* AnchorableExtensions.swift */; };
 		EFF0518222F9EE9200628CAC /* AutoLayoutOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0518122F9EE9200628CAC /* AutoLayoutOperators.swift */; };
 		EFFB521022F545FC00CF055B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB520F22F545FC00CF055B /* AppDelegate.swift */; };
 		EFFB521222F545FF00CF055B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFB521122F545FF00CF055B /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		EFEC29AB22F3464C006B66FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutable.swift; sourceTree = "<group>"; };
 		EFEF4F04230461050053CFD5 /* Anchorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchorable.swift; sourceTree = "<group>"; };
+		EFEF4F06230478A70053CFD5 /* AnchorableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorableExtensions.swift; sourceTree = "<group>"; };
 		EFF0518122F9EE9200628CAC /* AutoLayoutOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutOperators.swift; sourceTree = "<group>"; };
 		EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayutProxyMacOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFB520F22F545FC00CF055B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1470462197F6EB00628DD7 /* AutoLayoutableExtensions.swift */,
+				EFEF4F06230478A70053CFD5 /* AnchorableExtensions.swift */,
 				DBC2F65221A11B8E005ED7FF /* NSLayoutConstraintAttributeExtensions.swift */,
 			);
 			path = Functional;
@@ -336,6 +339,7 @@
 				DBB08F0121E70D5200525CF4 /* Initializable.swift in Sources */,
 				EF707C212301C75900EB3D8A /* AutoLayoutableQuadrupleOperators.swift in Sources */,
 				6BCC05E722F2ECF100430FC0 /* SizeConvertible.swift in Sources */,
+				EFEF4F07230478A70053CFD5 /* AnchorableExtensions.swift in Sources */,
 				DBC2F65421A11B8E005ED7FF /* NSLayoutConstraintAttributeExtensions.swift in Sources */,
 				6B02B18B22F2ACE500FCD2DB /* EdgeInsetConvertible.swift in Sources */,
 				6BCC05E522F2EAD500430FC0 /* MultiplierConvertible.swift in Sources */,
