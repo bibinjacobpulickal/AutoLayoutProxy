@@ -9,7 +9,7 @@
 public extension AutoLayoutable {
 
     func addSubview(
-        _ view: AutoLayoutable,
+        _ view: View,
         anchors: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                       = nil,
         topRelation: NSLayoutConstraint.Relation        = .equal,

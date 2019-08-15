@@ -8,14 +8,16 @@
 
 public protocol AutoLayoutable: AnyObject, Anchorable {
 
+    associatedtype View: AutoLayoutable
+
     var translatesAutoresizingMaskIntoConstraints: Bool { get set }
 
-    func addSubview(_ view: AutoLayoutable)
+    func addSubview(_ view: View)
 }
 
 public extension AutoLayoutable {
 
-    func addSubview(_ view: AutoLayoutable, layout: (() -> Void)) -> Void {
+    func addSubview(_ view: View, layout: (() -> Void)) -> Void {
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         layout()
@@ -23,19 +25,11 @@ public extension AutoLayoutable {
 }
 
 #if canImport(UIKit)
-extension UIView: AutoLayoutable {
-    public func addSubview(_ view: AutoLayoutable) {
-        if let view = view as? UIView {
-            addSubview(view)
-        }
-    }
-}
+
+extension UIView: AutoLayoutable { }
+
 #elseif canImport(Cocoa)
-extension NSView: AutoLayoutable {
-    public func addSubview(_ view: AutoLayoutable) {
-        if let view = view as? NSView {
-            addSubview(view)
-        }
-    }
-}
+
+extension NSView: AutoLayoutable { }
+
 #endif
