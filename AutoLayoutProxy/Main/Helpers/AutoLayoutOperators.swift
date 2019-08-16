@@ -7,24 +7,34 @@
 //
 
 
-public func ==(lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) {
-    lhs.constraint(equalTo: rhs).isActive = true
+@discardableResult public func ==(lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func ==(lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) {
-    lhs.constraint(equalTo: rhs).isActive = true
+@discardableResult public func ==(lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>, rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func ==(lhs: NSLayoutDimension, rhs: NSLayoutDimension) {
-    lhs.constraint(equalTo: rhs).isActive = true
+@discardableResult public func ==(lhs: NSLayoutDimension, rhs: NSLayoutDimension) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: NSLayoutAnchor<AnchorType>) {
-    lhs.constraint(lessThanOrEqualTo: rhs).isActive = true
+@discardableResult public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(lessThanOrEqualTo: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: NSLayoutAnchor<AnchorType>) {
-    lhs.constraint(greaterThanOrEqualTo: rhs).isActive = true
+@discardableResult public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(greaterThanOrEqualTo: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
 
@@ -53,41 +63,59 @@ public func -(lhs: (NSLayoutAnchor<NSLayoutDimension>, CGFloat, CGFloat), rhs: C
 }
 
 
-public func ==<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) {
+@discardableResult public func ==<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) -> NSLayoutConstraint {
     if let lhs = lhs as? NSLayoutDimension,
         let rhsAnchor = rhs.0 as? NSLayoutDimension {
-        lhs.constraint(equalTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(equalTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     } else {
-        lhs.constraint(equalTo: rhs.0, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(equalTo: rhs.0, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     }
 }
 
-public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) {
+@discardableResult public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) -> NSLayoutConstraint {
     if let lhs = lhs as? NSLayoutDimension,
         let rhsAnchor = rhs.0 as? NSLayoutDimension {
-        lhs.constraint(lessThanOrEqualTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(lessThanOrEqualTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     } else {
-        lhs.constraint(lessThanOrEqualTo: rhs.0, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(lessThanOrEqualTo: rhs.0, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     }
 }
 
-public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) {
+@discardableResult public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>, rhs: (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat)) -> NSLayoutConstraint {
     if let lhs = lhs as? NSLayoutDimension,
         let rhsAnchor = rhs.0 as? NSLayoutDimension {
-        lhs.constraint(greaterThanOrEqualTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(greaterThanOrEqualTo: rhsAnchor, multiplier: rhs.1, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     } else {
-        lhs.constraint(greaterThanOrEqualTo: rhs.0, constant: rhs.2).isActive = true
+        let constraint = lhs.constraint(greaterThanOrEqualTo: rhs.0, constant: rhs.2)
+        constraint.isActive = true
+        return constraint
     }
 }
 
-public func ==(lhs: NSLayoutDimension, rhs: CGFloat) {
-    lhs.constraint(equalToConstant: rhs).isActive = true
+@discardableResult public func ==(lhs: NSLayoutDimension, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(equalToConstant: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func <=(lhs: NSLayoutDimension, rhs: CGFloat) {
-    lhs.constraint(lessThanOrEqualToConstant: rhs).isActive = true
+@discardableResult public func <=(lhs: NSLayoutDimension, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(lessThanOrEqualToConstant: rhs)
+    constraint.isActive = true
+    return constraint
 }
 
-public func >=(lhs: NSLayoutDimension, rhs: CGFloat) {
-    lhs.constraint(greaterThanOrEqualToConstant: rhs).isActive = true
+@discardableResult public func >=(lhs: NSLayoutDimension, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.constraint(greaterThanOrEqualToConstant: rhs)
+    constraint.isActive = true
+    return constraint
 }
