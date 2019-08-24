@@ -77,7 +77,7 @@ With AutoLayoutProxy:
 ```swift
 // To Fill super view with a padding of 10 points.
 
-view.addSubview(subview, layout: {
+view.addSubview(subview) {
     subview.sides == view.sides + 10
 }
 // OR
