@@ -22,6 +22,12 @@ public extension AutoLayoutable {
         view.translatesAutoresizingMaskIntoConstraints = false
         layout()
     }
+
+    func addSubview(_ view: View, layout: ((View) -> Void)) -> Void {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        layout(view)
+    }
 }
 
 #if canImport(UIKit)
