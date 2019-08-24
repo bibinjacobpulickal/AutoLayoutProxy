@@ -2,26 +2,11 @@
 //  AutoLayoutableTupleOperators.swift
 //  AutoLayoutProxy
 //
-//  Created by Frankenstein on 12/08/19.
+//  Created by Bibin Jacob Pulickal on 12/08/19.
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-
-public func ==(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
-    lhs.0.constraint(equalToConstant: rhs.width).isActive   = true
-    lhs.1.constraint(equalToConstant: rhs.height).isActive  = true
-}
-
-public func <=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
-    lhs.0.constraint(lessThanOrEqualToConstant: rhs.width).isActive   = true
-    lhs.1.constraint(lessThanOrEqualToConstant: rhs.height).isActive  = true
-}
-
-public func >=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
-    lhs.0.constraint(greaterThanOrEqualToConstant: rhs.width).isActive   = true
-    lhs.1.constraint(greaterThanOrEqualToConstant: rhs.height).isActive  = true
-}
-
+// MARK: - Double Anchor Constraint
 
 public func ==<LeftAnchorType, RightAnchorType>(lhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>),
                                                 rhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>)) {
@@ -41,6 +26,24 @@ public func >=<LeftAnchorType, RightAnchorType>(lhs: (NSLayoutAnchor<LeftAnchorT
     lhs.1.constraint(greaterThanOrEqualTo: rhs.1).isActive   = true
 }
 
+// MARK: - Double Dimension Anchor Constraint With Constant And Relation
+
+public func ==(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
+    lhs.0.constraint(equalToConstant: rhs.width).isActive   = true
+    lhs.1.constraint(equalToConstant: rhs.height).isActive  = true
+}
+
+public func <=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
+    lhs.0.constraint(lessThanOrEqualToConstant: rhs.width).isActive   = true
+    lhs.1.constraint(lessThanOrEqualToConstant: rhs.height).isActive  = true
+}
+
+public func >=(lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertible) {
+    lhs.0.constraint(greaterThanOrEqualToConstant: rhs.width).isActive   = true
+    lhs.1.constraint(greaterThanOrEqualToConstant: rhs.height).isActive  = true
+}
+
+// MARK: - Double Anchor And Constant Combinations
 
 public func +(lhs: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>),
               rhs: OffsetConvertible)
@@ -60,6 +63,7 @@ public func +(lhs: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayout
         return (lhs.0, lhs.1, rhs.top, rhs.bottom)
 }
 
+// MARK: - Double Anchor Constraint With Constant And Relation
 
 public func ==<LeftAnchorType, RightAnchorType>(lhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>),
                                                 rhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>, CGFloat, CGFloat)) {

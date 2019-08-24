@@ -2,7 +2,7 @@
 //  AutoLayoutOperators.swift
 //  AutoLayoutProxy
 //
-//  Created by Frankenstein on 06/08/19.
+//  Created by Bibin Jacob Pulickal on 06/08/19.
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
@@ -89,7 +89,7 @@ public func !>=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
     return constraint
 }
 
-// MARK: - Single Anchor Constant Combinations
+// MARK: - Single Anchor And Constant Combinations
 
 public func +<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                           rhs: CGFloat) -> (NSLayoutAnchor<AnchorType>, CGFloat, CGFloat) {

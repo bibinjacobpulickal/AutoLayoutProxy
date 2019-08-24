@@ -2,10 +2,11 @@
 //  AutoLayoutableQuadrupleOperators.swift
 //  AutoLayoutProxy
 //
-//  Created by Frankenstein on 12/08/19.
+//  Created by Bibin Jacob Pulickal on 12/08/19.
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
+// MARK: - Quadruple Anchor Constraint With Relation
 
 public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: (NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>, NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>),
@@ -34,6 +35,7 @@ public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
     lhs.3.constraint(greaterThanOrEqualTo: rhs.3).isActive   = true
 }
 
+// MARK: - Quadruple Anchor And Constant Combinations
 
 public func +(lhs: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
               rhs: EdgeInsetConvertible)
@@ -41,6 +43,7 @@ public func +(lhs: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayout
         return (lhs.0, lhs.1, lhs.2, lhs.3, rhs)
 }
 
+// MARK: - Quadruple Anchor Constraint With Constant And Relation
 
 public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: (NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>, NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>),
