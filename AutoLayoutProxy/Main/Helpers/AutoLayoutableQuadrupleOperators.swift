@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-// MARK: - Quadruple Anchor Constraint With Relation
+// MARK: Quadruple Anchor Constraint With Relation
 
 public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: (NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>, NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>),

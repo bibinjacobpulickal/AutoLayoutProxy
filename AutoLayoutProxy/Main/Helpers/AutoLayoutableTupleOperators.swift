@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-// MARK: - Double Anchor Constraint
+// MARK: Double Anchor Constraint
 
 public func ==<LeftAnchorType, RightAnchorType>(lhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>),
                                                 rhs: (NSLayoutAnchor<LeftAnchorType>, NSLayoutAnchor<RightAnchorType>)) {

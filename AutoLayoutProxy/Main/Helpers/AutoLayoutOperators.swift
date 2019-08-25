@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-// MARK: - Operator Declarations
+// MARK: Operator Declarations
 
 infix operator !<=
 infix operator !>=
