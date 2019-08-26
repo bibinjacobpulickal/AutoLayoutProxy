@@ -9,11 +9,11 @@
 public extension Set where Element == NSLayoutConstraint.Attribute {
 
     static var allSides: Set<NSLayoutConstraint.Attribute> {
-        return [.top, .left, .bottom, .right]
+        return [.top, .leading, .bottom, .trailing]
     }
 
     static var horizontal: Set<NSLayoutConstraint.Attribute> {
-        return [.left, .right]
+        return [.leading, .trailing]
     }
 
     static var vertical: Set<NSLayoutConstraint.Attribute> {
