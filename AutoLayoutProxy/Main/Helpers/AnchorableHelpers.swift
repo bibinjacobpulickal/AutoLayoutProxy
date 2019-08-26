@@ -64,8 +64,8 @@ public extension Anchorable {
         return (topAnchor, bottomAnchor)
     }
 
-    var sides: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>,
-        NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>) {
-        return (topAnchor, leadingAnchor, bottomAnchor, trailingAnchor)
+    var sides: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
+        (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)) {
+        return ((topAnchor, leadingAnchor), (bottomAnchor, trailingAnchor))
     }
 }
