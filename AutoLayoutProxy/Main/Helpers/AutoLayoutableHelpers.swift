@@ -19,4 +19,10 @@ public extension AutoLayoutable {
         view.translatesAutoresizingMaskIntoConstraints = false
         layout(view)
     }
+
+    func addSubview(_ view: View, layout: ((View, Self) -> Void)) {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        layout(view, self)
+    }
 }

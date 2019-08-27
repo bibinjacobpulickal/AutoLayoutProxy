@@ -13,8 +13,9 @@ class MainViewController: NSViewController {
     override func loadView() {
         view            = NSView()
         view.size       >= 300
-        view.addSubview(NSView(color: .purple)) {
-            $0.sides    == view.sides + 10
+        let subView     = NSView(color: .purple)
+        view.addSubview(subView) {
+            $0.sides    == $1.sides + 10
         }
     }
 }
