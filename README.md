@@ -7,6 +7,95 @@ AutoLayoutProxy is a convenient way for creating and constraining views. Avoid r
 [![Version](https://img.shields.io/cocoapods/v/AutoLayoutProxy.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy)
 [![License](http://img.shields.io/cocoapods/l/AutoLayoutProxy.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy/blob/master/LICENSE)
 
+## Why use AutoLayoutProxy?
+
+Have you ever had to write lines and lines of code to add subviews and anchor them like the following:
+```swift
+view.addSubview(subview)
+subview.translatesAutoresizingMaskIntoConstraints = false
+
+subview.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+...
+subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+```
+
+Worry no more AutoLayoutProxy helps you with this situation as follows:
+```swift
+view.addSubview(subview) {
+    subview.top      == view.bottom
+    ...
+    subview.trailing == view.trailing
+}
+// Or in short
+view.addSubview(subview) {
+    $0.sides == $1.sides
+}
+```
+
+You see thats all thats required. Now, you might be wondering what would you do if you had to make a constraint with a relation that's not equal but, less than or greater than, like the following:
+```swift
+subview.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: -8).isActive = true
+subview.trailingAnchor.constraint(greaterThanOrEqualTo: view.trailingAnchor: constant: 16).isActive = true
+```
+
+AutoLayoutProxy let's you do this:
+```swift
+subview.leading  <= view.leading
+subview.trailing >= view.trailing
+```
+
+In the case of constants you can add or substract them in the same expresion, so instead of this:
+```swift
+subview.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 16).isActive = true
+subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -32).isActive = true
+```
+
+You only need this:
+subview.top     == view.bottom + 16
+subview.leading == view.trailing - 32
+If you would like to get the constraint for animations or reference in future, just do:
+```swift
+let subviewTopConstraint      = subview.top == view.bottom + 16
+subviewTopConstraint.constant = 32
+```
+
+If you don't want the constraints to not be active on the first go just do, '!=' or even '!<=' and '!>=', like the following:
+```swift
+subview.top      != view.bottom
+subview.leading  !<= view.leading
+subview.trailing !>= view.trailing
+```
+
+In case of dimensions like height or width:
+```swift
+subview.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2, constant: 8).isActive = true
+subview.heightAnchor.constraint(equalToConstant: 64).isActive = true
+```
+You only need this:
+```swift
+subview.width  == view.width * 2 + 8
+subview.height == 64
+```
+For addSubview and translatesAutoresizingMaskIntoConstraints = false you could just write a closure as follows:
+```swift
+view.addSubview(subview) {
+  subview.sides <= view.sides
+}
+```
+You also have other helpers like sides that include all sides, and size which takes a CGSize and also both horizontal and vertical constraints and centers.
+```swift
+// Constraint all sides with a padding of 2
+subview.sides == view.sides + 2
+// Constraint both centers with offsets 4 and 8.
+subview.centers == view.center + UIOffset(x: 4, y: 8)
+// Constraint vertical(top and bottom) or horizontal(leading and trailing)
+subview.vertical   == view.vertical
+subview.horizontal == view.horizontal
+// Constraint size either with CGSize or both sides 64
+subview.size == CGSize(w: 8, h: 16)
+subview.size == 64
+```
+
 ## Installation
 
 ### CocoaPods
@@ -45,64 +134,6 @@ $ pod install
 - iOS 9.0+
 - Xcode 8.3+
 - Swift 3.0+
-
-Without AutoLayoutProxy:
------
-
-```swift
-// To Fill super view with a padding of 10 points.
-
-view.addSubview(subview)
-subview.translatesAutoresizingMaskIntoConstraints = false
-
-subview.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive            = true
-subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive    = true
-subview.bottomAnchor.constraint(equalTo:  view.bottomAnchor, constant: -10).isActive    = true
-subview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-
-// Or to give complex constraints.
-
-view.addSubview(subview)
-subview.translatesAutoresizingMaskIntoConstraints = false
-
-subview.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-subview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-subview.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 32).isActive = true
-subview.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -32).isActive = true
-```
-
-With AutoLayoutProxy:
------
-
-```swift
-// To Fill super view with a padding of 10 points.
-
-view.addSubview(subview) {
-    subview.sides == view.sides + 10
-}
-// OR
-view.addSubview(subview, 
-                anchors: .allSides,
-                inset: 10)
-
-// Or to give complex constraints.
-
-view.addSubview(subview, layout: { subview in
-    subview.top     >= view.safeAreaLayoutGuide.topAnchor + 16
-    subview.centerX == view.centerXAnchor
-    subview.width   <= view.frame.width - 32
-    subview.height  == view.safeAreaLayoutGuide.heightAnchor / 2 - 32
-})
-// OR
-view.addSubview(subview,
-                anchors: [.centerX],
-                top: view.safeAreaLayoutGuide.topAnchor,
-                topRelation: .greaterThanOrEqual,
-                widthRelation: .lessThanOrEqual,
-                height: view.safeAreaLayoutGuide.heightAnchor,
-                multiplier: 0.5,
-                size: CGSize(w: view.frame.width - 32))
-```
 
 ## License
 AutoLayoutProxy is released under the MIT license.  
