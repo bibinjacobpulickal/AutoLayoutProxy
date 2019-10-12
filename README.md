@@ -86,11 +86,20 @@ You also have other helpers like sides that include all sides, and size which ta
 ```swift
 // Constraint all sides with a padding of 2
 subview.sides == view.sides + 2
+
+// Constraint all sides with different padding on each side.
+subview.sides == view.sides + UIEdgeInsets(t: 1, l: 2, b: 4, r: 8)
+
+// Align both centers of view and subview
+subview.centers == view.centers
+
 // Constraint both centers with offsets 4 and 8.
-subview.centers == view.center + UIOffset(x: 4, y: 8)
+subview.centers == view.centers + UIOffset(x: 4, y: 8)
+
 // Constraint vertical(top and bottom) or horizontal(leading and trailing)
 subview.vertical   == view.vertical
 subview.horizontal == view.horizontal
+
 // Constraint size either with CGSize or both sides 64
 subview.size == CGSize(w: 8, h: 16)
 subview.size == 64
