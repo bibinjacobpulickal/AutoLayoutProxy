@@ -17,3 +17,9 @@ public func create<Object>(_ setup: (Object) -> Void) -> Object where Object: In
     setup(object)
     return object
 }
+
+public func create<T>(_ object: T, _ setup: (inout T) -> Void) -> T {
+    var object = object
+    setup(&object)
+    return object
+}
