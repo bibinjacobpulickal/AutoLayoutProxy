@@ -13,28 +13,20 @@ public protocol MultiplierConvertible {
 
 extension CGMultiplier: MultiplierConvertible {
 
-    public var multiplierValue: CGMultiplier {
-        return self
-    }
+    public var multiplierValue: CGMultiplier { self }
 }
 
 extension CGFloat: MultiplierConvertible {
 
-    public var multiplierValue: CGMultiplier {
-        return CGMultiplier(self)
-    }
+    public var multiplierValue: CGMultiplier { CGMultiplier(self) }
 }
 
 extension Double: MultiplierConvertible {
 
-    public var multiplierValue: CGMultiplier {
-        return CGMultiplier(CGFloat(self))
-    }
+    public var multiplierValue: CGMultiplier { CGMultiplier(CGFloat(self)) }
 }
 
 extension Int: MultiplierConvertible {
 
-    public var multiplierValue: CGMultiplier {
-        return CGMultiplier(CGFloat(self))
-    }
+    public var multiplierValue: CGMultiplier { CGMultiplier(CGFloat(self)) }
 }

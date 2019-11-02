@@ -51,19 +51,19 @@ public func >= (lhs: (NSLayoutDimension, NSLayoutDimension), rhs: SizeConvertibl
 public func + (lhs: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>),
                rhs: OffsetConvertible)
     -> ((NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>), (CGFloat, CGFloat)) {
-        return ((lhs.0, lhs.1), (rhs.horizontal, rhs.vertical))
+        ((lhs.0, lhs.1), (rhs.horizontal, rhs.vertical))
 }
 
 public func + (lhs: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
                rhs: EdgeInsetConvertible)
     -> ((NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>), (CGFloat, CGFloat)) {
-        return ((lhs.0, lhs.1), (rhs.left, rhs.right))
+        ((lhs.0, lhs.1), (rhs.left, rhs.right))
 }
 
 public func + (lhs: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>),
                rhs: EdgeInsetConvertible)
     -> ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>), (CGFloat, CGFloat)) {
-        return ((lhs.0, lhs.1), (rhs.top, rhs.bottom))
+        ((lhs.0, lhs.1), (rhs.top, rhs.bottom))
 }
 
 // MARK: - Double Anchor Constraint With Constant And Relation

@@ -29,57 +29,33 @@ extension NSEdgeInsets: EdgeInsetConvertible { }
 
 extension CGFloat: EdgeInsetConvertible {
 
-    public var top: CGFloat {
-        return self
-    }
+    public var top: CGFloat { self }
 
-    public var left: CGFloat {
-        return self
-    }
+    public var left: CGFloat { self }
 
-    public var bottom: CGFloat {
-        return -self
-    }
+    public var bottom: CGFloat { -self }
 
-    public var right: CGFloat {
-        return -self
-    }
+    public var right: CGFloat { -self }
 }
 
 extension Double: EdgeInsetConvertible {
 
-    public var top: CGFloat {
-        return CGFloat(self)
-    }
+    public var top: CGFloat { CGFloat(self) }
 
-    public var left: CGFloat {
-        return CGFloat(self)
-    }
+    public var left: CGFloat { CGFloat(self) }
 
-    public var bottom: CGFloat {
-        return -CGFloat(self)
-    }
+    public var bottom: CGFloat { -CGFloat(self) }
 
-    public var right: CGFloat {
-        return -CGFloat(self)
-    }
+    public var right: CGFloat { -CGFloat(self) }
 }
 
 extension Int: EdgeInsetConvertible {
 
-    public var top: CGFloat {
-        return CGFloat(self)
-    }
+    public var top: CGFloat { CGFloat(self) }
 
-    public var left: CGFloat {
-        return CGFloat(self)
-    }
+    public var left: CGFloat { CGFloat(self) }
 
-    public var bottom: CGFloat {
-        return -CGFloat(self)
-    }
+    public var bottom: CGFloat { -CGFloat(self) }
 
-    public var right: CGFloat {
-        return -CGFloat(self)
-    }
+    public var right: CGFloat { -CGFloat(self) }
 }

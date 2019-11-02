@@ -17,33 +17,21 @@ extension CGSize: SizeConvertible { }
 
 extension CGFloat: SizeConvertible {
 
-    public var width: CGFloat {
-        return self
-    }
+    public var width: CGFloat { self }
 
-    public var height: CGFloat {
-        return self
-    }
+    public var height: CGFloat { self }
 }
 
 extension Double: SizeConvertible {
 
-    public var width: CGFloat {
-        return CGFloat(self)
-    }
+    public var width: CGFloat { CGFloat(self) }
 
-    public var height: CGFloat {
-        return CGFloat(self)
-    }
+    public var height: CGFloat { CGFloat(self) }
 }
 
 extension Int: SizeConvertible {
 
-    public var width: CGFloat {
-        return CGFloat(self)
-    }
+    public var width: CGFloat { CGFloat(self) }
 
-    public var height: CGFloat {
-        return CGFloat(self)
-    }
+    public var height: CGFloat { CGFloat(self) }
 }

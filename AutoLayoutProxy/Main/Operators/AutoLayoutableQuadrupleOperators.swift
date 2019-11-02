@@ -48,7 +48,7 @@ public func + (lhs: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayo
                rhs: EdgeInsetConvertible)
     -> (((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
     (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)), EdgeInsetConvertible) {
-        return (lhs, rhs)
+        (lhs, rhs)
 }
 
 // MARK: - Quadruple Anchor Constraint With Constant And Relation

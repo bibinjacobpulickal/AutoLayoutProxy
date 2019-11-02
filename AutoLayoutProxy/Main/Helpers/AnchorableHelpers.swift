@@ -9,63 +9,63 @@
 public extension Anchorable {
 
     var leading: NSLayoutAnchor<NSLayoutXAxisAnchor> {
-        return leadingAnchor
+        leadingAnchor
     }
 
     var trailing: NSLayoutAnchor<NSLayoutXAxisAnchor> {
-        return trailingAnchor
+        trailingAnchor
     }
 
     var left: NSLayoutAnchor<NSLayoutXAxisAnchor> {
-        return leftAnchor
+        leftAnchor
     }
 
     var right: NSLayoutAnchor<NSLayoutXAxisAnchor> {
-        return rightAnchor
+        rightAnchor
     }
 
     var top: NSLayoutAnchor<NSLayoutYAxisAnchor> {
-        return topAnchor
+        topAnchor
     }
 
     var bottom: NSLayoutAnchor<NSLayoutYAxisAnchor> {
-        return bottomAnchor
+        bottomAnchor
     }
 
     var width: NSLayoutDimension {
-        return widthAnchor
+        widthAnchor
     }
 
     var height: NSLayoutDimension {
-        return heightAnchor
+        heightAnchor
     }
 
     var centerX: NSLayoutAnchor<NSLayoutXAxisAnchor> {
-        return centerXAnchor
+        centerXAnchor
     }
 
     var centerY: NSLayoutAnchor<NSLayoutYAxisAnchor> {
-        return centerYAnchor
+        centerYAnchor
     }
 
     var size: (NSLayoutDimension, NSLayoutDimension) {
-        return (widthAnchor, heightAnchor)
+        (widthAnchor, heightAnchor)
     }
 
     var centers: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
-        return (centerXAnchor, centerYAnchor)
+        (centerXAnchor, centerYAnchor)
     }
 
     var horizontal: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>) {
-        return (leadingAnchor, trailingAnchor)
+        (leadingAnchor, trailingAnchor)
     }
 
     var vertical: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
-        return (topAnchor, bottomAnchor)
+        (topAnchor, bottomAnchor)
     }
 
     var sides: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
         (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)) {
-        return ((topAnchor, leadingAnchor), (bottomAnchor, trailingAnchor))
+        ((topAnchor, leadingAnchor), (bottomAnchor, trailingAnchor))
     }
 }

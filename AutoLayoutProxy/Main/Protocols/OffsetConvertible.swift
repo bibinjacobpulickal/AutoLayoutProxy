@@ -25,33 +25,21 @@ extension NSOffset: OffsetConvertible { }
 
 extension CGFloat: OffsetConvertible {
 
-    public var horizontal: CGFloat {
-        return self
-    }
+    public var horizontal: CGFloat { self }
 
-    public var vertical: CGFloat {
-        return self
-    }
+    public var vertical: CGFloat { self }
 }
 
 extension Double: OffsetConvertible {
 
-    public var horizontal: CGFloat {
-        return CGFloat(self)
-    }
+    public var horizontal: CGFloat { CGFloat(self) }
 
-    public var vertical: CGFloat {
-        return CGFloat(self)
-    }
+    public var vertical: CGFloat { CGFloat(self) }
 }
 
 extension Int: OffsetConvertible {
 
-    public var horizontal: CGFloat {
-        return CGFloat(self)
-    }
+    public var horizontal: CGFloat { CGFloat(self) }
 
-    public var vertical: CGFloat {
-        return CGFloat(self)
-    }
+    public var vertical: CGFloat { CGFloat(self) }
 }

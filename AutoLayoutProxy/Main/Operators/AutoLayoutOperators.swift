@@ -93,32 +93,32 @@ public func !>=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
 
 public func +<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                           rhs: CGFloat) -> (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)) {
-    return (lhs, (1, rhs))
+    (lhs, (1, rhs))
 }
 
 public func -<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                           rhs: CGFloat) -> (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)) {
-    return (lhs, (1, -rhs))
+    (lhs, (1, -rhs))
 }
 
 public func * (lhs: NSLayoutAnchor<NSLayoutDimension>,
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
-    return (lhs, (rhs, 0))
+    (lhs, (rhs, 0))
 }
 
 public func / (lhs: NSLayoutAnchor<NSLayoutDimension>,
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
-    return (lhs, (1/rhs, 0))
+    (lhs, (1/rhs, 0))
 }
 
 public func + (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
-    return (lhs.0, (lhs.1.0, rhs))
+    (lhs.0, (lhs.1.0, rhs))
 }
 
 public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
-    return (lhs.0, (lhs.1.0, -rhs))
+    (lhs.0, (lhs.1.0, -rhs))
 }
 
 // MARK: - Single Anchor Constraint With Constant, Relation And Active Status
