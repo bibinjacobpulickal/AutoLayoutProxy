@@ -38,7 +38,7 @@ public extension AutoLayoutable {
 
         addSubview(view)
 
-        view.translatesAutoresizingMaskIntoConstraints  = false
+        view.tamic = false
 
         anchorView(
             view,

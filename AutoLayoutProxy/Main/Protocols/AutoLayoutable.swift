@@ -15,6 +15,18 @@ public protocol AutoLayoutable: AnyObject, Anchorable {
     func addSubview(_ view: View)
 }
 
+extension AutoLayoutable {
+
+    var tamic: Bool {
+        set {
+            translatesAutoresizingMaskIntoConstraints = newValue
+        }
+        get {
+            translatesAutoresizingMaskIntoConstraints
+        }
+    }
+}
+
 #if canImport(UIKit)
 
 extension UIView: AutoLayoutable { }
