@@ -6,6 +6,12 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
+import Cocoa
+#endif
+
 public extension CGSize {
 
     init(w width: CGFloat = 0, h height: CGFloat = 0) {

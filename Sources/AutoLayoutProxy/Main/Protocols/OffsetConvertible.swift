@@ -6,6 +6,12 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
+import Cocoa
+#endif
+
 public protocol OffsetConvertible {
 
     var horizontal: CGFloat { get }

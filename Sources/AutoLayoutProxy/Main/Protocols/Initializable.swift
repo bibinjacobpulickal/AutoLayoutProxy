@@ -6,6 +6,10 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 public protocol Initializable {
     init()
 }

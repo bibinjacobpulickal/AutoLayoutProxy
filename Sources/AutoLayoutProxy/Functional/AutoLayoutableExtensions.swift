@@ -6,6 +6,13 @@
 //  Copyright © 2018 Bibin Jacob Pulickal. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
+import Cocoa
+#endif
+
+@available(OSX 10.11, *)
 public extension AutoLayoutable {
 
     func addSubview(

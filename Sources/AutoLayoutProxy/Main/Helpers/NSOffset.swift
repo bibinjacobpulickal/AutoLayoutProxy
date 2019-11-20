@@ -7,6 +7,7 @@
 //
 
 #if canImport(Cocoa)
+import Cocoa
 
 public struct NSOffset {
 

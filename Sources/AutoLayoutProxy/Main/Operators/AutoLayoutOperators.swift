@@ -6,6 +6,12 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
+import Cocoa
+#endif
+
 // MARK: Operator Declarations
 
 infix operator !<=
@@ -13,6 +19,7 @@ infix operator !>=
 
 // MARK: - Single Anchor Constraint With Active Status
 
+@available(OSX 10.11, *)
 @discardableResult public func == (lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>,
                                    rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -20,6 +27,7 @@ infix operator !>=
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func == (lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>,
                                    rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -27,6 +35,7 @@ infix operator !>=
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func == (lhs: NSLayoutDimension,
                                    rhs: NSLayoutDimension) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -36,6 +45,7 @@ infix operator !>=
 
 // MARK: - Single Anchor Constraint With Inactive Status
 
+@available(OSX 10.11, *)
 public func != (lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>,
                 rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -43,6 +53,7 @@ public func != (lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>,
     return constraint
 }
 
+@available(OSX 10.11, *)
 public func != (lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>,
                 rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -50,6 +61,7 @@ public func != (lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>,
     return constraint
 }
 
+@available(OSX 10.11, *)
 public func != (lhs: NSLayoutDimension,
                 rhs: NSLayoutDimension) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
@@ -59,6 +71,7 @@ public func != (lhs: NSLayoutDimension,
 
 // MARK: - Single Anchor Constraint With Relation And Active Status
 
+@available(OSX 10.11, *)
 @discardableResult public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                               rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(lessThanOrEqualTo: rhs)
@@ -66,6 +79,7 @@ public func != (lhs: NSLayoutDimension,
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                               rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(greaterThanOrEqualTo: rhs)
@@ -75,6 +89,7 @@ public func != (lhs: NSLayoutDimension,
 
 // MARK: - Single Anchor Constraint With Relation And Inactive Status
 
+@available(OSX 10.11, *)
 public func !<=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                             rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(lessThanOrEqualTo: rhs)
@@ -82,6 +97,7 @@ public func !<=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
     return constraint
 }
 
+@available(OSX 10.11, *)
 public func !>=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                             rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(greaterThanOrEqualTo: rhs)
@@ -91,31 +107,37 @@ public func !>=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
 
 // MARK: - Single Anchor And Constant Combinations
 
+@available(OSX 10.11, *)
 public func +<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                           rhs: CGFloat) -> (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)) {
     (lhs, (1, rhs))
 }
 
+@available(OSX 10.11, *)
 public func -<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                           rhs: CGFloat) -> (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)) {
     (lhs, (1, -rhs))
 }
 
+@available(OSX 10.11, *)
 public func * (lhs: NSLayoutAnchor<NSLayoutDimension>,
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
     (lhs, (rhs, 0))
 }
 
+@available(OSX 10.11, *)
 public func / (lhs: NSLayoutAnchor<NSLayoutDimension>,
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
     (lhs, (1/rhs, 0))
 }
 
+@available(OSX 10.11, *)
 public func + (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
     (lhs.0, (lhs.1.0, rhs))
 }
 
+@available(OSX 10.11, *)
 public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
                rhs: CGFloat) -> (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)) {
     (lhs.0, (lhs.1.0, -rhs))
@@ -123,6 +145,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
 
 // MARK: - Single Anchor Constraint With Constant, Relation And Active Status
 
+@available(OSX 10.11, *)
 @discardableResult public func ==<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                               rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -140,6 +163,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     }
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func <=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                               rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -157,6 +181,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     }
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func >=<AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                               rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -176,6 +201,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
 
 // MARK: - Single Anchor Constraint With Constant, Relation And Inactive Status
 
+@available(OSX 10.11, *)
 @discardableResult public func != <AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                                rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -193,6 +219,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     }
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func !<= <AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                                 rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -210,6 +237,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     }
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func !>= <AnchorType>(lhs: NSLayoutAnchor<AnchorType>,
                                                 rhs: (NSLayoutAnchor<AnchorType>, (CGFloat, CGFloat)))
     -> NSLayoutConstraint {
@@ -229,6 +257,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
 
 // MARK: - Single Dimension Anchor Constraint With Constant, Relation And Active Status
 
+@available(OSX 10.11, *)
 @discardableResult public func == (lhs: NSLayoutDimension,
                                    rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalToConstant: rhs)
@@ -236,6 +265,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func <= (lhs: NSLayoutDimension,
                                    rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(lessThanOrEqualToConstant: rhs)
@@ -243,6 +273,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func >= (lhs: NSLayoutDimension,
                                    rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(greaterThanOrEqualToConstant: rhs)
@@ -252,6 +283,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
 
 // MARK: - Single Dimension Anchor Constraint With Constant, Relation And Inactive Status
 
+@available(OSX 10.11, *)
 @discardableResult public func != (lhs: NSLayoutDimension,
                                    rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalToConstant: rhs)
@@ -259,6 +291,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func !<= (lhs: NSLayoutDimension,
                                     rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(lessThanOrEqualToConstant: rhs)
@@ -266,6 +299,7 @@ public func - (lhs: (NSLayoutAnchor<NSLayoutDimension>, (CGFloat, CGFloat)),
     return constraint
 }
 
+@available(OSX 10.11, *)
 @discardableResult public func !>= (lhs: NSLayoutDimension,
                                     rhs: CGFloat) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(greaterThanOrEqualToConstant: rhs)
