@@ -12,7 +12,6 @@ import UIKit
 import Cocoa
 #endif
 
-@available(OSX 10.11, *)
 public extension Anchorable {
 
     var leading: NSLayoutAnchor<NSLayoutXAxisAnchor> {

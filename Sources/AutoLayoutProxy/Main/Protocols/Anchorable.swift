@@ -12,7 +12,6 @@ import UIKit
 import Cocoa
 #endif
 
-@available(OSX 10.11, *)
 public protocol Anchorable {
 
     var leadingAnchor: NSLayoutXAxisAnchor { get }

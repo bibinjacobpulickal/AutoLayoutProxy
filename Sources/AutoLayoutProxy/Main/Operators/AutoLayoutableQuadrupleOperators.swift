@@ -14,7 +14,6 @@ import Cocoa
 
 // MARK: Quadruple Anchor Constraint With Relation
 
-@available(OSX 10.11, *)
 public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
@@ -26,7 +25,6 @@ public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
     lhs.1.1.constraint(equalTo: rhs.1.1).isActive   = true
 }
 
-@available(OSX 10.11, *)
 public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
@@ -38,7 +36,6 @@ public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
     lhs.1.1.constraint(lessThanOrEqualTo: rhs.1.1).isActive   = true
 }
 
-@available(OSX 10.11, *)
 public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
@@ -52,7 +49,6 @@ public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
 
 // MARK: - Quadruple Anchor And Constant Combinations
 
-@available(OSX 10.11, *)
 public func + (lhs: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
     (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)),
                rhs: EdgeInsetConvertible)
@@ -63,7 +59,6 @@ public func + (lhs: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayo
 
 // MARK: - Quadruple Anchor Constraint With Constant And Relation
 
-@available(OSX 10.11, *)
 public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
@@ -75,7 +70,6 @@ public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
     lhs.1.1.constraint(equalTo: rhs.0.1.1, constant: rhs.1.right).isActive  = true
 }
 
-@available(OSX 10.11, *)
 public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
@@ -87,7 +81,6 @@ public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorT
     lhs.1.1.constraint(lessThanOrEqualTo: rhs.0.1.1, constant: rhs.1.right).isActive  = true
 }
 
-@available(OSX 10.11, *)
 public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
