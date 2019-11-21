@@ -16,31 +16,31 @@ public extension Anchorable {
 
     func anchorView(
         _ view: Anchorable,
-        anchors: Set<NSLayoutConstraint.Attribute>      = [],
-        top: NSLayoutYAxisAnchor?                       = nil,
-        topRelation: NSLayoutConstraint.Relation        = .equal,
-        left: NSLayoutXAxisAnchor?                      = nil,
-        leftRelation: NSLayoutConstraint.Relation       = .equal,
-        leading: NSLayoutXAxisAnchor?                   = nil,
-        leadingRelation: NSLayoutConstraint.Relation    = .equal,
-        bottom: NSLayoutYAxisAnchor?                    = nil,
-        bottomRelation: NSLayoutConstraint.Relation     = .equal,
-        right: NSLayoutXAxisAnchor?                     = nil,
-        rightRelation: NSLayoutConstraint.Relation      = .equal,
-        trailing: NSLayoutXAxisAnchor?                  = nil,
-        trailingRelation: NSLayoutConstraint.Relation   = .equal,
-        inset: EdgeInsetConvertible                     = 0,
-        centerX: NSLayoutXAxisAnchor?                   = nil,
-        centerXRelation: NSLayoutConstraint.Relation    = .equal,
-        centerY: NSLayoutYAxisAnchor?                   = nil,
-        centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: OffsetConvertible                       = 0,
-        width: NSLayoutDimension?                       = nil,
-        widthRelation: NSLayoutConstraint.Relation      = .equal,
-        height: NSLayoutDimension?                      = nil,
-        heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: MultiplierConvertible               = 1,
-        size: SizeConvertible                           = 0) {
+        anchors: Set<NSLayoutConstraint.Attribute>    = [],
+        top: NSLayoutYAxisAnchor?                     = nil,
+        topRelation: NSLayoutConstraint.Relation      = .equal,
+        left: NSLayoutXAxisAnchor?                    = nil,
+        leftRelation: NSLayoutConstraint.Relation     = .equal,
+        leading: NSLayoutXAxisAnchor?                 = nil,
+        leadingRelation: NSLayoutConstraint.Relation  = .equal,
+        bottom: NSLayoutYAxisAnchor?                  = nil,
+        bottomRelation: NSLayoutConstraint.Relation   = .equal,
+        right: NSLayoutXAxisAnchor?                   = nil,
+        rightRelation: NSLayoutConstraint.Relation    = .equal,
+        trailing: NSLayoutXAxisAnchor?                = nil,
+        trailingRelation: NSLayoutConstraint.Relation = .equal,
+        inset: EdgeInsetConvertible                   = 0,
+        centerX: NSLayoutXAxisAnchor?                 = nil,
+        centerXRelation: NSLayoutConstraint.Relation  = .equal,
+        centerY: NSLayoutYAxisAnchor?                 = nil,
+        centerYRelation: NSLayoutConstraint.Relation  = .equal,
+        offset: OffsetConvertible                     = 0,
+        width: NSLayoutDimension?                     = nil,
+        widthRelation: NSLayoutConstraint.Relation    = .equal,
+        height: NSLayoutDimension?                    = nil,
+        heightRelation: NSLayoutConstraint.Relation   = .equal,
+        multiplier: MultiplierConvertible             = 1,
+        size: SizeConvertible                         = 0) {
 
         anchorEdges(
             view,
@@ -79,20 +79,20 @@ public extension Anchorable {
 
     func anchorEdges(
         _ view: Anchorable,
-        sides: Set<NSLayoutConstraint.Attribute>        = [],
-        top: NSLayoutYAxisAnchor?                       = nil,
-        topRelation: NSLayoutConstraint.Relation        = .equal,
-        left: NSLayoutXAxisAnchor?                      = nil,
-        leftRelation: NSLayoutConstraint.Relation       = .equal,
-        leading: NSLayoutXAxisAnchor?                   = nil,
-        leadingRelation: NSLayoutConstraint.Relation    = .equal,
-        bottom: NSLayoutYAxisAnchor?                    = nil,
-        bottomRelation: NSLayoutConstraint.Relation     = .equal,
-        right: NSLayoutXAxisAnchor?                     = nil,
-        rightRelation: NSLayoutConstraint.Relation      = .equal,
-        trailing: NSLayoutXAxisAnchor?                  = nil,
-        trailingRelation: NSLayoutConstraint.Relation   = .equal,
-        inset: EdgeInsetConvertible                     = 0) {
+        sides: Set<NSLayoutConstraint.Attribute>      = [],
+        top: NSLayoutYAxisAnchor?                     = nil,
+        topRelation: NSLayoutConstraint.Relation      = .equal,
+        left: NSLayoutXAxisAnchor?                    = nil,
+        leftRelation: NSLayoutConstraint.Relation     = .equal,
+        leading: NSLayoutXAxisAnchor?                 = nil,
+        leadingRelation: NSLayoutConstraint.Relation  = .equal,
+        bottom: NSLayoutYAxisAnchor?                  = nil,
+        bottomRelation: NSLayoutConstraint.Relation   = .equal,
+        right: NSLayoutXAxisAnchor?                   = nil,
+        rightRelation: NSLayoutConstraint.Relation    = .equal,
+        trailing: NSLayoutXAxisAnchor?                = nil,
+        trailingRelation: NSLayoutConstraint.Relation = .equal,
+        inset: EdgeInsetConvertible                   = 0) {
 
         if sides.contains(.top) || top != nil {
             view.anchor(
@@ -140,12 +140,12 @@ public extension Anchorable {
 
     func anchorCenters(
         _ view: Anchorable,
-        centers: Set<NSLayoutConstraint.Attribute>      = [],
-        centerX: NSLayoutXAxisAnchor?                   = nil,
-        centerXRelation: NSLayoutConstraint.Relation    = .equal,
-        centerY: NSLayoutYAxisAnchor?                   = nil,
-        centerYRelation: NSLayoutConstraint.Relation    = .equal,
-        offset: OffsetConvertible                       = 0) {
+        centers: Set<NSLayoutConstraint.Attribute>   = [],
+        centerX: NSLayoutXAxisAnchor?                = nil,
+        centerXRelation: NSLayoutConstraint.Relation = .equal,
+        centerY: NSLayoutYAxisAnchor?                = nil,
+        centerYRelation: NSLayoutConstraint.Relation = .equal,
+        offset: OffsetConvertible                    = 0) {
 
         if centers.contains(.centerX) || centerX != nil {
             view.anchor(
@@ -165,13 +165,13 @@ public extension Anchorable {
 
     func anchorSides(
         _ view: Anchorable,
-        sides: Set<NSLayoutConstraint.Attribute>        = [],
-        width: NSLayoutDimension?                       = nil,
-        widthRelation: NSLayoutConstraint.Relation      = .equal,
-        height: NSLayoutDimension?                      = nil,
-        heightRelation: NSLayoutConstraint.Relation     = .equal,
-        multiplier: MultiplierConvertible               = 1,
-        size: SizeConvertible                           = 0) {
+        sides: Set<NSLayoutConstraint.Attribute>    = [],
+        width: NSLayoutDimension?                   = nil,
+        widthRelation: NSLayoutConstraint.Relation  = .equal,
+        height: NSLayoutDimension?                  = nil,
+        heightRelation: NSLayoutConstraint.Relation = .equal,
+        multiplier: MultiplierConvertible           = 1,
+        size: SizeConvertible                       = 0) {
 
         if sides.contains(.width) || width != nil {
             view.anchor(
@@ -203,10 +203,10 @@ public extension Anchorable {
 
     func anchor<Axis>(
         lhs: NSLayoutConstraint.Attribute,
-        relation: NSLayoutConstraint.Relation   = .equal,
-        rhs: NSLayoutAnchor<Axis>?              = nil,
-        multiplier: CGFloat                     = 1,
-        constant: CGFloat                       = 0) {
+        relation: NSLayoutConstraint.Relation = .equal,
+        rhs: NSLayoutAnchor<Axis>?            = nil,
+        multiplier: CGFloat                   = 1,
+        constant: CGFloat                     = 0) {
 
         let lhs = anchor(for: lhs) as NSLayoutAnchor<Axis>?
 
@@ -273,8 +273,8 @@ public extension Anchorable {
 
     func anchor(
         lhs: NSLayoutConstraint.Attribute,
-        relation: NSLayoutConstraint.Relation   = .equal,
-        rhs: CGFloat                            = 0) {
+        relation: NSLayoutConstraint.Relation = .equal,
+        rhs: CGFloat                          = 0) {
 
         let lhs = anchor(for: lhs) as NSLayoutAnchor<NSLayoutDimension>?
 
