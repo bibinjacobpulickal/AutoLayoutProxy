@@ -7,9 +7,9 @@
 //
 
 #if canImport(UIKit)
-import UIKit
+import UIKit.NSLayoutConstraint
 #elseif canImport(Cocoa)
-import Cocoa
+import AppKit.NSLayoutConstraint
 #endif
 
 public extension Set where Element == NSLayoutConstraint.Attribute {

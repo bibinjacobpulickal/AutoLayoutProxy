@@ -7,9 +7,9 @@
 //
 
 #if canImport(UIKit)
-import UIKit
+import UIKit.NSLayoutAnchor
 #elseif canImport(Cocoa)
-import Cocoa
+import AppKit.NSLayoutAnchor
 #endif
 
 public extension AutoLayoutable {

@@ -7,7 +7,7 @@
 //
 
 #if canImport(UIKit)
-import UIKit
+import UIKit.NSLayoutAnchor
 #elseif canImport(Cocoa)
 import Cocoa
 #endif
