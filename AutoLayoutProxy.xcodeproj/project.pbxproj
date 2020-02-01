@@ -21,18 +21,11 @@
 		EF707C212301C75900EB3D8A /* AutoLayoutableQuadrupleOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF707C202301C75900EB3D8A /* AutoLayoutableQuadrupleOperators.swift */; };
 		EFA27D5822F57D0E00031EA3 /* SupportExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA27D5722F57D0E00031EA3 /* SupportExtensions.swift */; };
 		EFA27D5B22F57DA000031EA3 /* NSOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA27D5A22F57DA000031EA3 /* NSOffset.swift */; };
-		EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC299B22F3458C006B66FF /* AppDelegate.swift */; };
-		EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEC29A222F3458F006B66FF /* Assets.xcassets */; };
-		EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC29AB22F3464C006B66FF /* MainViewController.swift */; };
 		EFED406522F4956D00BBCAFF /* AutoLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */; };
 		EFEF4F05230461050053CFD5 /* Anchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF4F04230461050053CFD5 /* Anchorable.swift */; };
 		EFEF4F07230478A70053CFD5 /* AnchorableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF4F06230478A70053CFD5 /* AnchorableExtensions.swift */; };
 		EFF0518222F9EE9200628CAC /* AutoLayoutOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0518122F9EE9200628CAC /* AutoLayoutOperators.swift */; };
 		EFF4D8EE2311B89B002E92CB /* AutoLayoutableHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4D8ED2311B89B002E92CB /* AutoLayoutableHelpers.swift */; };
-		EFFB521022F545FC00CF055B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB520F22F545FC00CF055B /* AppDelegate.swift */; };
-		EFFB521222F545FF00CF055B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFB521122F545FF00CF055B /* Assets.xcassets */; };
-		EFFB521C22F548AF00CF055B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB521B22F548AF00CF055B /* main.swift */; };
-		EFFB521E22F5493500CF055B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB521D22F5493500CF055B /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,41 +45,15 @@
 		EF707C202301C75900EB3D8A /* AutoLayoutableQuadrupleOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutableQuadrupleOperators.swift; sourceTree = "<group>"; };
 		EFA27D5722F57D0E00031EA3 /* SupportExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportExtensions.swift; sourceTree = "<group>"; };
 		EFA27D5A22F57DA000031EA3 /* NSOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOffset.swift; sourceTree = "<group>"; };
-		EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutProxyiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFEC299B22F3458C006B66FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFEC29A222F3458F006B66FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EFEC29A722F34590006B66FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFEC29AB22F3464C006B66FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EFED406422F4956D00BBCAFF /* AutoLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutable.swift; sourceTree = "<group>"; };
 		EFEF4F04230461050053CFD5 /* Anchorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchorable.swift; sourceTree = "<group>"; };
 		EFEF4F06230478A70053CFD5 /* AnchorableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorableExtensions.swift; sourceTree = "<group>"; };
 		EFF0518122F9EE9200628CAC /* AutoLayoutOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutOperators.swift; sourceTree = "<group>"; };
 		EFF4D8ED2311B89B002E92CB /* AutoLayoutableHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutableHelpers.swift; sourceTree = "<group>"; };
-		EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayutProxyMacOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFFB520F22F545FC00CF055B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFFB521122F545FF00CF055B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EFFB521622F545FF00CF055B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFFB521722F545FF00CF055B /* AutoLayutProxyMacOSExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLayutProxyMacOSExample.entitlements; sourceTree = "<group>"; };
-		EFFB521B22F548AF00CF055B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		EFFB521D22F5493500CF055B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DB1470332197F6B200628DD7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFEC299622F3458C006B66FF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFFB520A22F545FC00CF055B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,8 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				DB1470382197F6B200628DD7 /* AutoLayoutProxy */,
-				EFEC299A22F3458C006B66FF /* AutoLayoutProxyiOSExample */,
-				EFFB520E22F545FC00CF055B /* AutoLayutProxyMacOSExample */,
 				DB1470372197F6B200628DD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,8 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */,
-				EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */,
-				EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,17 +136,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		EFEC299A22F3458C006B66FF /* AutoLayoutProxyiOSExample */ = {
-			isa = PBXGroup;
-			children = (
-				EFEC299B22F3458C006B66FF /* AppDelegate.swift */,
-				EFEC29AB22F3464C006B66FF /* MainViewController.swift */,
-				EFEC29A222F3458F006B66FF /* Assets.xcassets */,
-				EFEC29A722F34590006B66FF /* Info.plist */,
-			);
-			path = AutoLayoutProxyiOSExample;
-			sourceTree = "<group>";
-		};
 		EFF1BFD8231D662700E64878 /* Closure */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,19 +152,6 @@
 				EF707C202301C75900EB3D8A /* AutoLayoutableQuadrupleOperators.swift */,
 			);
 			path = Operators;
-			sourceTree = "<group>";
-		};
-		EFFB520E22F545FC00CF055B /* AutoLayutProxyMacOSExample */ = {
-			isa = PBXGroup;
-			children = (
-				EFFB521B22F548AF00CF055B /* main.swift */,
-				EFFB520F22F545FC00CF055B /* AppDelegate.swift */,
-				EFFB521D22F5493500CF055B /* MainViewController.swift */,
-				EFFB521122F545FF00CF055B /* Assets.xcassets */,
-				EFFB521622F545FF00CF055B /* Info.plist */,
-				EFFB521722F545FF00CF055B /* AutoLayutProxyMacOSExample.entitlements */,
-			);
-			path = AutoLayutProxyMacOSExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,40 +187,6 @@
 			productReference = DB1470362197F6B200628DD7 /* AutoLayoutProxy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EFEC299822F3458C006B66FF /* AutoLayoutProxyiOSExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EFEC29AA22F34590006B66FF /* Build configuration list for PBXNativeTarget "AutoLayoutProxyiOSExample" */;
-			buildPhases = (
-				EFEC299522F3458C006B66FF /* Sources */,
-				EFEC299622F3458C006B66FF /* Frameworks */,
-				EFEC299722F3458C006B66FF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AutoLayoutProxyiOSExample;
-			productName = AutoLayoutProxyiOSExample;
-			productReference = EFEC299922F3458C006B66FF /* AutoLayoutProxyiOSExample.app */;
-			productType = "com.apple.product-type.application";
-		};
-		EFFB520C22F545FC00CF055B /* AutoLayutProxyMacOSExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EFFB521822F545FF00CF055B /* Build configuration list for PBXNativeTarget "AutoLayutProxyMacOSExample" */;
-			buildPhases = (
-				EFFB520922F545FC00CF055B /* Sources */,
-				EFFB520A22F545FC00CF055B /* Frameworks */,
-				EFFB520B22F545FC00CF055B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AutoLayutProxyMacOSExample;
-			productName = AutoLayutProxyMacOSExample;
-			productReference = EFFB520D22F545FC00CF055B /* AutoLayutProxyMacOSExample.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -295,12 +200,6 @@
 					DB1470352197F6B200628DD7 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
-					};
-					EFEC299822F3458C006B66FF = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					EFFB520C22F545FC00CF055B = {
-						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -318,8 +217,6 @@
 			projectRoot = "";
 			targets = (
 				DB1470352197F6B200628DD7 /* AutoLayoutProxy */,
-				EFEC299822F3458C006B66FF /* AutoLayoutProxyiOSExample */,
-				EFFB520C22F545FC00CF055B /* AutoLayutProxyMacOSExample */,
 			);
 		};
 /* End PBXProject section */
@@ -329,22 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFEC299722F3458C006B66FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFEC29A322F3458F006B66FF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFFB520B22F545FC00CF055B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFFB521222F545FF00CF055B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,25 +275,6 @@
 				EFA27D5B22F57DA000031EA3 /* NSOffset.swift in Sources */,
 				EFF0518222F9EE9200628CAC /* AutoLayoutOperators.swift in Sources */,
 				EF707C1F2301C72000EB3D8A /* AutoLayoutableTupleOperators.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFEC299522F3458C006B66FF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFEC299C22F3458C006B66FF /* AppDelegate.swift in Sources */,
-				EFEC29AC22F3464C006B66FF /* MainViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFFB520922F545FC00CF055B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFFB521E22F5493500CF055B /* MainViewController.swift in Sources */,
-				EFFB521C22F548AF00CF055B /* main.swift in Sources */,
-				EFFB521022F545FC00CF055B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,90 +472,6 @@
 			};
 			name = Release;
 		};
-		EFEC29A822F34590006B66FF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 32BS4266DT;
-				INFOPLIST_FILE = AutoLayoutProxyiOSExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayoutProxyiOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		EFEC29A922F34590006B66FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 32BS4266DT;
-				INFOPLIST_FILE = AutoLayoutProxyiOSExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayoutProxyiOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		EFFB521922F545FF00CF055B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AutoLayutProxyMacOSExample/AutoLayutProxyMacOSExample.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 32BS4266DT;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = AutoLayutProxyMacOSExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayutProxyMacOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		EFFB521A22F545FF00CF055B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AutoLayutProxyMacOSExample/AutoLayutProxyMacOSExample.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 32BS4266DT;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = AutoLayutProxyMacOSExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibinjacobpulickal.AutoLayutProxyMacOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -711,24 +489,6 @@
 			buildConfigurations = (
 				DB14703F2197F6B200628DD7 /* Debug */,
 				DB1470402197F6B200628DD7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EFEC29AA22F34590006B66FF /* Build configuration list for PBXNativeTarget "AutoLayoutProxyiOSExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EFEC29A822F34590006B66FF /* Debug */,
-				EFEC29A922F34590006B66FF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EFFB521822F545FF00CF055B /* Build configuration list for PBXNativeTarget "AutoLayutProxyMacOSExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EFFB521922F545FF00CF055B /* Debug */,
-				EFFB521A22F545FF00CF055B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
