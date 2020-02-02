@@ -8,8 +8,8 @@
 
 #if canImport(UIKit)
 import UIKit.NSLayoutAnchor
-#elseif canImport(Cocoa)
-import Cocoa
+#elseif canImport(AppKit)
+import AppKit.NSLayoutAnchor
 #endif
 
 public protocol Anchorable {

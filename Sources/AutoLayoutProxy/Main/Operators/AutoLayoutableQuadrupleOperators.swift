@@ -7,9 +7,9 @@
 //
 
 #if canImport(UIKit)
-import UIKit
-#elseif canImport(Cocoa)
-import Cocoa
+import UIKit.NSLayoutAnchor
+#elseif canImport(AppKit)
+import AppKit.NSLayoutAnchor
 #endif
 
 // MARK: Quadruple Anchor Constraint With Relation

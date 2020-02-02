@@ -6,10 +6,8 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-#if canImport(UIKit)
-import UIKit
-#elseif canImport(Cocoa)
-import Cocoa
+#if canImport(CoreGraphics)
+import CoreGraphics
 #endif
 
 public protocol EdgeInsetConvertible {
@@ -24,10 +22,12 @@ public protocol EdgeInsetConvertible {
 }
 
 #if canImport(UIKit)
+import UIKit
 
 extension UIEdgeInsets: EdgeInsetConvertible { }
 
 #elseif canImport(Cocoa)
+import Cocoa
 
 extension NSEdgeInsets: EdgeInsetConvertible { }
 

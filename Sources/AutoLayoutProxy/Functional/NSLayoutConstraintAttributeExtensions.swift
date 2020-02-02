@@ -8,7 +8,7 @@
 
 #if canImport(UIKit)
 import UIKit.NSLayoutConstraint
-#elseif canImport(Cocoa)
+#elseif canImport(AppKit)
 import AppKit.NSLayoutConstraint
 #endif
 

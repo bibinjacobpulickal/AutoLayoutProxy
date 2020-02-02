@@ -8,7 +8,7 @@
 
 #if canImport(UIKit)
 import UIKit.NSLayoutAnchor
-#elseif canImport(Cocoa)
+#elseif canImport(AppKit)
 import AppKit.NSLayoutAnchor
 #endif
 

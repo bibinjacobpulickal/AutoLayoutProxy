@@ -7,7 +7,7 @@
 //
 
 #if canImport(Foundation)
-import Foundation
+import Foundation.NSObject
 #endif
 
 public protocol Initializable {

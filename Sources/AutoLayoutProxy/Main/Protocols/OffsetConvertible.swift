@@ -6,10 +6,8 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-#if canImport(UIKit)
-import UIKit
-#elseif canImport(Cocoa)
-import Cocoa
+#if canImport(CoreGraphics)
+import CoreGraphics
 #endif
 
 public protocol OffsetConvertible {
@@ -20,10 +18,12 @@ public protocol OffsetConvertible {
 }
 
 #if canImport(UIKit)
+import UIKit
 
 extension UIOffset: OffsetConvertible { }
 
 #elseif canImport(Cocoa)
+import Cocoa
 
 extension NSOffset: OffsetConvertible { }
 

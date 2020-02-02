@@ -6,11 +6,7 @@
 //  Copyright © 2019 Bibin Jacob Pulickal. All rights reserved.
 //
 
-#if canImport(UIKit)
-import UIKit
-#elseif canImport(Cocoa)
-import Cocoa
-#endif
+import Foundation
 
 public protocol AutoLayoutable: AnyObject, Anchorable {
 
@@ -34,10 +30,12 @@ extension AutoLayoutable {
 }
 
 #if canImport(UIKit)
+import UIKit.UIView
 
 extension UIView: AutoLayoutable { }
 
-#elseif canImport(Cocoa)
+#elseif canImport(AppKit)
+import AppKit.NSView
 
 extension NSView: AutoLayoutable { }
 
