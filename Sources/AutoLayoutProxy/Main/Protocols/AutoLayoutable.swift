@@ -17,7 +17,7 @@ public protocol AutoLayoutable: AnyObject, Anchorable {
     func addSubview(_ view: View)
 }
 
-extension AutoLayoutable {
+public extension AutoLayoutable {
 
     var tamic: Bool {
         set {
