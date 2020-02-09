@@ -12,6 +12,8 @@ public protocol AutoLayoutable: AnyObject, Anchorable {
 
     associatedtype View: AutoLayoutable
 
+    var superview: View? { get }
+
     var translatesAutoresizingMaskIntoConstraints: Bool { get set }
 
     func addSubview(_ view: View)
