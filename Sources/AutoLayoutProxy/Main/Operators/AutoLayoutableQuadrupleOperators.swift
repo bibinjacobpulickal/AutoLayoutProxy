@@ -14,49 +14,52 @@ import AppKit.NSLayoutAnchor
 
 // MARK: Quadruple Anchor Constraint With Relation
 
-@discardableResult public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func ==<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(equalTo: rhs.0.0))
-        constraints.append(lhs.0.1.constraint(equalTo: rhs.0.1))
-        constraints.append(lhs.1.0.constraint(equalTo: rhs.1.0))
-        constraints.append(lhs.1.1.constraint(equalTo: rhs.1.1))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 == rhs.0.0,
+         lhs.0.1 == rhs.0.1,
+         lhs.1.0 == rhs.1.0,
+         lhs.1.1 == rhs.1.1]
 }
 
-@discardableResult public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func <=<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(lessThanOrEqualTo: rhs.0.0))
-        constraints.append(lhs.0.1.constraint(lessThanOrEqualTo: rhs.0.1))
-        constraints.append(lhs.1.0.constraint(lessThanOrEqualTo: rhs.1.0))
-        constraints.append(lhs.1.1.constraint(lessThanOrEqualTo: rhs.1.1))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 <= rhs.0.0,
+         lhs.0.1 <= rhs.0.1,
+         lhs.1.0 <= rhs.1.0,
+         lhs.1.1 <= rhs.1.1]
 }
 
-@discardableResult public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func >=<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(greaterThanOrEqualTo: rhs.0.0))
-        constraints.append(lhs.0.1.constraint(greaterThanOrEqualTo: rhs.0.1))
-        constraints.append(lhs.1.0.constraint(greaterThanOrEqualTo: rhs.1.0))
-        constraints.append(lhs.1.1.constraint(greaterThanOrEqualTo: rhs.1.1))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 >= rhs.0.0,
+         lhs.0.1 >= rhs.0.1,
+         lhs.1.0 >= rhs.1.0,
+         lhs.1.1 >= rhs.1.1]
 }
 
 // MARK: - Quadruple Anchor And Constant Combinations
@@ -69,49 +72,60 @@ public func + (lhs: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayo
         (lhs, rhs)
 }
 
+public func - (lhs: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
+    (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)),
+               rhs: EdgeInsetConvertible)
+    -> (((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
+    (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)), EdgeInsetConvertible) {
+        (lhs, rhs)
+}
+
 // MARK: - Quadruple Anchor Constraint With Constant And Relation
 
-@discardableResult public func ==<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func ==<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: (((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)), EdgeInsetConvertible))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(equalTo: rhs.0.0.0, constant: rhs.1.top))
-        constraints.append(lhs.0.1.constraint(equalTo: rhs.0.0.1, constant: rhs.1.left))
-        constraints.append(lhs.1.0.constraint(equalTo: rhs.0.1.0, constant: rhs.1.bottom))
-        constraints.append(lhs.1.1.constraint(equalTo: rhs.0.1.1, constant: rhs.1.right))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 == rhs.0.0.0 + rhs.1.top,
+         lhs.0.1 == rhs.0.0.1 + rhs.1.left,
+         lhs.1.0 == rhs.0.1.0 + rhs.1.bottom,
+         lhs.1.1 == rhs.0.1.1 + rhs.1.right]
 }
 
-@discardableResult public func <=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func <=<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: (((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)), EdgeInsetConvertible))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(lessThanOrEqualTo: rhs.0.0.0, constant: rhs.1.top))
-        constraints.append(lhs.0.1.constraint(lessThanOrEqualTo: rhs.0.0.1, constant: rhs.1.left))
-        constraints.append(lhs.1.0.constraint(lessThanOrEqualTo: rhs.0.1.0, constant: rhs.1.bottom))
-        constraints.append(lhs.1.1.constraint(lessThanOrEqualTo: rhs.0.1.1, constant: rhs.1.right))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 <= rhs.0.0.0 + rhs.1.top,
+         lhs.0.1 <= rhs.0.0.1 + rhs.1.left,
+         lhs.1.0 <= rhs.0.1.0 + rhs.1.bottom,
+         lhs.1.1 <= rhs.0.1.1 + rhs.1.right]
 }
 
-@discardableResult public func >=<FirstAnchorType, SecondAnchorType, ThirdAnchorType, FourthAnchorType>(
+@discardableResult public func >=<
+    FirstAnchorType: NSObject,
+    SecondAnchorType: NSObject,
+    ThirdAnchorType: NSObject,
+    FourthAnchorType: NSObject>(
     lhs: ((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)),
     rhs: (((NSLayoutAnchor<FirstAnchorType>, NSLayoutAnchor<SecondAnchorType>),
     (NSLayoutAnchor<ThirdAnchorType>, NSLayoutAnchor<FourthAnchorType>)), EdgeInsetConvertible))
     -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(lhs.0.0.constraint(greaterThanOrEqualTo: rhs.0.0.0, constant: rhs.1.top))
-        constraints.append(lhs.0.1.constraint(greaterThanOrEqualTo: rhs.0.0.1, constant: rhs.1.left))
-        constraints.append(lhs.1.0.constraint(greaterThanOrEqualTo: rhs.0.1.0, constant: rhs.1.bottom))
-        constraints.append(lhs.1.1.constraint(greaterThanOrEqualTo: rhs.0.1.1, constant: rhs.1.right))
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        [lhs.0.0 >= rhs.0.0.0 + rhs.1.top,
+         lhs.0.1 >= rhs.0.0.1 + rhs.1.left,
+         lhs.1.0 >= rhs.0.1.0 + rhs.1.bottom,
+         lhs.1.1 >= rhs.0.1.1 + rhs.1.right]
 }
