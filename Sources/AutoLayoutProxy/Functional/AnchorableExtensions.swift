@@ -201,14 +201,14 @@ public extension Anchorable {
         }
     }
 
-    func anchor<Axis>(
+    func anchor<AnchorType: NSObject>(
         lhs: NSLayoutConstraint.Attribute,
         relation: NSLayoutConstraint.Relation = .equal,
-        rhs: NSLayoutAnchor<Axis>?            = nil,
+        rhs: NSLayoutAnchor<AnchorType>?            = nil,
         multiplier: CGFloat                   = 1,
         constant: CGFloat                     = 0) {
 
-        let lhs = anchor(for: lhs) as NSLayoutAnchor<Axis>?
+        let lhs = anchor(for: lhs) as NSLayoutAnchor<AnchorType>?
 
         switch relation {
         case .lessThanOrEqual:
@@ -300,7 +300,7 @@ public extension Anchorable {
         }
     }
 
-    private func anchor<AnchorType: AnyObject>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
+    private func anchor<AnchorType: NSObject>(for attribute: NSLayoutConstraint.Attribute) -> NSLayoutAnchor<AnchorType>? {
         switch attribute {
         case .top:
             return top as? NSLayoutAnchor<AnchorType>
