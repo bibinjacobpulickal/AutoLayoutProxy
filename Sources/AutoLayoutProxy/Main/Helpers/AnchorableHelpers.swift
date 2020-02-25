@@ -14,27 +14,27 @@ import AppKit.NSLayoutAnchor
 
 public extension Anchorable {
 
-    var leading: NSLayoutAnchor<NSLayoutXAxisAnchor> {
+    var leading: NSLayoutXAxisAnchor {
         leadingAnchor
     }
 
-    var trailing: NSLayoutAnchor<NSLayoutXAxisAnchor> {
+    var trailing: NSLayoutXAxisAnchor {
         trailingAnchor
     }
 
-    var left: NSLayoutAnchor<NSLayoutXAxisAnchor> {
+    var left: NSLayoutXAxisAnchor {
         leftAnchor
     }
 
-    var right: NSLayoutAnchor<NSLayoutXAxisAnchor> {
+    var right: NSLayoutXAxisAnchor {
         rightAnchor
     }
 
-    var top: NSLayoutAnchor<NSLayoutYAxisAnchor> {
+    var top: NSLayoutYAxisAnchor {
         topAnchor
     }
 
-    var bottom: NSLayoutAnchor<NSLayoutYAxisAnchor> {
+    var bottom: NSLayoutYAxisAnchor {
         bottomAnchor
     }
 
@@ -46,11 +46,11 @@ public extension Anchorable {
         heightAnchor
     }
 
-    var centerX: NSLayoutAnchor<NSLayoutXAxisAnchor> {
+    var centerX: NSLayoutXAxisAnchor {
         centerXAnchor
     }
 
-    var centerY: NSLayoutAnchor<NSLayoutYAxisAnchor> {
+    var centerY: NSLayoutYAxisAnchor {
         centerYAnchor
     }
 
@@ -58,20 +58,20 @@ public extension Anchorable {
         (widthAnchor, heightAnchor)
     }
 
-    var centers: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
+    var centers: (NSLayoutXAxisAnchor, NSLayoutYAxisAnchor) {
         (centerXAnchor, centerYAnchor)
     }
 
-    var horizontal: (NSLayoutAnchor<NSLayoutXAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>) {
+    var horizontal: (NSLayoutXAxisAnchor, NSLayoutXAxisAnchor) {
         (leadingAnchor, trailingAnchor)
     }
 
-    var vertical: (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutYAxisAnchor>) {
+    var vertical: (NSLayoutYAxisAnchor, NSLayoutYAxisAnchor) {
         (topAnchor, bottomAnchor)
     }
 
-    var sides: ((NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>),
-        (NSLayoutAnchor<NSLayoutYAxisAnchor>, NSLayoutAnchor<NSLayoutXAxisAnchor>)) {
+    var sides: ((NSLayoutYAxisAnchor, NSLayoutXAxisAnchor),
+        (NSLayoutYAxisAnchor, NSLayoutXAxisAnchor)) {
         ((topAnchor, leadingAnchor), (bottomAnchor, trailingAnchor))
     }
 }
