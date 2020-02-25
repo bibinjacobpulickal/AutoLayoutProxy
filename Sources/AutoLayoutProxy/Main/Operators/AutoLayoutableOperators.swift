@@ -27,11 +27,59 @@ infix operator !>=
     return constraint
 }
 
+@discardableResult public func == (
+    lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>,
+    rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
+}
+
+@discardableResult public func == (
+    lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>,
+    rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
+}
+
+@discardableResult public func == (
+    lhs: NSLayoutAnchor<NSLayoutDimension>,
+    rhs: NSLayoutAnchor<NSLayoutDimension>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = true
+    return constraint
+}
+
 // MARK: - Single Anchor Constraint With Inactive Status
 
 public func != <AnchorType: NSObject>(
     lhs: NSLayoutAnchor<AnchorType>,
     rhs: NSLayoutAnchor<AnchorType>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = false
+    return constraint
+}
+
+@discardableResult public func != (
+    lhs: NSLayoutAnchor<NSLayoutXAxisAnchor>,
+    rhs: NSLayoutAnchor<NSLayoutXAxisAnchor>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = false
+    return constraint
+}
+
+@discardableResult public func != (
+    lhs: NSLayoutAnchor<NSLayoutYAxisAnchor>,
+    rhs: NSLayoutAnchor<NSLayoutYAxisAnchor>) -> NSLayoutConstraint {
+    let constraint      = lhs.constraint(equalTo: rhs)
+    constraint.isActive = false
+    return constraint
+}
+
+@discardableResult public func != (
+    lhs: NSLayoutAnchor<NSLayoutDimension>,
+    rhs: NSLayoutAnchor<NSLayoutDimension>) -> NSLayoutConstraint {
     let constraint      = lhs.constraint(equalTo: rhs)
     constraint.isActive = false
     return constraint
