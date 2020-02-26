@@ -11,7 +11,7 @@ import UIKit.NSLayoutAnchor
 import AppKit.NSLayoutAnchor
 #endif
 
-@discardableResult public func ==<View: Anchorable>(lhs: View, rhs: View) -> [NSLayoutConstraint] {
+@discardableResult public func ===<View: Anchorable>(lhs: View, rhs: View) -> [NSLayoutConstraint] {
     lhs.sides == rhs.sides
 }
 
