@@ -2,6 +2,6 @@ import XCTest
 
 #if !canImport(ObjectiveC)
 public func allTests() -> [XCTestCaseEntry] {
-    return []
+    BBLayoutKitTests.allLayoutKitTests
 }
 #endif
