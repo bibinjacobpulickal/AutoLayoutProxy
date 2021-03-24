@@ -1,5 +1,5 @@
 //
-//  NSOffset.swift
+//  BBOffset.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 03/08/19.
@@ -9,13 +9,13 @@
 #if canImport(Cocoa)
 import Cocoa
 
-public struct NSOffset {
+public struct BBOffset {
 
     public var horizontal: CGFloat
 
     public var vertical: CGFloat
 
-    public static let zero = NSOffset()
+    public static let zero = BBOffset()
 
     public init(horizontal: CGFloat, vertical: CGFloat) {
         self.horizontal = horizontal

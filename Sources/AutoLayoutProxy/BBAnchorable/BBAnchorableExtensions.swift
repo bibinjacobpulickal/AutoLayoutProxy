@@ -1,5 +1,5 @@
 //
-//  AnchorableExtensions.swift
+//  BBAnchorableExtensions.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 14/08/19.
@@ -12,10 +12,10 @@ import UIKit.NSLayoutAnchor
 import AppKit.NSLayoutAnchor
 #endif
 
-public extension Anchorable {
+public extension BBAnchorable {
 
     func anchorView(
-        _ view: Anchorable,
+        _ view: BBAnchorable,
         anchors: Set<NSLayoutConstraint.Attribute>    = [],
         top: NSLayoutYAxisAnchor?                     = nil,
         topRelation: NSLayoutConstraint.Relation      = .equal,
@@ -29,18 +29,18 @@ public extension Anchorable {
         rightRelation: NSLayoutConstraint.Relation    = .equal,
         trailing: NSLayoutXAxisAnchor?                = nil,
         trailingRelation: NSLayoutConstraint.Relation = .equal,
-        inset: EdgeInsetConvertible                   = 0,
+        inset: BBEdgeInsetConvertible                 = 0,
         centerX: NSLayoutXAxisAnchor?                 = nil,
         centerXRelation: NSLayoutConstraint.Relation  = .equal,
         centerY: NSLayoutYAxisAnchor?                 = nil,
         centerYRelation: NSLayoutConstraint.Relation  = .equal,
-        offset: OffsetConvertible                     = 0,
+        offset: BBOffsetConvertible                   = 0,
         width: NSLayoutDimension?                     = nil,
         widthRelation: NSLayoutConstraint.Relation    = .equal,
         height: NSLayoutDimension?                    = nil,
         heightRelation: NSLayoutConstraint.Relation   = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: BBMultiplierConvertible           = 1,
+        size: BBSizeConvertible                       = 0) {
 
         anchorEdges(
             view,
@@ -78,7 +78,7 @@ public extension Anchorable {
     }
 
     func anchorEdges(
-        _ view: Anchorable,
+        _ view: BBAnchorable,
         sides: Set<NSLayoutConstraint.Attribute>      = [],
         top: NSLayoutYAxisAnchor?                     = nil,
         topRelation: NSLayoutConstraint.Relation      = .equal,
@@ -92,7 +92,7 @@ public extension Anchorable {
         rightRelation: NSLayoutConstraint.Relation    = .equal,
         trailing: NSLayoutXAxisAnchor?                = nil,
         trailingRelation: NSLayoutConstraint.Relation = .equal,
-        inset: EdgeInsetConvertible                   = 0) {
+        inset: BBEdgeInsetConvertible                 = 0) {
 
         if sides.contains(.top) || top != nil {
             view.anchor(
@@ -120,32 +120,32 @@ public extension Anchorable {
                 lhs: .bottom,
                 relation: bottomRelation,
                 rhs: bottom ?? bottomAnchor,
-                constant: inset.bottom)
+                constant: -inset.bottom)
         }
         if sides.contains(.right) || right != nil {
             view.anchor(
                 lhs: .right,
                 relation: rightRelation,
                 rhs: right ?? rightAnchor,
-                constant: inset.right)
+                constant: -inset.right)
         }
         if sides.contains(.trailing) || trailing != nil {
             view.anchor(
                 lhs: .trailing,
                 relation: trailingRelation,
                 rhs: trailing ?? trailingAnchor,
-                constant: inset.right)
+                constant: -inset.right)
         }
     }
 
     func anchorCenters(
-        _ view: Anchorable,
+        _ view: BBAnchorable,
         centers: Set<NSLayoutConstraint.Attribute>   = [],
         centerX: NSLayoutXAxisAnchor?                = nil,
         centerXRelation: NSLayoutConstraint.Relation = .equal,
         centerY: NSLayoutYAxisAnchor?                = nil,
         centerYRelation: NSLayoutConstraint.Relation = .equal,
-        offset: OffsetConvertible                    = 0) {
+        offset: BBOffsetConvertible                  = 0) {
 
         if centers.contains(.centerX) || centerX != nil {
             view.anchor(
@@ -164,14 +164,14 @@ public extension Anchorable {
     }
 
     func anchorSides(
-        _ view: Anchorable,
+        _ view: BBAnchorable,
         sides: Set<NSLayoutConstraint.Attribute>    = [],
         width: NSLayoutDimension?                   = nil,
         widthRelation: NSLayoutConstraint.Relation  = .equal,
         height: NSLayoutDimension?                  = nil,
         heightRelation: NSLayoutConstraint.Relation = .equal,
-        multiplier: MultiplierConvertible           = 1,
-        size: SizeConvertible                       = 0) {
+        multiplier: BBMultiplierConvertible         = 1,
+        size: BBSizeConvertible                     = 0) {
 
         if sides.contains(.width) || width != nil {
             view.anchor(

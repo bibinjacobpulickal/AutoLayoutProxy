@@ -1,5 +1,5 @@
 //
-//  AutoLayoutable.swift
+//  BBAutoLayoutable.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 02/08/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol AutoLayoutable: AnyObject, Anchorable {
+public protocol BBAutoLayoutable: AnyObject, BBAnchorable {
 
-    associatedtype View: AutoLayoutable
+    associatedtype View: BBAutoLayoutable
 
     var superview: View? { get }
 
@@ -19,7 +19,7 @@ public protocol AutoLayoutable: AnyObject, Anchorable {
     func addSubview(_ view: View)
 }
 
-public extension AutoLayoutable {
+public extension BBAutoLayoutable {
 
     var tamic: Bool {
         set {
@@ -34,11 +34,11 @@ public extension AutoLayoutable {
 #if canImport(UIKit)
 import UIKit.UIView
 
-extension UIView: AutoLayoutable { }
+extension UIView: BBAutoLayoutable { }
 
 #elseif canImport(AppKit)
 import AppKit.NSView
 
-extension NSView: AutoLayoutable { }
+extension NSView: BBAutoLayoutable { }
 
 #endif

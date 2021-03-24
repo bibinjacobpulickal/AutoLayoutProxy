@@ -1,5 +1,5 @@
 //
-//  AnchorableHelper.swift
+//  BBAnchorableHelper.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 05/08/19.
@@ -12,7 +12,7 @@ import UIKit.NSLayoutAnchor
 import AppKit.NSLayoutAnchor
 #endif
 
-public extension Anchorable {
+public extension BBAnchorable {
 
     var leading: NSLayoutXAxisAnchor {
         leadingAnchor

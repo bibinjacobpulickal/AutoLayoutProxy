@@ -1,5 +1,5 @@
 //
-//  AutoLayoutableOperators.swift
+//  BBAutoLayoutableOperators.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 06/08/19.
@@ -14,8 +14,15 @@ import Cocoa
 
 // MARK: Operator Declarations
 
-infix operator !<=
-infix operator !>=
+infix operator !<=: InActivePrecedence
+infix operator !>=: InActivePrecedence
+
+// MARK: Precedence Group Declaration
+
+precedencegroup InActivePrecedence {
+    lowerThan: AdditionPrecedence
+    higherThan: AssignmentPrecedence
+}
 
 // MARK: - Single Anchor Constraint With Active Status
 

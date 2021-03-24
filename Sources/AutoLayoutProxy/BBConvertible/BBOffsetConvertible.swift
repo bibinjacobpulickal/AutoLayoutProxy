@@ -10,7 +10,7 @@
 import CoreGraphics
 #endif
 
-public protocol OffsetConvertible {
+public protocol BBOffsetConvertible {
 
     var horizontal: CGFloat { get }
 
@@ -20,30 +20,30 @@ public protocol OffsetConvertible {
 #if canImport(UIKit)
 import UIKit
 
-extension UIOffset: OffsetConvertible { }
+extension UIOffset: BBOffsetConvertible { }
 
 #elseif canImport(Cocoa)
 import Cocoa
 
-extension NSOffset: OffsetConvertible { }
+extension BBOffset: BBOffsetConvertible { }
 
 #endif
 
-extension CGFloat: OffsetConvertible {
+extension CGFloat: BBOffsetConvertible {
 
     public var horizontal: CGFloat { self }
 
     public var vertical: CGFloat { self }
 }
 
-extension Double: OffsetConvertible {
+extension Double: BBOffsetConvertible {
 
     public var horizontal: CGFloat { CGFloat(self) }
 
     public var vertical: CGFloat { CGFloat(self) }
 }
 
-extension Int: OffsetConvertible {
+extension Int: BBOffsetConvertible {
 
     public var horizontal: CGFloat { CGFloat(self) }
 

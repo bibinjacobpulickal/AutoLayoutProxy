@@ -12,7 +12,7 @@ import UIKit.NSLayoutAnchor
 import AppKit.NSLayoutAnchor
 #endif
 
-public extension AutoLayoutable {
+public extension BBAutoLayoutable {
 
     func addSubview(
         _ view: View,
@@ -29,18 +29,18 @@ public extension AutoLayoutable {
         rightRelation: NSLayoutConstraint.Relation    = .equal,
         trailing: NSLayoutXAxisAnchor?                = nil,
         trailingRelation: NSLayoutConstraint.Relation = .equal,
-        inset: EdgeInsetConvertible                   = 0,
+        inset: BBEdgeInsetConvertible                 = 0,
         centerX: NSLayoutXAxisAnchor?                 = nil,
         centerXRelation: NSLayoutConstraint.Relation  = .equal,
         centerY: NSLayoutYAxisAnchor?                 = nil,
         centerYRelation: NSLayoutConstraint.Relation  = .equal,
-        offset: OffsetConvertible                     = 0,
+        offset: BBOffsetConvertible                   = 0,
         width: NSLayoutDimension?                     = nil,
         widthRelation: NSLayoutConstraint.Relation    = .equal,
         height: NSLayoutDimension?                    = nil,
         heightRelation: NSLayoutConstraint.Relation   = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: BBMultiplierConvertible           = 1,
+        size: BBSizeConvertible                       = 0) {
 
         addSubview(view)
 
@@ -89,18 +89,18 @@ public extension AutoLayoutable {
         rightRelation: NSLayoutConstraint.Relation    = .equal,
         trailing: NSLayoutXAxisAnchor?                = nil,
         trailingRelation: NSLayoutConstraint.Relation = .equal,
-        inset: EdgeInsetConvertible                   = 0,
+        inset: BBEdgeInsetConvertible                 = 0,
         centerX: NSLayoutXAxisAnchor?                 = nil,
         centerXRelation: NSLayoutConstraint.Relation  = .equal,
         centerY: NSLayoutYAxisAnchor?                 = nil,
         centerYRelation: NSLayoutConstraint.Relation  = .equal,
-        offset: OffsetConvertible                     = 0,
+        offset: BBOffsetConvertible                   = 0,
         width: NSLayoutDimension?                     = nil,
         widthRelation: NSLayoutConstraint.Relation    = .equal,
         height: NSLayoutDimension?                    = nil,
         heightRelation: NSLayoutConstraint.Relation   = .equal,
-        multiplier: MultiplierConvertible             = 1,
-        size: SizeConvertible                         = 0) {
+        multiplier: BBMultiplierConvertible           = 1,
+        size: BBSizeConvertible                       = 0) {
 
         guard let superview = superview else { return }
 

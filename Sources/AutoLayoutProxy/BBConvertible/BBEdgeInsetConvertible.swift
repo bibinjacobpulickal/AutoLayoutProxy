@@ -1,5 +1,5 @@
 //
-//  EdgeInsetConvertible.swift
+//  BBEdgeInsetConvertible.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 01/08/19.
@@ -10,7 +10,7 @@
 import CoreGraphics
 #endif
 
-public protocol EdgeInsetConvertible {
+public protocol BBEdgeInsetConvertible {
 
     var top: CGFloat { get }
 
@@ -24,44 +24,44 @@ public protocol EdgeInsetConvertible {
 #if canImport(UIKit)
 import UIKit
 
-extension UIEdgeInsets: EdgeInsetConvertible { }
+extension UIEdgeInsets: BBEdgeInsetConvertible { }
 
 #elseif canImport(Cocoa)
 import Cocoa
 
-extension NSEdgeInsets: EdgeInsetConvertible { }
+extension NSEdgeInsets: BBEdgeInsetConvertible { }
 
 #endif
 
-extension CGFloat: EdgeInsetConvertible {
+extension CGFloat: BBEdgeInsetConvertible {
 
     public var top: CGFloat { self }
 
     public var left: CGFloat { self }
 
-    public var bottom: CGFloat { -self }
+    public var bottom: CGFloat { self }
 
-    public var right: CGFloat { -self }
+    public var right: CGFloat { self }
 }
 
-extension Double: EdgeInsetConvertible {
+extension Double: BBEdgeInsetConvertible {
 
     public var top: CGFloat { CGFloat(self) }
 
     public var left: CGFloat { CGFloat(self) }
 
-    public var bottom: CGFloat { -CGFloat(self) }
+    public var bottom: CGFloat { CGFloat(self) }
 
-    public var right: CGFloat { -CGFloat(self) }
+    public var right: CGFloat { CGFloat(self) }
 }
 
-extension Int: EdgeInsetConvertible {
+extension Int: BBEdgeInsetConvertible {
 
     public var top: CGFloat { CGFloat(self) }
 
     public var left: CGFloat { CGFloat(self) }
 
-    public var bottom: CGFloat { -CGFloat(self) }
+    public var bottom: CGFloat { CGFloat(self) }
 
-    public var right: CGFloat { -CGFloat(self) }
+    public var right: CGFloat { CGFloat(self) }
 }

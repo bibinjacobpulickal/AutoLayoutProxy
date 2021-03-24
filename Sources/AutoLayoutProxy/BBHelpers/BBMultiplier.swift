@@ -1,5 +1,5 @@
 //
-//  CGMultiplier.swift
+//  BBMultiplier.swift
 //  AutoLayoutProxy
 //
 //  Created by Bibin Jacob Pulickal on 23/04/19.
@@ -10,7 +10,7 @@
 import CoreGraphics
 #endif
 
-public struct CGMultiplier {
+public struct BBMultiplier {
 
     public var width: CGFloat
 
@@ -25,5 +25,5 @@ public struct CGMultiplier {
         self.init(w: both, h: both)
     }
 
-    public static let one = CGMultiplier()
+    public static let one = BBMultiplier()
 }
