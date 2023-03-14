@@ -44,13 +44,13 @@ final class AutoLayoutProxyTests: XCTestCase {
         XCTAssertTrue(subview.superview == view)
     }
 
-  func testAddArrangedSubview() {
+    func testAddArrangedSubview() {
 
-    stackView.addArrangedSubview(subview) { }
+        stackView.addArrangedSubview(subview) { }
 
-    XCTAssertTrue(stackView.arrangedSubviews.contains(subview))
-    XCTAssertTrue(subview.superview == stackView)
-  }
+        XCTAssertTrue(stackView.arrangedSubviews.contains(subview))
+        XCTAssertTrue(subview.superview == stackView)
+    }
 
     func testTamic() {
         testAddSubview()
