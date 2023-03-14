@@ -31,6 +31,10 @@ extension Float: BBPriorityConvertible {
 extension CGFloat: BBPriorityConvertible {
   public var priorityValue: UILayoutPriority { UILayoutPriority(Float(self)) }
 }
+
+extension Int: BBPriorityConvertible {
+  public var priorityValue: UILayoutPriority { UILayoutPriority(Float(self)) }
+}
 #elseif canImport(Cocoa)
 extension NSLayoutConstraint.Priority: BBPriorityConvertible {
   public var priorityValue: NSLayoutConstraint.Priority { self }
@@ -41,6 +45,10 @@ extension Float: BBPriorityConvertible {
 }
 
 extension CGFloat: BBPriorityConvertible {
+  public var priorityValue: NSLayoutConstraint.Priority { NSLayoutConstraint.Priority(Float(self)) }
+}
+
+extension Int: BBPriorityConvertible {
   public var priorityValue: NSLayoutConstraint.Priority { NSLayoutConstraint.Priority(Float(self)) }
 }
 #endif
