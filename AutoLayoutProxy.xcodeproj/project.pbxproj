@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6B563FF829C0F9B800B3A10A /* BBAutoLayoutStackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563FF729C0F9B800B3A10A /* BBAutoLayoutStackable.swift */; };
+		6B563FFB29C122A400B3A10A /* BBDeclarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563FFA29C122A400B3A10A /* BBDeclarative.swift */; };
+		6B563FFD29C1279200B3A10A /* BBPriorityConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563FFC29C1279200B3A10A /* BBPriorityConvertible.swift */; };
 		OBJ_49 /* BBAnchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BBAnchorable.swift */; };
 		OBJ_50 /* BBAnchorableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BBAnchorableExtensions.swift */; };
 		OBJ_51 /* BBAnchorableHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BBAnchorableHelpers.swift */; };
@@ -62,8 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		"AutoLayoutProxy::AutoLayoutProxy::Product" /* AutoLayoutProxy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AutoLayoutProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"AutoLayoutProxy::AutoLayoutProxyTests::Product" /* AutoLayoutProxyTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AutoLayoutProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B563FF729C0F9B800B3A10A /* BBAutoLayoutStackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAutoLayoutStackable.swift; sourceTree = "<group>"; };
+		"AutoLayoutProxy::AutoLayoutProxy::Product" /* AutoLayoutProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AutoLayoutProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"AutoLayoutProxy::AutoLayoutProxyTests::Product" /* AutoLayoutProxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AutoLayoutProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_12 /* BBAnchorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBAnchorable.swift; sourceTree = "<group>"; };
 		OBJ_13 /* BBAnchorableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBAnchorableExtensions.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B563FF929C1228100B3A10A /* BBDeclarative */ = {
+			isa = PBXGroup;
+			children = (
+				6B563FFA29C122A400B3A10A /* BBDeclarative.swift */,
+			);
+			path = BBDeclarative;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* BBAnchorable */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 				OBJ_20 /* BBEdgeInsetConvertible.swift */,
 				OBJ_21 /* BBMultiplierConvertible.swift */,
 				OBJ_22 /* BBOffsetConvertible.swift */,
+				6B563FFC29C1279200B3A10A /* BBPriorityConvertible.swift */,
 				OBJ_23 /* BBSizeConvertible.swift */,
 			);
 			path = BBConvertible;
@@ -220,6 +233,7 @@
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BBAnchorable */,
 				OBJ_15 /* BBAutoLayoutable */,
+				6B563FF929C1228100B3A10A /* BBDeclarative */,
 				OBJ_19 /* BBConvertible */,
 				OBJ_24 /* BBHelpers */,
 				OBJ_28 /* BBOperators */,
@@ -315,6 +329,7 @@
 				OBJ_49 /* BBAnchorable.swift in Sources */,
 				OBJ_50 /* BBAnchorableExtensions.swift in Sources */,
 				OBJ_51 /* BBAnchorableHelpers.swift in Sources */,
+				6B563FFB29C122A400B3A10A /* BBDeclarative.swift in Sources */,
 				OBJ_52 /* BBAutoLayoutable.swift in Sources */,
 				OBJ_53 /* BBAutoLayoutableExtensions.swift in Sources */,
 				OBJ_54 /* BBAutoLayoutableHelpers.swift in Sources */,
@@ -324,6 +339,7 @@
 				OBJ_58 /* BBSizeConvertible.swift in Sources */,
 				OBJ_59 /* BBMultiplier.swift in Sources */,
 				OBJ_60 /* BBOffset.swift in Sources */,
+				6B563FFD29C1279200B3A10A /* BBPriorityConvertible.swift in Sources */,
 				OBJ_61 /* NSLayoutConstraintAttributeExtensions.swift in Sources */,
 				OBJ_62 /* BBAnchorableViewOperators.swift in Sources */,
 				OBJ_63 /* BBAutoLayoutableOperators.swift in Sources */,
