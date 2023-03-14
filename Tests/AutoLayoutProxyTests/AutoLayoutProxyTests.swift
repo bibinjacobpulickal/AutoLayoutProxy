@@ -15,6 +15,7 @@ final class AutoLayoutProxyTests: XCTestCase {
     #if canImport(UIKit)
     private let view       = UIView()
     private let subview    = UIView()
+    private let stackView  = UIStackView()
     private let priorities = [UILayoutPriority.required,
                               .defaultHigh,
                               .dragThatCanResizeScene,
@@ -25,6 +26,7 @@ final class AutoLayoutProxyTests: XCTestCase {
     #elseif canImport(AppKit)
     private let view       = NSView()
     private let subview    = NSView()
+    private let stackView  = NSStackView()
     private let priorities = [NSLayoutConstraint.Priority.required,
                               .defaultHigh,
                               .dragThatCanResizeWindow,
@@ -41,6 +43,14 @@ final class AutoLayoutProxyTests: XCTestCase {
         XCTAssertTrue(view.subviews.contains(subview))
         XCTAssertTrue(subview.superview == view)
     }
+
+  func testAddArrangedSubview() {
+
+    stackView.addArrangedSubview(subview) { }
+
+    XCTAssertTrue(stackView.arrangedSubviews.contains(subview))
+    XCTAssertTrue(subview.superview == stackView)
+  }
 
     func testTamic() {
         testAddSubview()
