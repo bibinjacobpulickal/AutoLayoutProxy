@@ -5,6 +5,7 @@ final class AutoLayoutProxyTests: XCTestCase {
 
     static var allLayoutKitTests = [
         ("testAddSubview", testAddSubview),
+        ("testAddArrangedSubview", testAddArrangedSubview),
         ("testTamic", testTamic),
         ("testLayoutYAxisAnchors", testLayoutYAxisAnchors),
         ("testLayoutXAxisAnchors1", testLayoutXAxisAnchors1),
@@ -38,7 +39,7 @@ final class AutoLayoutProxyTests: XCTestCase {
 
     func testAddSubview() {
 
-        view.addSubview(subview) { }
+        initialSetup()
 
         XCTAssertTrue(view.subviews.contains(subview))
         XCTAssertTrue(subview.superview == view)
@@ -50,10 +51,11 @@ final class AutoLayoutProxyTests: XCTestCase {
 
         XCTAssertTrue(stackView.arrangedSubviews.contains(subview))
         XCTAssertTrue(subview.superview == stackView)
+        XCTAssertFalse(subview.tamic)
     }
 
     func testTamic() {
-        testAddSubview()
+        initialSetup()
         XCTAssertFalse(subview.tamic)
     }
 
@@ -152,7 +154,7 @@ final class AutoLayoutProxyTests: XCTestCase {
                          .lessThanOrEqual]
         let isActives = [true, false]
 
-        testAddSubview()
+        initialSetup()
 
         relations.forEach { relation in
             priorities.forEach { priority in
@@ -202,7 +204,7 @@ final class AutoLayoutProxyTests: XCTestCase {
                          .lessThanOrEqual]
         let isActives = [true, false]
 
-        testAddSubview()
+        initialSetup()
 
         relations.forEach { relation in
             priorities.forEach { priority in
@@ -254,7 +256,7 @@ final class AutoLayoutProxyTests: XCTestCase {
                          .lessThanOrEqual]
         let isActives = [true, false]
 
-        testAddSubview()
+        initialSetup()
 
         relations.forEach { relation in
             priorities.forEach { priority in
@@ -306,7 +308,7 @@ final class AutoLayoutProxyTests: XCTestCase {
                          .lessThanOrEqual]
         let isActives = [true, false]
 
-        testAddSubview()
+        initialSetup()
 
         relations.forEach { relation in
             priorities.forEach { priority in
@@ -358,7 +360,7 @@ final class AutoLayoutProxyTests: XCTestCase {
                          .lessThanOrEqual]
         let isActives = [true, false]
 
-        testAddSubview()
+        initialSetup()
 
         relations.forEach { relation in
             priorities.forEach { priority in
@@ -449,5 +451,9 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
     #endif
+
+    private func initialSetup() {
+        view.addSubview(subview) { }
+    }
 }
 

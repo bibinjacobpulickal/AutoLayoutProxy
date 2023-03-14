@@ -204,7 +204,7 @@ public extension BBAnchorable {
     func anchor<AnchorType: NSObject>(
         lhs: NSLayoutConstraint.Attribute,
         relation: NSLayoutConstraint.Relation = .equal,
-        rhs: NSLayoutAnchor<AnchorType>?            = nil,
+        rhs: NSLayoutAnchor<AnchorType>?      = nil,
         multiplier: CGFloat                   = 1,
         constant: CGFloat                     = 0) {
 
