@@ -17,8 +17,8 @@ public extension NSLayoutAnchor {
   @discardableResult @objc func equalTo(
     _ anchor: NSLayoutAnchor<AnchorType>,
     constant: CGFloat = 0) -> NSLayoutConstraint {
-      let constraint = self.constraint(equalTo: anchor,
-                                       constant: constant)
+      let constraint = constraint(equalTo: anchor,
+                                  constant: constant)
       constraint.isActive = true
       return constraint
     }
@@ -26,8 +26,8 @@ public extension NSLayoutAnchor {
   @discardableResult @objc func greaterThanOrEqualTo(
     _ anchor: NSLayoutAnchor<AnchorType>,
     constant: CGFloat = 0) -> NSLayoutConstraint {
-      let constraint = self.constraint(greaterThanOrEqualTo: anchor,
-                                       constant: constant)
+      let constraint = constraint(greaterThanOrEqualTo: anchor,
+                                  constant: constant)
       constraint.isActive = true
       return constraint
     }
@@ -35,8 +35,8 @@ public extension NSLayoutAnchor {
   @discardableResult @objc func lessThanOrEqualTo(
     _ anchor: NSLayoutAnchor<AnchorType>,
     constant: CGFloat = 0) -> NSLayoutConstraint {
-      let constraint = self.constraint(lessThanOrEqualTo: anchor,
-                                       constant: constant)
+      let constraint = constraint(lessThanOrEqualTo: anchor,
+                                  constant: constant)
       constraint.isActive = true
       return constraint
     }
@@ -48,9 +48,9 @@ public extension NSLayoutDimension {
     _ anchor: NSLayoutDimension,
     constant: CGFloat = 0,
     multiplier: CGFloat = 1) -> NSLayoutConstraint {
-      let constraint = self.constraint(equalTo: anchor,
-                                       multiplier: multiplier,
-                                       constant: constant)
+      let constraint = constraint(equalTo: anchor,
+                                  multiplier: multiplier,
+                                  constant: constant)
       constraint.isActive = true
       return constraint
     }
@@ -59,9 +59,9 @@ public extension NSLayoutDimension {
     _ anchor: NSLayoutDimension,
     constant: CGFloat = 0,
     multiplier: CGFloat = 1) -> NSLayoutConstraint {
-      let constraint = self.constraint(greaterThanOrEqualTo: anchor,
-                                       multiplier: multiplier,
-                                       constant: constant)
+      let constraint = constraint(greaterThanOrEqualTo: anchor,
+                                  multiplier: multiplier,
+                                  constant: constant)
       constraint.isActive = true
       return constraint
     }
@@ -70,9 +70,30 @@ public extension NSLayoutDimension {
     _ anchor: NSLayoutDimension,
     constant: CGFloat = 0,
     multiplier: CGFloat = 1) -> NSLayoutConstraint {
-      let constraint = self.constraint(lessThanOrEqualTo: anchor,
-                                       multiplier: multiplier,
-                                       constant: constant)
+      let constraint = constraint(lessThanOrEqualTo: anchor,
+                                  multiplier: multiplier,
+                                  constant: constant)
+      constraint.isActive = true
+      return constraint
+    }
+
+  @discardableResult func equalTo(
+    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+      let constraint = constraint(equalToConstant: constant)
+      constraint.isActive = true
+      return constraint
+    }
+
+  @discardableResult func greaterThanOrEqualTo(
+    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+      let constraint = constraint(greaterThanOrEqualToConstant: constant)
+      constraint.isActive = true
+      return constraint
+    }
+
+  @discardableResult func lessThanOrEqualTo(
+    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+      let constraint = constraint(lessThanOrEqualToConstant: constant)
       constraint.isActive = true
       return constraint
     }
