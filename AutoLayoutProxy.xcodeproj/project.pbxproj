@@ -25,6 +25,7 @@
 		6B563FFD29C1279200B3A10A /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6B563FFF29C12E6C00B3A10A /* BBDeclarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563FFE29C12E6C00B3A10A /* BBDeclarative.swift */; };
 		6B56400129C12E9100B3A10A /* BBPriorityConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56400029C12E9100B3A10A /* BBPriorityConvertible.swift */; };
+		6B56402829C1978500B3A10A /* BBAutoLayoutStackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56402729C1978500B3A10A /* BBAutoLayoutStackable.swift */; };
 		OBJ_49 /* BBAnchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BBAnchorable.swift */; };
 		OBJ_50 /* BBAnchorableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BBAnchorableExtensions.swift */; };
 		OBJ_51 /* BBAnchorableHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BBAnchorableHelpers.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		6B563FFE29C12E6C00B3A10A /* BBDeclarative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDeclarative.swift; sourceTree = "<group>"; };
 		6B56400029C12E9100B3A10A /* BBPriorityConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBPriorityConvertible.swift; sourceTree = "<group>"; };
+		6B56402729C1978500B3A10A /* BBAutoLayoutStackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAutoLayoutStackable.swift; sourceTree = "<group>"; };
 		"AutoLayoutProxy::AutoLayoutProxy::Product" /* AutoLayoutProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AutoLayoutProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AutoLayoutProxy::AutoLayoutProxyTests::Product" /* AutoLayoutProxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AutoLayoutProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		OBJ_15 /* BBAutoLayoutable */ = {
 			isa = PBXGroup;
 			children = (
+				6B56402729C1978500B3A10A /* BBAutoLayoutStackable.swift */,
 				OBJ_16 /* BBAutoLayoutable.swift */,
 				OBJ_17 /* BBAutoLayoutableExtensions.swift */,
 				OBJ_18 /* BBAutoLayoutableHelpers.swift */,
@@ -334,6 +337,7 @@
 				6B563FFB29C122A400B3A10A /* (null) in Sources */,
 				OBJ_52 /* BBAutoLayoutable.swift in Sources */,
 				OBJ_53 /* BBAutoLayoutableExtensions.swift in Sources */,
+				6B56402829C1978500B3A10A /* BBAutoLayoutStackable.swift in Sources */,
 				OBJ_54 /* BBAutoLayoutableHelpers.swift in Sources */,
 				OBJ_55 /* BBEdgeInsetConvertible.swift in Sources */,
 				OBJ_56 /* BBMultiplierConvertible.swift in Sources */,
