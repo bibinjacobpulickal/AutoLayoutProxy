@@ -46,6 +46,10 @@ final class AutoLayoutProxyTests: XCTestCase {
                             .defaultLow,
                             .fittingSizeCompression]
 #endif
+  private let relations = [NSLayoutConstraint.Relation.equal,
+                           .greaterThanOrEqual,
+                           .lessThanOrEqual]
+  private let isActives = [true, false]
 
   func initialSetup() {
     view.addSubview(subview) { }
@@ -205,11 +209,6 @@ final class AutoLayoutProxyTests: XCTestCase {
     viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
-
       initialSetup()
 
       relations.forEach { relation in
@@ -254,11 +253,6 @@ final class AutoLayoutProxyTests: XCTestCase {
   func testDeclarativeLayoutYAxisAnchorRelationsAndPriorities(
     viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
 
       initialSetup()
 
@@ -314,11 +308,6 @@ final class AutoLayoutProxyTests: XCTestCase {
     viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
-
       initialSetup()
 
       relations.forEach { relation in
@@ -365,11 +354,6 @@ final class AutoLayoutProxyTests: XCTestCase {
   func testDeclarativeLayoutYAxisAnchorRelationsPrioritiesAndConstants(
     viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
 
       initialSetup()
 
@@ -433,11 +417,6 @@ final class AutoLayoutProxyTests: XCTestCase {
     viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
-
       initialSetup()
 
       relations.forEach { relation in
@@ -484,11 +463,6 @@ final class AutoLayoutProxyTests: XCTestCase {
   func testDeclarativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
     viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
 
       initialSetup()
 
@@ -551,11 +525,6 @@ final class AutoLayoutProxyTests: XCTestCase {
   func testImperativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
     viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
-
       initialSetup()
 
       relations.forEach { relation in
@@ -601,11 +570,6 @@ final class AutoLayoutProxyTests: XCTestCase {
 
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
     viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
 
       initialSetup()
 
@@ -663,11 +627,6 @@ final class AutoLayoutProxyTests: XCTestCase {
     viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
-
       initialSetup()
 
       relations.forEach { relation in
@@ -716,11 +675,6 @@ final class AutoLayoutProxyTests: XCTestCase {
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesMultipliersAndConstants(
     viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
     subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      let relations = [NSLayoutConstraint.Relation.equal,
-                       .greaterThanOrEqual,
-                       .lessThanOrEqual]
-      let isActives = [true, false]
 
       initialSetup()
 
