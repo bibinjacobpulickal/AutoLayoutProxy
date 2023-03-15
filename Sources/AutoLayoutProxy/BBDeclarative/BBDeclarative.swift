@@ -78,21 +78,21 @@ public extension NSLayoutDimension {
     }
 
   @discardableResult func equalTo(
-    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+    _ constant: CGFloat) -> NSLayoutConstraint {
       let constraint = constraint(equalToConstant: constant)
       constraint.isActive = true
       return constraint
     }
 
   @discardableResult func greaterThanOrEqualTo(
-    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+    _ constant: CGFloat) -> NSLayoutConstraint {
       let constraint = constraint(greaterThanOrEqualToConstant: constant)
       constraint.isActive = true
       return constraint
     }
 
   @discardableResult func lessThanOrEqualTo(
-    _ constant: CGFloat = 0) -> NSLayoutConstraint {
+    _ constant: CGFloat) -> NSLayoutConstraint {
       let constraint = constraint(lessThanOrEqualToConstant: constant)
       constraint.isActive = true
       return constraint
@@ -108,23 +108,22 @@ public extension NSLayoutConstraint {
 
   @discardableResult func multiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
 
-      NSLayoutConstraint.deactivate([self])
+    let newConstraint = NSLayoutConstraint(
+      item: firstItem as Any,
+      attribute: firstAttribute,
+      relatedBy: relation,
+      toItem: secondItem,
+      attribute: secondAttribute,
+      multiplier: multiplier,
+      constant: constant)
 
-      let newConstraint = NSLayoutConstraint(
-          item: firstItem as Any,
-          attribute: firstAttribute,
-          relatedBy: relation,
-          toItem: secondItem,
-          attribute: secondAttribute,
-          multiplier: multiplier,
-          constant: constant)
+    newConstraint.priority = priority
+    newConstraint.shouldBeArchived = shouldBeArchived
+    newConstraint.identifier = identifier
 
-      newConstraint.priority = priority
-      newConstraint.shouldBeArchived = shouldBeArchived
-      newConstraint.identifier = identifier
-
-      NSLayoutConstraint.activate([newConstraint])
-      return newConstraint
+    NSLayoutConstraint.deactivate([self])
+    NSLayoutConstraint.activate([newConstraint])
+    return newConstraint
   }
 
   @discardableResult func priority(_ value: BBPriorityConvertible) -> NSLayoutConstraint {
