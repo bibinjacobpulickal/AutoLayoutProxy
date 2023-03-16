@@ -26,6 +26,7 @@
 		6B563FFF29C12E6C00B3A10A /* BBLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563FFE29C12E6C00B3A10A /* BBLayoutConstraint.swift */; };
 		6B56400129C12E9100B3A10A /* BBPriorityConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56400029C12E9100B3A10A /* BBPriorityConvertible.swift */; };
 		6B56402829C1978500B3A10A /* BBAutoLayoutStackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56402729C1978500B3A10A /* BBAutoLayoutStackable.swift */; };
+		6B56402A29C2519C00B3A10A /* AutoLayoutProxyMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56402929C2519C00B3A10A /* AutoLayoutProxyMocks.swift */; };
 		6B56402C29C320EF00B3A10A /* BBLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56402B29C320EF00B3A10A /* BBLayoutAnchor.swift */; };
 		6B56402E29C3227500B3A10A /* BBLayoutDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56402D29C3227500B3A10A /* BBLayoutDimension.swift */; };
 		OBJ_49 /* BBAnchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BBAnchorable.swift */; };
@@ -72,6 +73,7 @@
 		6B563FFE29C12E6C00B3A10A /* BBLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBLayoutConstraint.swift; sourceTree = "<group>"; };
 		6B56400029C12E9100B3A10A /* BBPriorityConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBPriorityConvertible.swift; sourceTree = "<group>"; };
 		6B56402729C1978500B3A10A /* BBAutoLayoutStackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAutoLayoutStackable.swift; sourceTree = "<group>"; };
+		6B56402929C2519C00B3A10A /* AutoLayoutProxyMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutProxyMocks.swift; sourceTree = "<group>"; };
 		6B56402B29C320EF00B3A10A /* BBLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBLayoutAnchor.swift; sourceTree = "<group>"; };
 		6B56402D29C3227500B3A10A /* BBLayoutDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBLayoutDimension.swift; sourceTree = "<group>"; };
 		"AutoLayoutProxy::AutoLayoutProxy::Product" /* AutoLayoutProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AutoLayoutProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_35 /* AutoLayoutProxyTests.swift */,
+				6B56402929C2519C00B3A10A /* AutoLayoutProxyMocks.swift */,
 				OBJ_36 /* XCTestManifests.swift */,
 			);
 			name = AutoLayoutProxyTests;
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				6B56402A29C2519C00B3A10A /* AutoLayoutProxyMocks.swift in Sources */,
 				OBJ_83 /* AutoLayoutProxyTests.swift in Sources */,
 				OBJ_84 /* XCTestManifests.swift in Sources */,
 			);
