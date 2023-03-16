@@ -1,10 +1,12 @@
 # AutoLayoutProxy
 
-A simple and lightweight Auto-Layout Kit that makes you feels laying out views as a fun game. AutoLayoutProxy supports UIKit on iOS & tvOS and AppKit on MacOS so you wouldn't have to worry about using different solutions on different platforms. AutoLayoutProxy is compiled on Xcode 12.0 using Swift 5.3 and will be updated for all future releases.
+A simple and lightweight Auto-Layout Kit that makes you feels laying out views as a fun game. AutoLayoutProxy supports UIKit on iOS & tvOS and AppKit on MacOS so you wouldn't have to worry about using different solutions on different platforms. AutoLayoutProxy is compiled on Xcode 12.0 using Swift 5.7 and will be updated for all future releases.
 
-[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://developer.apple.com/iphone/index.action)
+[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/iphone/index.action)
+[![Platform](https://img.shields.io/badge/platform-macOS-purple.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
-![Swift version](https://img.shields.io/badge/swift-5.3-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-5.7-orange.svg)
+![Build](https://img.shields.io/badge/Build-passed-flurasantgreen.svg?style=flat)
 [![License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy/blob/master/LICENSE)
 
 ## Why use AutoLayoutProxy?
@@ -17,6 +19,16 @@ subview.translatesAutoresizingMaskIntoConstraints = false
 subview.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 ...
 subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+```
+
+## AutoLayoutProxy v4 introduces declarative UI Layout syntax
+```swift
+view.addSubview(subview) {
+    subview.top.equalTo(view.top).constant(16)
+    $0.leading.lessThanOrEqualTo($1.leading).constant(16)
+    $0.height.equalTo(100)
+    $0.width.greaterThanOrEqualTo($1.width).multiplier(0.8).constant(-12)
+}
 ```
 
 Worry no more AutoLayoutProxy helps you with this situation as follows:
@@ -116,10 +128,12 @@ Once you have your Swift package set up, adding BBLoader as a dependency is as e
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bibinjacobpulickal/AutoLayoutProxy.git", .upToNextMajor(from: "3.0.0"))
+    .package(url: "https://github.com/bibinjacobpulickal/AutoLayoutProxy.git", .upToNextMajor(from: "4.0.0"))
 ]
 ```
 From Xcode 11.0+ you only need to provide the above mentioned URL.
+
+Note: No longer need to provide the above URL. You can search for AutoLayoutProxy package within Xcode.
 
 ## Features
 - [x] Remove repetitive code while creating new view.
