@@ -12,7 +12,7 @@ import UIKit
 import Cocoa
 #endif
 
-public protocol BBLayoutDimension {
+public protocol BBLayoutDimension: BBLayoutAnchor {
   func constraint(equalTo: Self,
                   multiplier: CGFloat,
                   constant: CGFloat) -> NSLayoutConstraint

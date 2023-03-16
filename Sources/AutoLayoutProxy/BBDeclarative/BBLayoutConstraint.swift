@@ -69,7 +69,7 @@ public extension BBLayoutConstraint {
 
   @discardableResult func multiplier(_ multiplier: CGFloat) -> Self {
 
-    var newConstraint = Self(
+    let newConstraint = Self(
       item: firstItem as Any,
       attribute: firstAttribute,
       relatedBy: relation,
