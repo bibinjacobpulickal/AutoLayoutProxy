@@ -28,8 +28,8 @@ final class AutoLayoutProxyTests: XCTestCase {
   ]
 
 #if canImport(UIKit)
-  private let view       = UIView()
-  private let subview    = UIView()
+  private let firstView  = UIView()
+  private let secondView = UIView()
   private let stackView  = UIStackView()
   private let priorities = [UILayoutPriority.required,
                             .defaultHigh,
@@ -39,8 +39,8 @@ final class AutoLayoutProxyTests: XCTestCase {
                             .defaultLow,
                             .fittingSizeLevel]
 #elseif canImport(AppKit)
-  private let view       = NSView()
-  private let subview    = NSView()
+  private let firstView  = NSView()
+  private let secondView = NSView()
   private let stackView  = NSStackView()
   private let priorities = [NSLayoutConstraint.Priority.required,
                             .defaultHigh,
@@ -51,52 +51,52 @@ final class AutoLayoutProxyTests: XCTestCase {
                             .fittingSizeCompression]
 #endif
   private let layoutStyles = LayoutStyles.allCases
-  private let relations = [NSLayoutConstraint.Relation.equal,
-                           .greaterThanOrEqual,
-                           .lessThanOrEqual]
-  private let isActives = [true, false]
+  private let relations    = [NSLayoutConstraint.Relation.equal,
+                              .greaterThanOrEqual,
+                              .lessThanOrEqual]
+  private let isActives    = [true, false]
 
   func initialSetup() {
-    view.addSubview(subview) { }
+    firstView.addSubview(secondView) { }
   }
 
   func testAddSubview() {
 
     initialSetup()
 
-    XCTAssertTrue(view.subviews.contains(subview))
-    XCTAssertEqual(subview.superview, view)
+    XCTAssertTrue(firstView.subviews.contains(secondView))
+    XCTAssertEqual(secondView.superview, firstView)
   }
 
   func testAddArrangedSubview() {
 
-    stackView.addArrangedSubview(subview) { }
+    stackView.addArrangedSubview(secondView) { }
 
-    XCTAssertTrue(stackView.arrangedSubviews.contains(subview))
-    XCTAssertEqual(subview.superview, stackView)
+    XCTAssertTrue(stackView.arrangedSubviews.contains(secondView))
+    XCTAssertEqual(secondView.superview, stackView)
   }
 
   func testTamic() {
     initialSetup()
-    XCTAssertFalse(subview.tamic)
+    XCTAssertFalse(secondView.tamic)
   }
 
   func testLayoutYAxisAnchors_withConstant() {
-    let viewLayoutYAxisAnchorAttributes = getLayoutYAxisAnchorAttributesForView(view)
-    let subviewLayoutYAxisAnchorAttributes = getLayoutYAxisAnchorAttributesForView(subview)
 
-    viewLayoutYAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutYAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutYAxisAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutYAxisAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutYAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutYAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -104,21 +104,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutYAxisAnchors_withoutConstant() {
-    let viewLayoutYAxisAnchorAttributes = getLayoutYAxisAnchorAttributesForView(view)
-    let subviewLayoutYAxisAnchorAttributes = getLayoutYAxisAnchorAttributesForView(subview)
 
-    viewLayoutYAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutYAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutYAxisAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutYAxisAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutYAxisAnchorRelationsAndPriorities(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutYAxisAnchorRelationsAndPriorities(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -134,21 +134,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutXAxisAnchors1_withConstant() {
-    let viewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView1(view)
-    let subviewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView1(subview)
 
-    viewLayoutXAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutXAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutXAxisAnchorAttributesForView1(firstView).forEach { firstViewAnchor in
+      getLayoutXAxisAnchorAttributesForView1(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -156,21 +156,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutXAxisAnchors1_withoutConstant() {
-    let viewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView1(view)
-    let subviewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView1(subview)
 
-    viewLayoutXAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutXAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutXAxisAnchorAttributesForView1(firstView).forEach { firstViewAnchor in
+      getLayoutXAxisAnchorAttributesForView1(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -186,21 +186,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutXAxisAnchors2_withConstant() {
-    let viewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView2(view)
-    let subviewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView2(subview)
 
-    viewLayoutXAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutXAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutXAxisAnchorAttributesForView2(firstView).forEach { firstViewAnchor in
+      getLayoutXAxisAnchorAttributesForView2(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -208,21 +208,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutXAxisAnchors2_withoutConstant() {
-    let viewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView2(view)
-    let subviewLayoutXAxisAnchorAttributes = getLayoutXAxisAnchorAttributesForView2(subview)
 
-    viewLayoutXAxisAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutXAxisAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutXAxisAnchorAttributesForView2(firstView).forEach { firstViewAnchor in
+      getLayoutXAxisAnchorAttributesForView2(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutXAxisAnchorRelationsAndPriorities(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutXAxisAnchorRelationsAndPriorities(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -238,21 +238,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutDimensionAnchors_withSecondViewAnchor_withMultiplier_withConstant() {
-    let viewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(view)
-    let subviewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(subview)
 
-    viewLayoutDimensionAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutDimensionAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutDimensionAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutDimensionAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutDimensionAnchorRelationsPrioritiesMultipliersAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutDimensionAnchorRelationsPrioritiesMultipliersAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -260,21 +260,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutDimensionAnchors_withSecondViewAnchor_withMultiplier_withoutConstant() {
-    let viewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(view)
-    let subviewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(subview)
 
-    viewLayoutDimensionAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutDimensionAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutDimensionAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutDimensionAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutDimensionAnchorRelationsPrioritiesAndMultipliers(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndMultipliers(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -282,21 +282,21 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutDimensionAnchors_withSecondViewAnchor_withoutMultiplier_withConstant() {
-    let viewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(view)
-    let subviewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(subview)
 
-    viewLayoutDimensionAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutDimensionAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutDimensionAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutDimensionAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           case .declarative:
             testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor,
-              subviewAnchor: subviewAnchor)
+              firstViewAnchor: firstViewAnchor,
+              secondViewAnchor: secondViewAnchor)
           }
         }
       }
@@ -304,19 +304,19 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testLayoutDimensionAnchors_withoutSecondViewAnchor_withoutMultiplier_withConstant() {
-    let viewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(view)
-    let subviewLayoutDimensionAnchorAttributes = getLayoutDimensionAnchorAttributesForView(subview)
 
-    viewLayoutDimensionAnchorAttributes.forEach { viewAnchor in
-      subviewLayoutDimensionAnchorAttributes.forEach { subviewAnchor in
+    initialSetup()
+
+    getLayoutDimensionAnchorAttributesForView(firstView).forEach { firstViewAnchor in
+      getLayoutDimensionAnchorAttributesForView(secondView).forEach { secondViewAnchor in
         layoutStyles.forEach { layoutStyle in
           switch layoutStyle {
           case .imperative:
             testImperativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor)
+              firstViewAnchor: firstViewAnchor)
           case .declarative:
             testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-              viewAnchor: viewAnchor)
+              firstViewAnchor: firstViewAnchor)
           }
         }
       }
@@ -331,10 +331,8 @@ final class AutoLayoutProxyTests: XCTestCase {
   }
 
   func testImperativeLayoutYAxisAnchorRelationsAndPriorities(
-    viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -345,28 +343,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               priority: priority,
               isActive: isActive)
@@ -376,10 +374,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutYAxisAnchorRelationsAndPriorities(
-    viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -390,37 +386,37 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               priority: priority,
               isActive: isActive)
@@ -430,10 +426,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutYAxisAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -445,28 +439,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor + constant
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor + constant
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor + constant
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -477,10 +471,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutYAxisAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutYAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -492,34 +484,34 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
@@ -527,8 +519,8 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -539,10 +531,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutXAxisAnchorRelationsAndPriorities(
-    viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -553,28 +543,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               priority: priority,
               isActive: isActive)
@@ -584,10 +574,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutXAxisAnchorRelationsAndPriorities(
-    viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -598,37 +586,37 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .deactivate()
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               priority: priority,
               isActive: isActive)
@@ -638,10 +626,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -653,28 +639,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor + constant
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor + constant
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor + constant
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -685,10 +671,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutXAxisAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutXAxisAnchor, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -700,34 +684,34 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
@@ -735,8 +719,8 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -747,9 +731,7 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -761,27 +743,27 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= constant
+                constraint = firstViewAnchor.anchor <= constant
               } else {
-                constraint = viewAnchor.anchor !<= constant
+                constraint = firstViewAnchor.anchor !<= constant
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= constant
+                constraint = firstViewAnchor.anchor >= constant
               } else {
-                constraint = viewAnchor.anchor !>= constant
+                constraint = firstViewAnchor.anchor !>= constant
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == constant
+                constraint = firstViewAnchor.anchor == constant
               } else {
-                constraint = viewAnchor.anchor != constant
+                constraint = firstViewAnchor.anchor != constant
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -792,9 +774,7 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -806,28 +786,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .lessThanOrEqualTo(constant)
               } else {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .lessThanOrEqualTo(constant)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .greaterThanOrEqualTo(constant)
               } else {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .greaterThanOrEqualTo(constant)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .equalTo(constant)
               } else {
-                constraint = viewAnchor.anchor
+                constraint = firstViewAnchor.anchor
                   .equalTo(constant)
                   .deactivate()
               }
@@ -835,7 +815,7 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -846,10 +826,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -861,28 +839,28 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor + constant
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor + constant
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor + constant
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor + constant
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor + constant
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -893,10 +871,8 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
@@ -908,34 +884,34 @@ final class AutoLayoutProxyTests: XCTestCase {
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .constant(constant)
                   .deactivate()
               }
@@ -943,8 +919,8 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               priority: priority,
@@ -955,43 +931,41 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutDimensionAnchorRelationsPrioritiesAndMultipliers(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
           isActives.forEach { isActive in
 
             var constraint: NSLayoutConstraint
-            let multiplier = round(CGFloat.random(in: -1000...1000))
+            let multiplier = CGFloat([0.5, 1.5, 2.0].randomElement() ?? 1)
 
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor * multiplier
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor * multiplier
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor * multiplier
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor * multiplier
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor * multiplier
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor * multiplier
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor * multiplier
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               multiplier: multiplier,
               priority: priority,
@@ -1002,49 +976,47 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesAndMultipliers(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
           isActives.forEach { isActive in
 
             var constraint: NSLayoutConstraint
-            let multiplier = round(CGFloat.random(in: -1000...1000))
+            let multiplier = CGFloat([0.5, 1.5, 2.0].randomElement() ?? 1)
 
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .deactivate()
               }
@@ -1052,8 +1024,8 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               multiplier: multiplier,
               priority: priority,
@@ -1064,44 +1036,42 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testImperativeLayoutDimensionAnchorRelationsPrioritiesMultipliersAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
           isActives.forEach { isActive in
 
             var constraint: NSLayoutConstraint
-            let multiplier = round(CGFloat.random(in: -1000...1000))
+            let multiplier = CGFloat([0.5, 1.5, 2.0].randomElement() ?? 1)
             let constant = CGFloat.random(in: -1000...1000)
 
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor <= subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor <= secondViewAnchor.anchor * multiplier + constant
               } else {
-                constraint = viewAnchor.anchor !<= subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor !<= secondViewAnchor.anchor * multiplier + constant
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor >= subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor >= secondViewAnchor.anchor * multiplier + constant
               } else {
-                constraint = viewAnchor.anchor !>= subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor !>= secondViewAnchor.anchor * multiplier + constant
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor == subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor == secondViewAnchor.anchor * multiplier + constant
               } else {
-                constraint = viewAnchor.anchor != subviewAnchor.anchor * multiplier + constant
+                constraint = firstViewAnchor.anchor != secondViewAnchor.anchor * multiplier + constant
               }
             }
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               multiplier: multiplier,
@@ -1113,55 +1083,53 @@ final class AutoLayoutProxyTests: XCTestCase {
     }
 
   func testDeclarativeLayoutDimensionAnchorRelationsPrioritiesMultipliersAndConstants(
-    viewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
-    subviewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
-
-      initialSetup()
+    firstViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute),
+    secondViewAnchor: (anchor: NSLayoutDimension, attribute: NSLayoutConstraint.Attribute)) {
 
       relations.forEach { relation in
         priorities.forEach { priority in
           isActives.forEach { isActive in
 
             var constraint: NSLayoutConstraint
-            let multiplier = round(CGFloat.random(in: -1000...1000))
+            let multiplier = CGFloat([0.5, 1.5, 2.0].randomElement() ?? 1)
             let constant = CGFloat.random(in: -1000...1000)
 
             switch relation {
             case .lessThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .lessThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .lessThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
                   .deactivate()
               }
             case .greaterThanOrEqual:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .greaterThanOrEqualTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .greaterThanOrEqualTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
                   .deactivate()
               }
             default:
               if isActive {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
               } else {
-                constraint = viewAnchor.anchor
-                  .equalTo(subviewAnchor.anchor)
+                constraint = firstViewAnchor.anchor
+                  .equalTo(secondViewAnchor.anchor)
                   .multiplier(multiplier)
                   .constant(constant)
                   .deactivate()
@@ -1170,8 +1138,8 @@ final class AutoLayoutProxyTests: XCTestCase {
             constraint.priority = priority
             testConstraint(
               constraint,
-              firstAttribute: viewAnchor.attribute,
-              secondAttribute: subviewAnchor.attribute,
+              firstAttribute: firstViewAnchor.attribute,
+              secondAttribute: secondViewAnchor.attribute,
               relation: relation,
               constant: constant,
               multiplier: multiplier,
@@ -1194,10 +1162,10 @@ final class AutoLayoutProxyTests: XCTestCase {
     priority: UILayoutPriority            = .required,
     isActive: Bool                        = true) {
 
-      XCTAssertEqual(constraint.firstItem as? NSObject, view)
+      XCTAssertEqual(constraint.firstItem as? NSObject, firstView)
       XCTAssertEqual(constraint.firstAttribute, firstAttribute)
       if let secondAttribute {
-        XCTAssertEqual(constraint.secondItem as? NSObject, subview)
+        XCTAssertEqual(constraint.secondItem as? NSObject, secondView)
         XCTAssertEqual(constraint.secondAttribute, secondAttribute)
       } else {
         XCTAssertNil(constraint.secondItem)
@@ -1222,10 +1190,10 @@ final class AutoLayoutProxyTests: XCTestCase {
     priority: NSLayoutConstraint.Priority = .required,
     isActive: Bool                        = true) {
 
-      XCTAssertEqual(constraint.firstItem as? NSObject, view)
+      XCTAssertEqual(constraint.firstItem as? NSObject, firstView)
       XCTAssertEqual(constraint.firstAttribute, firstAttribute)
       if let secondAttribute {
-        XCTAssertEqual(constraint.secondItem as? NSObject, subview)
+        XCTAssertEqual(constraint.secondItem as? NSObject, secondView)
         XCTAssertEqual(constraint.secondAttribute, secondAttribute)
       } else {
         XCTAssertNil(constraint.secondItem)
