@@ -31,21 +31,24 @@ extension NSStackView: BBAutoLayoutStackable { }
 
 public extension BBAutoLayoutStackable {
 
-  func addArrangedSubview(_ view: View, layout: (() -> Void)) {
+  @discardableResult func addArrangedSubview(_ view: View, layout: (() -> Void)) -> View {
     addArrangedSubview(view)
-    view.tamic = false
+    view.tamic()
     layout()
+    return view
   }
 
-  func addArrangedSubview(_ view: View, layout: ((View) -> Void)) {
+  @discardableResult func addArrangedSubview(_ view: View, layout: ((View) -> Void)) -> View {
     addArrangedSubview(view)
-    view.tamic = false
+    view.tamic()
     layout(view)
+    return view
   }
 
-  func addArrangedSubview(_ view: View, layout: ((View, Self) -> Void)) {
+  @discardableResult func addArrangedSubview(_ view: View, layout: ((View, Self) -> Void)) -> View {
     addArrangedSubview(view)
-    view.tamic = false
+    view.tamic()
     layout(view, self)
+    return view
   }
 }
