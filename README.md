@@ -6,7 +6,7 @@ A simple and lightweight Auto-Layout Kit that makes you feels laying out views a
 [![Platform](https://img.shields.io/badge/platform-macOS-purple.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
 ![Swift version](https://img.shields.io/badge/swift-5.7-orange.svg)
-![Build](https://img.shields.io/badge/Build-passed-flurasantgreen.svg?style=flat)
+[![Swift](https://github.com/bibinjacobpulickal/AutoLayoutProxy/actions/workflows/swift.yml/badge.svg)](https://github.com/bibinjacobpulickal/AutoLayoutProxy/actions/workflows/swift.yml)
 [![License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat)](https://github.com/bibinjacobpulickal/AutoLayoutProxy/blob/master/LICENSE)
 
 ## Why use AutoLayoutProxy?
